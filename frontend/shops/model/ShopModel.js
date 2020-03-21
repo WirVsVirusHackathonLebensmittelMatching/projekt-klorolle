@@ -15,16 +15,12 @@ sap.ui.define([
 
 		registerShop: function (mProperties) {
 			return new Promise(function (resolve, reject) {
-				const shop = {
-					name: mProperties.name
-				};
-
 				jQuery.ajax({
 					method: "POST",
 					url: "/api/v1/shops",
 					contentType: "application/json; charset=utf-8",
 					dataType: "json",
-					data: JSON.stringify(shop),
+					data: JSON.stringify(mProperties),
 				}).done(() => {
 					resolve();
 				});
