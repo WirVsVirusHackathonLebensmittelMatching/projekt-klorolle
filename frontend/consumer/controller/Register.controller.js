@@ -44,9 +44,9 @@ sap.ui.define([
 			if (bOk) {
 				let bSuccess = this.getModel("account").register(oRegistration.username, oRegistration.password);
 				if (bSuccess) {
-					this.navTo("account");
+					this.navTo("personalData");
 				} else {
-					MessageToast.show(this.getText("registrationFailed"));
+					this.showMessage("registrationFailed");
 				}
 			}
 		}

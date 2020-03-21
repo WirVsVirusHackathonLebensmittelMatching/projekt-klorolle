@@ -2,12 +2,14 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/UIComponent",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/core/ValueState"
+	"sap/ui/core/ValueState",
+	"sap/m/MessageToast"
 ], function (
 	Controller,
 	UIComponent,
 	JSONModel,
-	ValueState
+	ValueState,
+	MessageToast
 ) {
 	"use strict";
 	
@@ -56,6 +58,10 @@ sap.ui.define([
 
 		getText: function(sKey, aValues) {
 			return this.getModel("i18n").getResourceBundle().getText(sKey, aValues);
+		},
+
+		showMessage: function(sTextKey, aValues) {
+			MessageToast.show(this.getText(sTextKey, aValues));
 		}
 	});
 });
