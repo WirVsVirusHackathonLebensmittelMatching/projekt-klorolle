@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel",
-    "com/wir/vs/virus/timeslots/Consumer/model/Api"
-], function (JSONModel, Api) {
+    "com/wir/vs/virus/timeslots/Consumer/model/Api",
+    "sap/base/security/encodeURL"
+], function (JSONModel, Api, encodeURL) {
 	"use strict";
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.Consumer.model.ApiModel", {
@@ -19,15 +20,34 @@ sap.ui.define([
                 this._live = false;
                 this.loadData(this._settings.mockdata);
             } else {
-                this._refreshShops();
+                this.refreshShops();
             }
         },
 
-        _refreshShops: function()
+        searchShops: function(sQuery)
         {
-            this._api.get("/shops").then(function(oData) {
-                this.setProperty("/shops", oData);
-            }.bind(this));
+            if (!sQuery) {
+                this.refreshShops();
+            } else {
+                if (this._live) {
+                    this._api.get("/shops/byPostalCode/" + encodeURL(sQuery)).then(function(oData) {
+                        this.setProperty("/shops", oData);
+                    }.bind(this));
+                }
+            }
+        },
+
+        /**
+         * Refresh the shop list.
+         */
+        refreshShops: function()
+        {
+            if (this._live)
+            {
+                this._api.get("/shops").then(function(oData) {
+                    this.setProperty("/shops", oData);
+                }.bind(this));
+            }
         }
     });
 });

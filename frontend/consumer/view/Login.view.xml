@@ -7,17 +7,39 @@
 	xmlns="sap.m">
 		<Page id="page" title="{i18n>selectShopTitle}">
 			<content>
-				<List
-					id="shopList"
-					items="{/shops}"
-				>
-					<items>
-						<ObjectListItem
-							type="Navigation"
-							title="{name}"
-						/>
-					</items>
-				</List>
+				<VBox alignItems="Center">
+					<Image src="media/klopa_transparent.png" decorative="true" height="100px"/>
+					<List
+						id="shopList"
+						items="{/shops}"
+					>
+						<layoutData>
+							<FlexItemData alignSelf="Stretch"/>
+						</layoutData>
+						<headerToolbar>
+							<Toolbar id="shopListToolbar">
+								<content>
+									<Title id="shopListTitle" text="{i18n>availableShops}" />
+									<ToolbarSpacer />
+									<SearchField 
+										id="shopSearch"
+										placeholder="{i18n>searchByZipCode}"
+										showRefreshButton="true"
+										width="30%"
+										search="onSearchShop"
+									/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<items>
+							<ObjectListItem
+								id="shopListItem"
+								type="Navigation"
+								title="{name}"
+							/>
+						</items>
+					</List>
+				</VBox>
 			</content>
 		</Page>
 </mvc:View>
