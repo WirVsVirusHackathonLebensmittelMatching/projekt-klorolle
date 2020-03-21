@@ -12,17 +12,13 @@ sap.ui.define([
 
 		onInit: function () {
 			DetailsPageController.prototype.onInit.apply(this);
-			this.oSlotsConfigModel = models.createSlotsConfigModel();
-			this.getView().setModel(this.oSlotsConfigModel, "slotsConfig");
-			this.oSlotsModel = models.createSlotsModel();
-			this.getView().setModel(this.oSlotsModel, "slots");
 		},
 
 		_onObjectMatched : function (oEvent) {
 			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
 			var sId = oEvent.getParameter("arguments").id;
-			this.oSlotsConfigModel.load(sId);
-			this.oSlotsModel.load(sId);
+			this.getView().getModel("slots").load(sId);
+			this.getView().getModel("slotsConfig").load(sId);
 		},
 
 		formatStartHour: function (sFrom) {

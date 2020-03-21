@@ -81,7 +81,12 @@ sap.ui.define([
 	};
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.SlotsModel", {
-		load: function (sShopName) {
+		shopId: undefined,
+		load: function (sShopId) {
+			if (sShopId === this.shopId) {
+				return Promise.resolve();
+			}
+			this.shopId = sShopId;
 			return new Promise(function (resolve, reject) {
 				this.setData(dummyData);
 				resolve();

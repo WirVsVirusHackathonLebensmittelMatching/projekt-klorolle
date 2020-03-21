@@ -22,6 +22,12 @@ sap.ui.define([
 			var shopModel = models.createShopsModel();
 			this.setModel(shopModel, "shops");
 			shopModel.load();
+			var oSlotsModel = models.createSlotsModel();
+			this.setModel(oSlotsModel, "slots");
+			var oSlotsConfigModel = models.createSlotsConfigModel();
+			this.setModel(oSlotsConfigModel, "slotsConfig");
+			var oGoodsModel = models.createGoodsModel();
+			this.setModel(oGoodsModel, "goods");
 		}
 	});
 });

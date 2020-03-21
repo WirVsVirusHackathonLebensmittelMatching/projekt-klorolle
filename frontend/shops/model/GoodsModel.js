@@ -3,10 +3,6 @@ sap.ui.define([
 ], function (JSONModel) {
 	"use strict";
 
-	var mStatus = {
-
-	};
-
 	var dummyData = [{
 		name : "Nudeln",
 		category : "food",
@@ -30,7 +26,12 @@ sap.ui.define([
 	}];
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.GoodsModel", {
+		shopId: undefined,
 		load: function (sShopId) {
+			if (sShopId === this.shopId) {
+				return Promise.resolve();
+			}
+			this.shopId = sShopId;
 			// TODO: load data for a given shop
 			return new Promise(function (resolve, reject) {
 				this.setData(dummyData);

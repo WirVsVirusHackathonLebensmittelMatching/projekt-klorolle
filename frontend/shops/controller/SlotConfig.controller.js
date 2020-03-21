@@ -1,9 +1,7 @@
 sap.ui.define([
-	"com/wir/vs/virus/timeslots/ShopOwner/controller/DetailsPage.controller",
-	"com/wir/vs/virus/timeslots/ShopOwner/model/models"
+	"com/wir/vs/virus/timeslots/ShopOwner/controller/DetailsPage.controller"
 ], function (
 	DetailsPageController,
-	models
 ) {
 	"use strict";
 
@@ -12,14 +10,12 @@ sap.ui.define([
 
 		onInit: function () {
 			DetailsPageController.prototype.onInit.apply(this);
-			this.oSlotsConfigModel = models.createSlotsConfigModel();
-			this.getView().setModel(this.oSlotsConfigModel, "slotsConfig");
 		},
 
 		_onObjectMatched : function (oEvent) {
 			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
 			var sId = oEvent.getParameter("arguments").id;
-			this.oSlotsConfigModel.load(sId);
+			this.getView().getModel("slotsConfig").load(sId);
 		},
 
 		onNavBack: function () {
@@ -31,11 +27,11 @@ sap.ui.define([
 			var oConfig = {
 				timeFrom: oView.byId("shoppingTimeFrom").getValue(),
 				timeTo: oView.byId("shoppingTimeTo").getValue(),
-				slotDuration: oView.byId("slotDuration").getValue(),
-				parallelSlots: oView.byId("parallelSlots").getValue()
+				slotDuration: Number.parseInt(oView.byId("slotDuration").getValue()),
+				parallelSlots: Number.parseInt(oView.byId("parallelSlots").getValue())
 			};
 
-			this.oSlotsConfigModel.editSlotsConfig(oConfig);
+			this.getView().getModel("slotsConfig").editSlotsConfig(oConfig);
 
 			this.oRouter.navTo("Main", {id: this.sId}, true);
 		}
