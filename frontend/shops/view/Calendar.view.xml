@@ -1,9 +1,30 @@
 <mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Calendar" xmlns:mvc="sap.ui.core.mvc"
 		  displayBlock="true"
+          xmlns:unified="sap.ui.unified"
           xmlns:core="sap.ui.core"
 		  xmlns="sap.m">
 	<Page id="page" title="{i18n>calendarTitle}" showNavButton="true" navButtonPress="onNavBack">
 		<content>
+            <SinglePlanningCalendar
+                    class="sapUiSmallMarginTop"
+                    title= "My Calendar"
+                    startHour="{path: 'slotsConfig>/from', formatter:'.formatStartHour'}"
+                    endHour="{path: 'slotsConfig>/to', formatter:'.formatEndHour'}"
+                    fullDay="false"
+                    appointmentSelect="handleAppointmentSelect"
+                    appointments="{slots>/appointments}" >
+                <views>
+                    <SinglePlanningCalendarDayView key="DayView" title="Day" />
+                </views>
+                <appointments>
+                    <unified:CalendarAppointment
+                            title="{slots>title}"
+                            type="{slots>type}"
+                            startDate="{slots>from}"
+                            endDate="{slots>to}"
+                            tentative="{slots>tentative}" />
+                </appointments>
+            </SinglePlanningCalendar>
 		</content>
 	</Page>
 </mvc:View>

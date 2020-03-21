@@ -10,7 +10,7 @@ sap.ui.define([
 		oSlotsModel : undefined,
 
 		_onObjectMatched : function (oEvent) {
-			DetailsPageController.apply(this);
+			DetailsPageController.prototype.init.apply(this);
 			this.oSlotsModel = this.oSlotsModel || new SlotsModel();
 		}
 	});

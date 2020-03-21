@@ -1,12 +1,26 @@
 sap.ui.define([
-	"com/wir/vs/virus/timeslots/ShopOwner/controller/DetailsPage.controller"
+	"com/wir/vs/virus/timeslots/ShopOwner/controller/DetailsPage.controller",
+	"com/wir/vs/virus/timeslots/ShopOwner/model/models"
 ], function (
-	DetailsPageController
+	DetailsPageController,
+	models
 ) {
 	"use strict";
 
 	return DetailsPageController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.SlotConfig", {
 		sRoute: "SlotConfig",
+
+		onInit: function () {
+			DetailsPageController.prototype.onInit.apply(this);
+			this.oSlotsConfigModel = models.createSlotsConfigModel();
+			this.getView().setModel(this.oSlotsConfigModel, "slotsConfig");
+		},
+
+		_onObjectMatched : function (oEvent) {
+			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
+			var sName = oEvent.getParameter("arguments").name;
+			this.oSlotsConfigModel.load(sName);
+		},
 
 		onNavBack: function () {
 			this.oRouter.navTo("Main", {name: this.sName}, true);
@@ -21,7 +35,7 @@ sap.ui.define([
 				parallelSlots: oView.byId("parallelSlots").getValue()
 			};
 
-			// TODO: trigger the save :)
+			this.oSlotsConfigModel.editSlotsConfig(oConfig);
 
 			this.oRouter.navTo("Main", {name: this.sName}, true);
 		}

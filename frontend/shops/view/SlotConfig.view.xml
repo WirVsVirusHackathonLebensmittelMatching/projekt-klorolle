@@ -22,7 +22,7 @@
 			<InputListItem label="{i18n>slotDuration}">
 				<Input
 						id="slotDuration"
-						value="{slotsConfig>/slotDurationInMin}"
+						value="{slotsConfig>/slotDuration}"
 						type="Number" />
 			</InputListItem>
 			<InputListItem label="{i18n>parallelSlots}">
