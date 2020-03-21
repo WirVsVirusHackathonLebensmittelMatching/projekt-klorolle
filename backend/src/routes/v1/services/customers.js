@@ -3,3 +3,5 @@ module.exports = (fastify, opts, done) => {
 
   done();
 };
+
+module.exports.autoPrefix = '/customers';

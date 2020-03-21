@@ -3,7 +3,7 @@ const swagger = require('./swagger');
 
 module.exports = (fastify, opts, done) => {
   // Declare a routes
-  fastify.get('/', async () => ({ hello: 'Welcome to Projekt-Klorolle!' }));
+  fastify.get('/', async () => ({ hello: 'Welcome to Klopa!' }));
 
   // add swagger docs
   fastify.register(swagger);
