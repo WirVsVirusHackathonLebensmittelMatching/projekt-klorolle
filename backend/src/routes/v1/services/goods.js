@@ -10,6 +10,8 @@ module.exports = (fastify, opts, done) => {
       .send({ message: 'Requested item does not exist' });
   });
 
+  fastify.addSchema(schemas.good);
+
   // find all goods
   fastify.get('/', { schema: schemas.findAll },
     async ({ params }) => {
@@ -19,8 +21,13 @@ module.exports = (fastify, opts, done) => {
 
   // find one good
   fastify.get('/:good', { schema: schemas.findOne },
-    async ({ params }) => {
-      const good = db.get('goods').find({ good: params.good, shop: params.shop }).value();
+    async ({ params }, reply) => {
+      const good = db.get('goods').find({ zug: params.good, shop: params.shop }).value();
+
+      if (!good) {
+        return reply.callNotFound();
+      }
+
       return good;
     });
 

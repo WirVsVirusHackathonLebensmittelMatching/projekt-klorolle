@@ -1,3 +1,23 @@
+const shop = {
+  $id: 'shop',
+  type: 'object',
+  required: ['id', 'name', 'postalcode'],
+  properties: {
+    id: { type: 'string', format: 'uuid' },
+    name: { type: 'string' },
+    postalcode: { type: 'integer', example: 51432 },
+    timeslots: {
+      type: 'object',
+      properties: {
+        from: { type: 'integer', description: 'Staring time of work day', example: '08:00' },
+        to: { type: 'integer', description: 'End time of work day', example: '19:00' },
+        slotDuration: { type: 'integer', description: 'Time per slot in minutes', example: 20 },
+        parallelSlots: { type: 'integer', description: 'Amount of concurrently available slots', example: 5 },
+      },
+    },
+  },
+};
+
 const findAll = {
   description: 'Returns a list of all shops.',
   summary: 'shop list',
@@ -6,10 +26,7 @@ const findAll = {
     200: {
       type: 'array',
       items: {
-        properties: {
-          id: { type: 'string', format: 'uuid' },
-          name: { type: 'string' },
-        },
+        $ref: 'shop#',
       },
     },
   },
@@ -23,11 +40,7 @@ const findByPostalCode = {
     200: {
       type: 'array',
       items: {
-        properties: {
-          name: { type: 'string' },
-          timestamp: { type: 'integer' },
-          done: { type: 'boolean' },
-        },
+        $ref: 'shop#',
       },
     },
   },
@@ -48,12 +61,7 @@ const findOne = {
   tags: ['shops'],
   response: {
     200: {
-      type: 'object',
-      properties: {
-        name: { type: 'string' },
-        timestamp: { type: 'integer' },
-        done: { type: 'boolean' },
-      },
+      $ref: 'shop#',
     },
     404: {
       type: 'object',
@@ -65,11 +73,7 @@ const findOne = {
   params: {
     type: 'object',
     properties: {
-      shop: {
-        type: 'string',
-        fomat: 'uuid',
-        description: 'shop id',
-      },
+      shop: { type: 'string', fomat: 'uuid' },
     },
   },
 };
@@ -78,24 +82,14 @@ const createOne = {
   description: 'Creates a shop.',
   summary: 'shop create',
   tags: ['shops'],
-  body: {
-    type: 'object',
-    properties: {
-      name: { type: 'string' },
-    },
-  },
+  body: 'shop#',
 };
 
 const updateOne = {
   description: 'Update a shop by ID',
   summary: 'shop update',
   tags: ['shops'],
-  body: {
-    type: 'object',
-    properties: {
-      done: { type: 'boolean' },
-    },
-  },
+  body: 'shop#',
   params: {
     type: 'object',
     properties: {
@@ -117,6 +111,7 @@ const deleteOne = {
 };
 
 module.exports = {
+  shop,
   findAll,
   findByPostalCode,
   findOne,

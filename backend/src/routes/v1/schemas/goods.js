@@ -1,3 +1,15 @@
+const good = {
+  $id: 'good',
+  type: 'object',
+  required: ['id', 'shop', 'name', 'status'],
+  properties: {
+    id: { type: 'string', format: 'uuid' },
+    shop: { type: 'string', format: 'uuid' },
+    name: { type: 'string' },
+    status: { type: 'string', enum: ['available', 'short', 'empty', 'unknown'] },
+  },
+};
+
 const findAll = {
   description: 'Returns a list of all goods of a shop.',
   summary: 'good list',
@@ -6,12 +18,7 @@ const findAll = {
     200: {
       type: 'array',
       items: {
-        properties: {
-          id: { type: 'string', format: 'uuid' },
-          shop: { type: 'string', format: 'uuid' },
-          name: { type: 'string' },
-          status: { type: 'string' },
-        },
+        $ref: 'good#',
       },
     },
   },
@@ -28,15 +35,10 @@ const findOne = {
   summary: 'good get',
   tags: ['goods'],
   response: {
-    200: {
-      type: 'object',
-      properties: {
-        id: { type: 'string', format: 'uuid' },
-        shop: { type: 'string', format: 'uuid' },
-        name: { type: 'string' },
-        status: { type: 'string' },
-      },
-    },
+    // 200: {
+    //   type: 'object',
+    //   properties: 'good#',
+    // },
     404: {
       type: 'object',
       properties: {
@@ -117,6 +119,7 @@ const deleteOne = {
 };
 
 module.exports = {
+  good,
   findAll,
   findOne,
   createOne,

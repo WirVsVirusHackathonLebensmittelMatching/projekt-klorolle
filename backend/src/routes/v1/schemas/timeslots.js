@@ -1,3 +1,16 @@
+const timeslot = {
+  $id: 'timeslot',
+  type: 'object',
+  required: ['id', 'start', 'end'],
+  properties: {
+    id: { type: 'string', format: 'uuid' },
+    shop: { type: 'string', format: 'uuid' },
+    start: { type: 'date' },
+    end: { type: 'date' },
+    amount: { type: 'integer' },
+  },
+};
+
 const findAll = {
   description: 'Returns a list of all shops.',
   summary: 'timeslots list',
@@ -90,6 +103,7 @@ const deleteOne = {
 };
 
 module.exports = {
+  timeslot,
   findAll,
   findOne,
   createOne,

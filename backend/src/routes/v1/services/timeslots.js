@@ -3,6 +3,9 @@ const db = require('../../../db');
 const schemas = require('../schemas/timeslots');
 
 module.exports = (fastify, opts, done) => {
+  done();
+  return;
+
   // fastify.addHook('onRequest', async (request, reply) => {
   //   try {
   //     await request.jwtVerify();
@@ -10,6 +13,8 @@ module.exports = (fastify, opts, done) => {
   //     reply.send(err);
   //   }
   // });
+
+  fastify.addSchema(schemas.timeslot);
 
   fastify.setNotFoundHandler((request, reply) => {
     reply

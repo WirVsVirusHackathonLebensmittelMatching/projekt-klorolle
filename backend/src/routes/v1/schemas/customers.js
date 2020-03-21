@@ -1,3 +1,14 @@
+const customer = {
+  $id: 'customer',
+  type: 'object',
+  required: ['id', 'name', 'email'],
+  properties: {
+    id: { type: 'string', format: 'uuid' },
+    name: { type: 'string' },
+    email: { type: 'string', format: 'email' },
+  },
+};
+
 const findOne = {
   description: 'Get a customer by ID',
   tags: ['customers'],
@@ -69,6 +80,7 @@ const deleteOne = {
 };
 
 module.exports = {
+  customer,
   findOne,
   createOne,
   updateOne,

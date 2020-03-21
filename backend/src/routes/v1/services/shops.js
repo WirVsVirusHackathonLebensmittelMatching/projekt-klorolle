@@ -11,6 +11,8 @@ module.exports = (fastify, opts, done) => {
   //   }
   // });
 
+  fastify.addSchema(schemas.shop);
+
   fastify.setNotFoundHandler((request, reply) => {
     reply
       .code(404)
