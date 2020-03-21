@@ -28,6 +28,7 @@ sap.ui.define([
 			this.byId("page").setTitle(findName(this, sId));
 
 			this.getView().getModel("goods").load(this.sId);
+			this.getView().getModel("shop").load(this.sId);
 		},
 
 		onGoodChanged: function (oEvent) {

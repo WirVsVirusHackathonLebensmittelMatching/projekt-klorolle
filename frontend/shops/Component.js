@@ -19,9 +19,11 @@ sap.ui.define([
 		init: function () {
 			UIComponent.prototype.init.apply(this, arguments);
 			this.getRouter().initialize();
-			var shopModel = models.createShopsModel();
-			this.setModel(shopModel, "shops");
-			shopModel.load();
+			var shopModel = models.createShopModel();
+			this.setModel(shopModel, "shop");
+			var shopsModel = models.createShopsModel();
+			this.setModel(shopsModel, "shops");
+			shopsModel.load();
 			var oSlotsModel = models.createSlotsModel();
 			this.setModel(oSlotsModel, "slots");
 			var oSlotsConfigModel = models.createSlotsConfigModel();
