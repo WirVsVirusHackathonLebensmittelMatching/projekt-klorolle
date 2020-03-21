@@ -21,7 +21,7 @@ sap.ui.define([
 			var oShop = this.getData();
 			oShop.timeslots = mConfig;
 
-			return Connection.put("/api/v1/shops/" + this.shopId, mConfig).then(function () {
+			return Connection.put("/api/v1/shops/" + this.shopId, oShop).then(function () {
 				this.setProperty("timeslots", mConfig);
 			}.bind(this));
 		}
