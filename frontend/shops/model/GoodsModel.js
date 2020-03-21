@@ -30,7 +30,7 @@ sap.ui.define([
 	}];
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.GoodsModel", {
-		load: function (sShopName) {
+		load: function (sShopId) {
 			// TODO: load data for a given shop
 			return new Promise(function (resolve, reject) {
 				this.setData(dummyData);

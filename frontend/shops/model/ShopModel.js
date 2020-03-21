@@ -8,7 +8,7 @@ sap.ui.define([
 			this.setData(this.loadData("/api/v1/shops/"));
 		},
 
-		login: function (sShopName) {
+		login: function (sShopId) {
 			// TODO: resolve if the shop exists // rejects if not
 			return Promise.resolve();
 		},

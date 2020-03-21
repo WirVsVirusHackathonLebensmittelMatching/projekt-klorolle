@@ -12,7 +12,7 @@ sap.ui.define([
 
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.SlotsConfigModel", {
-		load: function (sShopName) {
+		load: function (sShopId) {
 			return new Promise(function (resolve, reject) {
 				this.setData(dummyData);
 				resolve();
