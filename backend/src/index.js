@@ -1,17 +1,21 @@
 // Require the framework and instantiate it
+const path = require('path');
 const fastify = require('fastify')({ logger: true });
-const v1Routes = require('./routes/v1');
 const db = require('./db');
-const swagger = require('./swagger');
-
-// Declare a routes
-fastify.get('/', async () => ({ hello: 'Welcome to Projekt-Klorolle!' }));
+const apiRoutes = require('./api');
 
 // add swagger docs
-fastify.register(swagger);
+fastify.register(apiRoutes, { prefix: '/api' });
 
-// api version 1 routes
-fastify.register(v1Routes, { prefix: '/v1' });
+// serve static frontend code
+fastify.register(require('fastify-static'), {
+  root: path.join(__dirname, '..', 'public'),
+});
+
+// send index instead of error
+fastify.setNotFoundHandler((request, reply) => {
+  reply.sendFile('index.html');
+});
 
 // Run the server!
 const start = async () => {
