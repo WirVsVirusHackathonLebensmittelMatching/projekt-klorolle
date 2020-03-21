@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "fastify": "^2.13.0",
+    "fastify-swagger": "^2.5.0",
     "lowdb": "^1.0.0"
   },
   "devDependencies": {
