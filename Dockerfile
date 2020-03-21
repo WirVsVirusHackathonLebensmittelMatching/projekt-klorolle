@@ -8,10 +8,10 @@ COPY backend/ ./
 RUN npm install
 
 # Copy frontend resources
-COPY frontend/ frontend/
+COPY frontend/ public/
 
 # Main port
 EXPOSE 3000
 
 # Runtime
-CMD [ "node", "backend/src/index.js" ]
+CMD [ "node", "src/index.js" ]
