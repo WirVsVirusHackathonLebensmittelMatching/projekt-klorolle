@@ -6,6 +6,12 @@ sap.ui.define([
 	"use strict";
 
 	return DetailsPageController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Slots", {
-		sRoute: "Slots"
+		sRoute : "Slots",
+		oSlotsModel : undefined,
+
+		_onObjectMatched : function (oEvent) {
+			DetailsPageController.apply(this);
+			this.oSlotsModel = this.oSlotsModel || new SlotsModel();
+		}
 	});
 });

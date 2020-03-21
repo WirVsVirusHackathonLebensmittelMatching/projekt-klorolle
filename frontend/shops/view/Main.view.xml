@@ -4,6 +4,11 @@
 	<Page id="page"> <!--showNavButton="true" navButtonPress="onNavBack" -->
 		<content>
 			<List>
+				<DisplayListItem
+						type="Navigation"
+						label="{i18n>inboxMenuItem}"
+						value="12 (dummy)"
+						press="toInbox" />
 				<StandardListItem
 						type="Navigation"
 						title="{i18n>slotsMenuItem}"
@@ -12,10 +17,6 @@
 						type="Navigation"
 						title="{i18n>upcomingMenuItem}"
 						press="toUpcoming" />
-				<StandardListItem
-						type="Navigation"
-						title="{i18n>inboxMenuItem}"
-						press="toInbox" />
 				<CustomListItem
 						type="Navigation"
 						press="toGoods" >

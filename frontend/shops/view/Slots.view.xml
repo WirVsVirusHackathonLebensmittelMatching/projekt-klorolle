@@ -1,7 +1,29 @@
 <mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Slots" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns="sap.m">
+		  xmlns="sap.m"
+		  xmlns:unified="sap.ui.unified">
 	<Page id="page" showNavButton="true" title="{i18n>slotsTitle}" navButtonPress="onNavBack">
 		<content>
+			<SinglePlanningCalendar
+					id="slotPlanning"
+					singleSelection="false"
+					showIntervalHeaders="false"
+					startDate="{path: 'slots>/startDate'}"
+					rows="{path: 'slots>/types'}"
+					appointmentsVisualization="Filled" > <!--
+				appointmentSelect="handleAppointmentSelect"
+				intervalSelect="handleIntervalSelect"-->
+				<toolbarContent>
+					<Title text="{i18n>slotsPlanningChartTitle}" titleStyle="H4"/>
+				</toolbarContent>
+				<appointments>
+					<unified:CalendarAppointment
+							startDate="{slots>start}"
+							endDate="{slots>end}"
+							type="{slots>type}"
+							tentative="{slots>tentative}">
+					</unified:CalendarAppointment>
+				</appointments>
+			</SinglePlanningCalendar>
 		</content>
 	</Page>
 </mvc:View>
