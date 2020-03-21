@@ -88,17 +88,9 @@
 				"pattern": "{name}/slots",
 				"target": ["TargetSlots"]
 			}, {
-				"name": "Upcoming",
-				"pattern": "{name}/upcoming",
-				"target": ["TargetUpcoming"]
-			}, {
-				"name": "Inbox",
-				"pattern": "{name}/inbox",
-				"target": ["TargetInbox"]
-			}, {
-				"name": "Goods",
-				"pattern": "{name}/goods",
-				"target": ["TargetGoods"]
+				"name": "SlotConfig",
+				"pattern": "{name}/slotConfig",
+				"target": ["TargetSlotConfig"]
 			}],
 			"targets": {
 				"TargetLogin": {
@@ -119,23 +111,17 @@
 					"viewId": "Slots",
 					"viewName": "Slots"
 				},
-				"TargetUpcoming": {
+				"TargetSlotConfig": {
 					"viewType": "XML",
 					"transition": "slide",
-					"viewId": "Upcoming",
-					"viewName": "Upcoming"
+					"viewId": "SlotConfig",
+					"viewName": "SlotConfig"
 				},
-				"TargetInbox": {
+				"TargetSlotDetails": {
 					"viewType": "XML",
 					"transition": "slide",
-					"viewId": "Inbox",
-					"viewName": "Inbox"
-				},
-				"TargetGoods": {
-					"viewType": "XML",
-					"transition": "slide",
-					"viewId": "Goods",
-					"viewName": "Goods"
+					"viewId": "SlotDetails",
+					"viewName": "SlotDetails"
 				}
 			}
 		}

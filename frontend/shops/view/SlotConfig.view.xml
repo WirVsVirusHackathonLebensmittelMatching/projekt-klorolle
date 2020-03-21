@@ -1,0 +1,42 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.SlotConfig" xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:dc="sap.suite.ui.microchart" displayBlock="true"
+		  xmlns="sap.m">
+	<Page id="page" title="{i18n>}shoppingTimes" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<InputListItem label="{i18n>from}">
+			<TimePicker
+					id="shoppingTimeFrom"
+					value="{slotsConfig>/from}"
+					valueFormat="HH:mm"
+					displayFormat="HH:mm" />
+			</InputListItem>
+			<InputListItem label="{i18n>to}">
+				<TimePicker
+						id="shoppingTimeTo"
+						value="{slotsConfig>/to}"
+						valueFormat="HH:mm"
+						displayFormat="HH:mm" />
+			</InputListItem>
+			<Title text="{i18n>slotDetails}" />
+			<InputListItem label="{i18n>slotDuration}">
+				<Input
+						id="slotDuration"
+						value="{slotsConfig>/slotDurationInMin}"
+						type="Number" />
+			</InputListItem>
+			<InputListItem label="{i18n>parallelSlots}">
+				<Input
+						id="parallelSlots"
+						value="{slotsConfig>/parallelSlots}"
+						type="Number" />
+			</InputListItem>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="{i18n>confirmButton}" press="onConfirmSlotConfig" />
+				<Button text="{i18n>cancelButton}" press="onNavBack" />
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

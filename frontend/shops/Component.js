@@ -17,13 +17,8 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function () {
-			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
-
-			// enable routing
 			this.getRouter().initialize();
-
-			// set the device model
 			this.setModel(models.createShopsModel(), "shops");
 		}
 	});
