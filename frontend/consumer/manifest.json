@@ -34,6 +34,7 @@
 	},
 	"sap.ui5": {
 		"flexEnabled": false,
+		"handleValidation": true,
 		"rootView": {
 			"viewName": "com.wir.vs.virus.timeslots.Consumer.view.App",
 			"type": "XML",
@@ -86,6 +87,10 @@
 				"pattern": "",
 				"target": ["login"]
 			}, {
+				"name": "register",
+				"pattern": "register",
+				"target": ["register"]
+			}, {
 				"name": "guestSearch",
 				"pattern": "guest",
 				"target": ["guestSearch"]
@@ -98,6 +103,10 @@
 				"guestSearch": {
 					"viewId": "GuestSearch",
 					"viewName": "GuestSearch"
+				},
+				"register": {
+					"viewId": "Register",
+					"viewName": "Register"
 				}
 			}
 		}
