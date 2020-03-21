@@ -2,7 +2,7 @@
   "name": "@wirvsvirushackathonlebensmittelmatching/projekt-klorolle-backend",
   "version": "1.0.0",
   "scripts": {
-    "watch": "nodemon --watch src src/index.js",
+    "watch": "NODE_ENV=development nodemon --watch src src/index.js",
     "lint": "eslint src/",
     "lint:fix": "eslint src/"
   },

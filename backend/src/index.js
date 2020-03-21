@@ -4,18 +4,24 @@ const fastify = require('fastify')({ logger: true });
 const db = require('./db');
 const apiRoutes = require('./api');
 
+const ENV = process.env.NODE_ENV || 'production';
+
 // add swagger docs
 fastify.register(apiRoutes, { prefix: '/api' });
 
+const publicPath = ENV === 'production'
+  ? path.join(__dirname, '..', 'public')
+  : path.join(__dirname, '..', '..', 'frontend');
+
 // serve static frontend code
 fastify.register(require('fastify-static'), {
-  root: path.join(__dirname, '..', 'public'),
+  root: publicPath,
 });
 
 // send index instead of error
-fastify.setNotFoundHandler((request, reply) => {
-  reply.sendFile('index.html');
-});
+// fastify.setNotFoundHandler((request, reply) => {
+//   reply.sendFile('index.html');
+// });
 
 // Run the server!
 const start = async () => {
