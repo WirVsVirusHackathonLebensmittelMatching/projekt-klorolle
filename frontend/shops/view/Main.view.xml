@@ -1,0 +1,21 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<Page id="page"> <!--showNavButton="true" navButtonPress="onNavBack" -->
+		<content>
+			<List>
+				<StandardListItem 
+						type="Navigation"
+						title="{i18n>slotsMenuItem}" 
+						press="toSlots" /> 
+				<StandardListItem 
+						type="Navigation"
+						title="{i18n>upcomingMenuItem}" 
+						press="toUpcoming" /> 
+				<StandardListItem 
+						type="Navigation"
+						title="{i18n>inboxMenuItem}" 
+						press="toInbox" /> 
+			</List>
+		</content>
+	</Page>
+</mvc:View>
