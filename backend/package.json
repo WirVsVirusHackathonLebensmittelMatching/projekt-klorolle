@@ -1,0 +1,23 @@
+{
+  "name": "@wirvsvirushackathonlebensmittelmatching/projekt-klorolle-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "watch": "nodemon --watch src src/index.js",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/"
+  },
+  "description": "A REST backend for the projekt-klorolle web app.",
+  "main": "src/index.js",
+  "repository": "https://github.com/WirVsVirusHackathonLebensmittelMatching/projekt-klorolle.git",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^2.13.0",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "nodemon": "^2.0.2"
+  }
+}
