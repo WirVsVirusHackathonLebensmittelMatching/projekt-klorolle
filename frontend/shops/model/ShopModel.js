@@ -1,6 +1,10 @@
 sap.ui.define([
-	"sap/ui/model/json/JSONModel"
-], function (JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"com/wir/vs/virus/timeslots/ShopOwner/utils/Connection"
+], function (
+	JSONModel,
+	Connection
+) {
 	"use strict";
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.ShopModel", {
@@ -14,18 +18,7 @@ sap.ui.define([
 		},
 
 		registerShop: function (mProperties) {
-			return new Promise(function (resolve, reject) {
-				jQuery.ajax({
-					method: "POST",
-					url: "/api/v1/shops",
-					contentType: "application/json; charset=utf-8",
-					dataType: "json",
-					data: JSON.stringify(mProperties),
-				}).done(() => {
-					resolve();
-				});
-
-			}.bind(this));
+			return Connection.post("/api/v1/shops", JSON.stringify(mProperties));
 		}
 	});
 });
