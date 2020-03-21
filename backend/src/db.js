@@ -7,12 +7,8 @@ const dbPath = path.join(__dirname, '..', 'data', 'db.json');
 const dbSeedPath = path.join(__dirname, '..', 'data', 'db-seed.json');
 
 if (process.env.NODE_ENV !== 'production') {
-  try {
-    fs.statSync(dbPath);
-  } catch (e) {
-    // not database found copy sample data
-    fs.copyFileSync(dbSeedPath, dbPath);
-  }
+  // not database found copy sample data
+  fs.copyFileSync(dbSeedPath, dbPath);
 }
 
 const adapter = new FileSync(dbPath);
