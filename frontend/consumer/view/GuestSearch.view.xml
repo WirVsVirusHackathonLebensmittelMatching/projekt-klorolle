@@ -1,0 +1,22 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.GuestSearch" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>guestSearchTitle}">
+			<content>
+				<VBox alignItems="Center" justifyContent="SpaceAround" height="100%">
+					<Image src="media/klopa_transparent.png" decorative="true" height="300px"/>
+
+					<VBox id="loginGroup" alignItems="Center">
+						<Label labelFor="zipCode" text="{i18n>searchByZipCode}" />
+						<Input id="zipCode" value="{view>/search/zipCode}" valueLiveUpdate="true"/>
+
+						<Button id="login" text="{i18n>search}" press=".onSearch" type="Emphasized" enabled="{= ${view>/search/zipCode} !== ''}" />
+					</VBox>
+				</VBox>
+			</content>
+		</Page>
+</mvc:View>

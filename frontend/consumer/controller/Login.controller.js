@@ -22,7 +22,7 @@ sap.ui.define([
 
 		onLogin: function(bAsGuest) {
 			if (bAsGuest) {
-				this.getRouter().navTo("zipCodeSearch");
+				this.getRouter().navTo("guestSearch");
 			} else {
 				if (this._loginOk()) {
 					this.getModel("view").setProperty("/login/state", ValueState.Success);

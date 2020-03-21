@@ -74,6 +74,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
+				"transition": "slide",
 				"async": true,
 				"viewPath": "com.wir.vs.virus.timeslots.Consumer.view",
 				"controlAggregation": "pages",
@@ -81,16 +82,22 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "Login",
+				"name": "login",
 				"pattern": "",
-				"target": ["TargetLogin"]
+				"target": ["login"]
+			}, {
+				"name": "guestSearch",
+				"pattern": "guest",
+				"target": ["guestSearch"]
 			}],
 			"targets": {
-				"TargetLogin": {
-					"viewType": "XML",
-					"transition": "slide",
+				"login": {
 					"viewId": "Login",
 					"viewName": "Login"
+				},
+				"guestSearch": {
+					"viewId": "GuestSearch",
+					"viewName": "GuestSearch"
 				}
 			}
 		}

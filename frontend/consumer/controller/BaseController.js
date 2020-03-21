@@ -23,7 +23,7 @@ sap.ui.define([
 		},
 
 		getRouter: function() {
-			this.oRouter = UIComponent.getRouterFor(this);
+			return UIComponent.getRouterFor(this);
 		}
 	});
 });
