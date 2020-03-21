@@ -16,7 +16,7 @@
 							}"
 							width="300px"
 							change="onLogin" >
-						<core:Item key="{shops>name}" text="{shops>name}" />
+						<core:Item key="{shops>id}" text="{shops>name}" />
 					</Select>
 					<Button text="{i18n>register}" press="onRegister" />
 				</VBox>
