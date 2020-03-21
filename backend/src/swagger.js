@@ -63,6 +63,17 @@ module.exports = (fastify, opts, done) => {
             customer: { type: 'string', format: 'uuid' },
           },
         },
+
+        ShopGoods: {
+          type: 'object',
+          required: ['id', 'shop', 'name', 'status'],
+          properties: {
+            id: { type: 'string', format: 'uuid' },
+            shop: { type: 'string', format: 'uuid' },
+            name: { type: 'string' },
+            status: { type: 'string', enum: ['available', 'barely', 'empty', 'unknown'] },
+          },
+        },
       },
       securityDefinitions: {
         apiKey: {

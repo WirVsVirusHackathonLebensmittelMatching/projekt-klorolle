@@ -8,13 +8,11 @@ const adapter = new FileSync(dbPath);
 const db = low(adapter);
 
 // Set some defaults (required if your JSON file is empty)
-// db.defaults({
-//   grades: [],
-//   auth: {
-//     token: null,
-//     asi: null,
-//   },
-// }).write();
+db.defaults({
+  shops: [],
+  shopGoods: [],
+  timeslots: [],
+}).write();
 
 db.read();
 

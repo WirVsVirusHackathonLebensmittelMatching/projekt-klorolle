@@ -1,16 +1,14 @@
 const findAll = {
   description: 'Returns a list of all shops.',
+  summary: 'shop list',
   tags: ['shops'],
   response: {
     200: {
       type: 'array',
       items: {
         properties: {
-          // do not include _id field here so that it is removed from the response
-          // _id: { type: 'string' },
+          id: { type: 'string', format: 'uuid' },
           name: { type: 'string' },
-          timestamp: { type: 'integer' },
-          done: { type: 'boolean' },
         },
       },
     },
@@ -19,6 +17,7 @@ const findAll = {
 
 const findByPostalCode = {
   description: 'Returns list of shops by postalcode',
+  summary: 'shop list by postalcode',
   tags: ['shops'],
   response: {
     200: {
@@ -45,6 +44,7 @@ const findByPostalCode = {
 
 const findOne = {
   description: 'Returns a shop by ID',
+  summary: 'shop get',
   tags: ['shops'],
   response: {
     200: {
@@ -76,6 +76,7 @@ const findOne = {
 
 const createOne = {
   description: 'Creates a shop.',
+  summary: 'shop create',
   tags: ['shops'],
   body: {
     type: 'object',
@@ -87,6 +88,7 @@ const createOne = {
 
 const updateOne = {
   description: 'Update a shop by ID',
+  summary: 'shop update',
   tags: ['shops'],
   body: {
     type: 'object',
@@ -104,6 +106,7 @@ const updateOne = {
 
 const deleteOne = {
   description: 'Delete a shop by ID',
+  summary: 'shop delete',
   tags: ['shops'],
   params: {
     type: 'object',
