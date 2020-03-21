@@ -8,8 +8,8 @@
             <SinglePlanningCalendar
                     class="sapUiSmallMarginTop"
                     title= "My Calendar"
-                    startHour="{path: 'slotsConfig>/from', formatter:'.formatStartHour'}"
-                    endHour="{path: 'slotsConfig>/to', formatter:'.formatEndHour'}"
+                    startHour="{path: 'shop>/', formatter:'.formatStartHour'}"
+                    endHour="{path: 'shop>/', formatter:'.formatEndHour'}"
                     fullDay="false"
                     appointmentSelect="handleAppointmentSelect"
                     appointments="{slots>/appointments}" >

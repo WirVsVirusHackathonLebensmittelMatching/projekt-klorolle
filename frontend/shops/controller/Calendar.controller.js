@@ -18,21 +18,22 @@ sap.ui.define([
 			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
 			var sId = oEvent.getParameter("arguments").id;
 			this.getView().getModel("slots").load(sId);
-			this.getView().getModel("slotsConfig").load(sId);
+			this.getView().getModel("shop").load(sId);
 		},
 
-		formatStartHour: function (sFrom) {
-			if (!sFrom) {
+		formatStartHour: function (oShop) {
+			if (!oShop || !oShop.timeslots) {
 				return;
 			}
+			var sFrom = oShop.timeslots.from;
 			return Number.parseInt(sFrom.split(":")[0]);
 		},
 
-		formatEndHour: function (sTo) {
-			if (!sTo) {
+		formatEndHour: function (oShop) {
+			if (!oShop || !oShop.timeslots) {
 				return;
 			}
-
+			var sTo = oShop.timeslots.from;
 			var nEndTime =  Number.parseInt(sTo.split(":")[0]);
 			var bRoundUp = sTo.split(":")[1] !== "00";
 			return bRoundUp ? nEndTime + 1 : nEndTime;
