@@ -3,15 +3,15 @@ FROM node:13
 # App directory
 WORKDIR /usr/src/app
 
-# Copy app dependencies
-COPY package*.json ./
+# Copy backend resources
+COPY backend/ ./
 RUN npm install
 
-# Copy application sources
-COPY . .
+# Copy frontend resources
+COPY frontend/ frontend/
 
 # Main port
 EXPOSE 3000
 
 # Runtime
-CMD [ "node", "app.js" ]
+CMD [ "node", "backend/src/index.js" ]
