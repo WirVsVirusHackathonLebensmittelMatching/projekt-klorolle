@@ -15,14 +15,14 @@ module.exports = (fastify, opts, done) => {
   // find all goods
   fastify.get('/', { schema: schemas.findAll },
     async ({ params }) => {
-      const shops = db.get('goods').find({ shop: params.shop }).value() || [];
+      const shops = db.get('goods').filter({ shop: params.shop }).value() || [];
       return shops;
     });
 
   // find one good
   fastify.get('/:good', { schema: schemas.findOne },
     async ({ params }, reply) => {
-      const good = db.get('goods').find({ id: params.good, shop: params.shop }).value();
+      const good = db.get('goods').filter({ id: params.good, shop: params.shop }).value();
 
       if (!good) {
         return reply.callNotFound();
@@ -45,7 +45,7 @@ module.exports = (fastify, opts, done) => {
   // update good
   fastify.put('/:good', { schema: schemas.updateOne },
     async ({ body, params }, reply) => {
-      let good = db.get('goods').find({ id: params.good, shop: params.shop }).value();
+      let good = db.get('goods').filter({ id: params.good, shop: params.shop }).value();
 
       if (!good) {
         return reply.callNotFound();

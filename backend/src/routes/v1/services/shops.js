@@ -30,7 +30,7 @@ module.exports = (fastify, opts, done) => {
   // find by shops by postalcode
   fastify.get('/byPostalCode/:postalCode', { schema: schemas.findByPostalCode },
     async ({ params }) => {
-      const shops = db.get('shops').find({ postalCode: params.postalCode }).value() || [];
+      const shops = db.get('shops').filter({ postalCode: params.postalCode }).value() || [];
       return shops;
     });
 
