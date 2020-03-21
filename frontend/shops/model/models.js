@@ -9,15 +9,9 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	var oShopsDummy = [{
-		name: "EDEKA"
-	},{
-		name: "ALDI"
-	}];
-
 	return {
 		createShopsModel: function () {
-			var oModel = new ShopModel(oShopsDummy);
+			var oModel = new ShopModel();
 			oModel.setDefaultBindingMode("OneWay");
 			return oModel;
 		},
