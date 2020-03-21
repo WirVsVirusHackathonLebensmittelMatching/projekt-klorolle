@@ -18,9 +18,12 @@ sap.ui.define([
 		},
 
 		editSlotsConfig: function (mConfig) {
-			// TODO send the editing
-			this.setProperty("timeslots", mConfig);
-			return Promise.resolve();
+			var oShop = this.getData();
+			oShop.timeslots = mConfig;
+
+			return Connection.put("/api/v1/shops/" + this.shopId, mConfig).then(function () {
+				this.setProperty("timeslots", mConfig);
+			}.bind(this));
 		}
 	});
 });
