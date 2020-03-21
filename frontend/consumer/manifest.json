@@ -97,6 +97,14 @@
 				"name": "guestSearch",
 				"pattern": "guest",
 				"target": ["guestSearch"]
+			}, {
+				"name": "account",
+				"pattern": "account",
+				"target": ["account"]
+			}, {
+				"name": "personalData",
+				"pattern": "account/personalData",
+				"target": ["personalData"]
 			}],
 			"targets": {
 				"login": {
@@ -110,6 +118,14 @@
 				"register": {
 					"viewId": "Register",
 					"viewName": "Register"
+				},
+				"personalData": {
+					"viewId": "PersonalData",
+					"viewName": "PersonalData"
+				},
+				"account": {
+					"viewId": "Account",
+					"viewName": "Account"
 				}
 			}
 		}

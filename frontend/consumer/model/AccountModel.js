@@ -8,6 +8,7 @@ sap.ui.define([
         constructor: function() {
             JSONModel.apply(this, arguments);
             this._storage = new Storage(Storage.Type.local, "klopa.account.");
+            this._loggedIn = false;
 
             //Start with empty account data
             this.setData({
@@ -35,6 +36,8 @@ sap.ui.define([
                 //Username already taken
                 return false;
             }
+            this._loggedIn = true;
+
             this.setProperty("/username", sUserName);
             //Set password
             let sSalt = undefined; //TODO: Generate
@@ -83,7 +86,12 @@ sap.ui.define([
 
             //Login OK, load data
             this.setData(oData);
+            this._loggedIn = true;
             return true;
+        },
+
+        isLoggedIn: function() {
+            return this._loggedIn;
         },
 
         /**

@@ -1,0 +1,51 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.PersonalData" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>personalDataPageTitle}">
+			<content>
+				<form:SimpleForm 
+					id="registrationData" 
+					layout="ResponsiveGridLayout" 
+					editable="true"
+
+					labelSpanL="4"
+					emptySpanL="4"
+
+					labelSpanM="4"
+					emptySpanM="4"
+				>
+					<form:title>
+						<core:Title text="{i18n>personalData}" />
+					</form:title>
+					<form:content>
+						<Label labelFor="firstName" text="{i18n>firstName}" />
+						<Input id="username" value="{account>/firstName}" />
+
+						<Label labelFor="lastName" text="{i18n>lastName}" />
+						<Input id="lastName" value="{account>/lastName}" />
+
+						<Label labelFor="email" text="{i18n>email}" />
+						<Input id="email" value="{account>/email}" />
+
+						<Label labelFor="zipCode" text="{i18n>zipCode}" />
+						<Input id="zipCode" value="{account>/zipCode}" />
+
+						<Label labelFor="city" text="{i18n>city}" />
+						<Input id="city" value="{account>/city}" />
+
+						<Label labelFor="phoneNumber" text="{i18n>phoneNumber}" />
+						<Input id="phoneNumber" value="{account>/phoneNumber}" />
+					</form:content>
+				</form:SimpleForm>
+
+				<HBox justifyContent="Center">
+					<Button id="save" text="{i18n>saveAccountData}" press=".onSaveData" type="Emphasized" class="sapUiTinyMarginEnd"/>
+					<Button id="cancel" text="{i18n>cancel}" press=".onCancel"  class="sapUiTinyMarginStart"/>
+				</HBox>
+			</content>
+		</Page>
+</mvc:View>
