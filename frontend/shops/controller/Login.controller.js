@@ -28,10 +28,12 @@ sap.ui.define([
 						var sShopName = sap.ui.getCore().byId("registry_fragment--shopNameInput").getValue();
 						this.getView().getModel("shops").registerShop({
 							name: sShopName
-						});
-						this.oDialog.close();
+						}).then(function () {
+							this.oDialog.close();
+							this.oRouter.navTo("SlotConfig", {name: sShopName});
+						}.bind(this));
 					}.bind(this),
-					onCancelVersioningDialog: function () {
+					onRegistryCancel: function () {
 						this.oDialog.close();
 					}.bind(this),
 					onNameLiveChange: function (oEvent) {

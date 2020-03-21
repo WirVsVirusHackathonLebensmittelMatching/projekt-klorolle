@@ -1,0 +1,8 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.SlotConfig" xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:dc="sap.suite.ui.microchart" displayBlock="true"
+		  xmlns="sap.m">
+	<Page id="page" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+	</content>
+	</Page>
+</mvc:View>
