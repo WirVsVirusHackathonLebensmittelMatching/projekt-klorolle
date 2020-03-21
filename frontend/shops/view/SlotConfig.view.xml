@@ -1,8 +1,9 @@
 <mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.SlotConfig" xmlns:mvc="sap.ui.core.mvc"
-		  xmlns:dc="sap.suite.ui.microchart" displayBlock="true"
+		  displayBlock="true"
 		  xmlns="sap.m">
-	<Page id="page" title="{i18n>}shoppingTimes" showNavButton="true" navButtonPress="onNavBack">
+	<Page id="page" title="{i18n>slotSettings}" showNavButton="true" navButtonPress="onNavBack">
 		<content>
+            <Title text="{i18n>shoppingTimes}" class="sapUiSmallMarginTop sapUiSmallMarginBegin" />
 			<InputListItem label="{i18n>from}">
 			<TimePicker
 					id="shoppingTimeFrom"
@@ -17,7 +18,7 @@
 						valueFormat="HH:mm"
 						displayFormat="HH:mm" />
 			</InputListItem>
-			<Title text="{i18n>slotDetails}" />
+			<Title text="{i18n>slotDetails}" class="sapUiSmallMarginTop sapUiSmallMarginBegin" />
 			<InputListItem label="{i18n>slotDuration}">
 				<Input
 						id="slotDuration"

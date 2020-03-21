@@ -81,17 +81,21 @@
 				"target": ["TargetLogin"]
 			}, {
 				"name": "Main",
-				"pattern": "{name}/main",
+				"pattern": "{name}  ",
 				"target": ["TargetMain"]
 			}, {
 				"name": "Slots",
 				"pattern": "{name}/slots",
 				"target": ["TargetSlots"]
 			}, {
-				"name": "SlotConfig",
-				"pattern": "{name}/slotConfig",
-				"target": ["TargetSlotConfig"]
-			}],
+              "name": "SlotConfig",
+              "pattern": "{name}/slotConfig",
+              "target": ["TargetSlotConfig"]
+            }, {
+              "name": "Calendar",
+              "pattern": "{name}/slotCalendar",
+              "target": ["TargetCalendar"]
+            }],
 			"targets": {
 				"TargetLogin": {
 					"viewType": "XML",
@@ -117,11 +121,11 @@
 					"viewId": "SlotConfig",
 					"viewName": "SlotConfig"
 				},
-				"TargetSlotDetails": {
+				"TargetCalendar": {
 					"viewType": "XML",
 					"transition": "slide",
-					"viewId": "SlotDetails",
-					"viewName": "SlotDetails"
+					"viewId": "Calendar",
+					"viewName": "Calendar"
 				}
 			}
 		}

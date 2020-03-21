@@ -1,38 +1,42 @@
 <mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Main" xmlns:mvc="sap.ui.core.mvc"
-		  xmlns:l="sap.ui.layout" displayBlock="true"
+		  displayBlock="true"
           xmlns:core="sap.ui.core"
 		  xmlns="sap.m">
 	<Page id="page">
 		<content>
-            <l:BlockLayout>
-                <l:BlockLayoutRow>
-                    <l:BlockLayoutCell
-                            id="cell-1"
-                            title="{i18n>whatsNext}"
-                            backgroundColorSet="ColorSet11"
-                            backgroundColorShade="ShadeE">
-
-                    </l:BlockLayoutCell>
-                    <l:BlockLayoutCell
-                            id="cell-2"
-                            title="{i18n>customerInformation}"
-                            backgroundColorSet="ColorSet11"
-                            backgroundColorShade="ShadeF">
-                        <List items="{goods>/}" class="sapUiContentPadding" >
-                            <InputListItem label="{goods>name}">
-                                <Select
-                                        selectedKey="{goods>status}"
-                                        change="onGoodChanged" >
-                                    <core:Item key="available" text="{i18n>goodAvailable}" />
-                                    <core:Item key="short" text="{i18n>goodShort}" />
-                                    <core:Item key="empty" text="{i18n>goodEmpty}" />
-                                    <core:Item key="unknown" text="{i18n>goodUnknown}" />
-                                </Select>
-                            </InputListItem>
-                        </List>
-                    </l:BlockLayoutCell>
-                </l:BlockLayoutRow>
-            </l:BlockLayout>
+            <Panel width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar height="3rem">
+                        <Title text="{i18n>whatsNext}"/>
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://settings" press="toSlotsConfig" />
+                        <Button icon="sap-icon://calendar" press="toCalendar" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                </content>
+            </Panel>
+            <Panel width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar height="3rem">
+                        <Title text="{i18n>customerInformation}"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <List items="{goods>/}" class="sapUiContentPadding" >
+                        <InputListItem label="{goods>name}">
+                            <Select
+                                    selectedKey="{goods>status}"
+                                    change="onGoodChanged" >
+                                <core:Item key="available" text="{i18n>goodAvailable}" />
+                                <core:Item key="short" text="{i18n>goodShort}" />
+                                <core:Item key="empty" text="{i18n>goodEmpty}" />
+                                <core:Item key="unknown" text="{i18n>goodUnknown}" />
+                            </Select>
+                        </InputListItem>
+                    </List>
+                </content>
+            </Panel>
 		</content>
 	</Page>
 </mvc:View>

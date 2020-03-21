@@ -23,11 +23,11 @@ sap.ui.define([
 		},
 		
 		toSlotsConfig: function () {
-			this.oRouter.navTo("SlotsConfig", {name: this.sName});
+			this.oRouter.navTo("SlotConfig", {name: this.sName});
 		},
 
-		toSlotDetails: function () {
-			this.oRouter.navTo("SlotDetails", {name: this.sName});
+		toCalendar: function () {
+			this.oRouter.navTo("Calendar", {name: this.sName});
 		},
 
 		toGoods: function () {
