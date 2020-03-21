@@ -1,0 +1,23 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.Login" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>selectShopTitle}">
+			<content>
+				<List
+					id="shopList"
+					items="{/shops}"
+				>
+					<items>
+						<ObjectListItem
+							type="Navigation"
+							title="{name}"
+						/>
+					</items>
+				</List>
+			</content>
+		</Page>
+</mvc:View>
