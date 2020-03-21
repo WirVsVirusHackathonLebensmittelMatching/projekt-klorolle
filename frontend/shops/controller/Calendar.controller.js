@@ -25,7 +25,7 @@ sap.ui.define([
 			if (!oShop || !oShop.timeslots) {
 				return;
 			}
-			var sFrom = oShop.timeslots.timeFrom;
+			var sFrom = oShop.timeslots.from;
 			return Number.parseInt(sFrom.split(":")[0]);
 		},
 
@@ -33,7 +33,7 @@ sap.ui.define([
 			if (!oShop || !oShop.timeslots) {
 				return;
 			}
-			var sTo = oShop.timeslots.timeTo;
+			var sTo = oShop.timeslots.to;
 			var nEndTime =  Number.parseInt(sTo.split(":")[0]);
 			var bRoundUp = sTo.split(":")[1] !== "00";
 			return bRoundUp ? nEndTime + 1 : nEndTime;
