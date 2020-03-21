@@ -7,18 +7,20 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.ShopModel", {
-		load: function () {
-			this.setData(this.loadData("/api/v1/shops/"));
+	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.ShopsModel", {
+		shopId: undefined,
+		load: function (sShopId) {
+			if (sShopId === this.shopId) {
+				return Promise.resolve();
+			}
+			this.shopId = sShopId;
+			this.setData(this.loadData("/api/v1/shops/" + sShopId));
 		},
 
-		login: function (sShopId) {
-			// TODO: resolve if the shop exists // rejects if not
+		editSlotsConfig: function (mConfig) {
+			// TODO send the editing
+			this.setProperty("timeslots", mConfig);
 			return Promise.resolve();
-		},
-
-		registerShop: function (mProperties) {
-			return Connection.post("/api/v1/shops", JSON.stringify(mProperties));
 		}
 	});
 });

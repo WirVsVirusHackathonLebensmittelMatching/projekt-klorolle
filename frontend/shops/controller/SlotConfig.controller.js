@@ -15,7 +15,8 @@ sap.ui.define([
 		_onObjectMatched : function (oEvent) {
 			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
 			var sId = oEvent.getParameter("arguments").id;
-			this.getView().getModel("slotsConfig").load(sId);
+			this.id = sId;
+			this.getView().getModel("shop").load(this.sId);
 		},
 
 		onNavBack: function () {
@@ -31,7 +32,7 @@ sap.ui.define([
 				parallelSlots: Number.parseInt(oView.byId("parallelSlots").getValue())
 			};
 
-			this.getView().getModel("slotsConfig").editSlotsConfig(oConfig);
+			this.getView().getModel("shop").editSlotsConfig(oConfig);
 
 			this.oRouter.navTo("Main", {id: this.sId}, true);
 		}
