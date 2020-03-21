@@ -8,9 +8,25 @@ sap.ui.define([
 	};
 
 	var dummyData = [{
-		name: "Nudeln",
-		status: 0
-
+		name : "Nudeln",
+		category : "food",
+		status : "short"
+	},{
+		name : "Milch",
+		category : "food",
+		status : "available"
+	},{
+		name : "Gemüse",
+		category : "food",
+		status : "unknown"
+	},{
+		name : "Obst",
+		category : "food",
+		status : "short"
+	},{
+		name : "Nüsse",
+		category : "food",
+		status : "empty"
 	}];
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.GoodsModel", {

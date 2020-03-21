@@ -20,12 +20,12 @@ sap.ui.define([
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);
 			} else {
-				this.oRouter.navTo("Main", {name: this.sName}, true);
+				this.oRouter.navTo("Main", {id: this.sId}, true);
 			}
 		},
 		
 		_onObjectMatched: function (oEvent) {
-			this.sName = oEvent.getParameter("arguments").name;
+			this.sId = oEvent.getParameter("arguments").id;
 		}
 	});
 });

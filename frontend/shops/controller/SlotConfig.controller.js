@@ -18,12 +18,12 @@ sap.ui.define([
 
 		_onObjectMatched : function (oEvent) {
 			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
-			var sName = oEvent.getParameter("arguments").name;
-			this.oSlotsConfigModel.load(sName);
+			var sId = oEvent.getParameter("arguments").id;
+			this.oSlotsConfigModel.load(sId);
 		},
 
 		onNavBack: function () {
-			this.oRouter.navTo("Main", {name: this.sName}, true);
+			this.oRouter.navTo("Main", {id: this.sId}, true);
 		},
 
 		onConfirmSlotConfig: function () {
@@ -37,7 +37,7 @@ sap.ui.define([
 
 			this.oSlotsConfigModel.editSlotsConfig(oConfig);
 
-			this.oRouter.navTo("Main", {name: this.sName}, true);
+			this.oRouter.navTo("Main", {id: this.sId}, true);
 		}
 	});
 });

@@ -81,19 +81,19 @@
 				"target": ["TargetLogin"]
 			}, {
 				"name": "Main",
-				"pattern": "{name}  ",
+				"pattern": "{id}",
 				"target": ["TargetMain"]
 			}, {
 				"name": "Slots",
-				"pattern": "{name}/slots",
+				"pattern": "{id}/slots",
 				"target": ["TargetSlots"]
 			}, {
               "name": "SlotConfig",
-              "pattern": "{name}/slotConfig",
+              "pattern": "{id}/slotConfig",
               "target": ["TargetSlotConfig"]
             }, {
               "name": "Calendar",
-              "pattern": "{name}/slotCalendar",
+              "pattern": "{id}/slotCalendar",
               "target": ["TargetCalendar"]
             }],
 			"targets": {

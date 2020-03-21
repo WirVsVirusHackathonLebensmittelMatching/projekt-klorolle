@@ -19,7 +19,7 @@ sap.ui.define([
 		onLogin: function (oEvent) {
 			var oSource = oEvent.getSource();
 			var sShopName = oSource.getSelectedKey();
-			this.oRouter.navTo("Main", {name: sShopName});
+			this.oRouter.navTo("Main", {id: sShopName});
 		},
 		
 		createDialog: function () {
@@ -36,7 +36,7 @@ sap.ui.define([
 							postalCode: nPostalCode
 						}).then(function () {
 							this.oDialog.close();
-							this.oRouter.navTo("SlotConfig", {name: sShopName});
+							this.oRouter.navTo("SlotConfig", {id: sShopName});
 						}.bind(this));
 					}.bind(this),
 					onRegistryCancel: function () {

@@ -16,22 +16,22 @@ sap.ui.define([
 		},
 		
 		_onObjectMatched: function (oEvent) {
-			var sName = oEvent.getParameter("arguments").name;
-			this.sName = sName;
-			this.byId("page").setTitle(this.sName);
-			this.oGoodsModel.load(this.sName);
+			var sId = oEvent.getParameter("arguments").id;
+			this.sId = sId;
+			this.byId("page").setTitle(this.sId);
+			this.oGoodsModel.load(this.sId);
 		},
 		
 		toSlotsConfig: function () {
-			this.oRouter.navTo("SlotConfig", {name: this.sName});
+			this.oRouter.navTo("SlotConfig", {id: this.sId});
 		},
 
 		toCalendar: function () {
-			this.oRouter.navTo("Calendar", {name: this.sName});
+			this.oRouter.navTo("Calendar", {id: this.sId});
 		},
 
 		toGoods: function () {
-			this.oRouter.navTo("Goods", {name: this.sName});
+			this.oRouter.navTo("Goods", {id: this.sId});
 		}
 	});
 });

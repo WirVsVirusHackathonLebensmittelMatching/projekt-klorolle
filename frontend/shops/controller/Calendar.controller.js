@@ -20,9 +20,9 @@ sap.ui.define([
 
 		_onObjectMatched : function (oEvent) {
 			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
-			var sName = oEvent.getParameter("arguments").name;
-			this.oSlotsConfigModel.load(sName);
-			this.oSlotsModel.load(sName);
+			var sId = oEvent.getParameter("arguments").id;
+			this.oSlotsConfigModel.load(sId);
+			this.oSlotsModel.load(sId);
 		},
 
 		formatStartHour: function (sFrom) {
