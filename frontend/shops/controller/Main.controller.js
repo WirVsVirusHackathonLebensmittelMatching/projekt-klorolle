@@ -1,9 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/routing/History"
+	"com/wir/vs/virus/timeslots/ShopOwner/model/models"
 ], function (
 	Controller,
-	History
+	models
 ) {
 	"use strict";
 	
@@ -11,12 +11,15 @@ sap.ui.define([
 		onInit: function () {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getRoute("Main").attachPatternMatched(this._onObjectMatched, this);
+			this.oGoodsModel = models.createGoodsModel();
+			this.getView().setModel(this.oGoodsModel, "goods");
 		},
 		
 		_onObjectMatched: function (oEvent) {
 			var sName = oEvent.getParameter("arguments").name;
 			this.sName = sName;
-			this.byId("page").setTitle(sName);
+			this.byId("page").setTitle(this.sName);
+			this.oGoodsModel.load(this.sName);
 		},
 		
 		toSlotsConfig: function () {
