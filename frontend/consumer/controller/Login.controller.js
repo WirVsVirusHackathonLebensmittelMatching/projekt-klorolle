@@ -33,15 +33,13 @@ sap.ui.define([
 			}
 		},
 
-		onRegister: function() {
-			sap.ui.require(["sap/m/MessageToast"], function(MessageToast) {
-				MessageToast.show("Not implemented!");
-			})
-		},
-
 		_loginOk: function() {
 			let oLogin = this.getViewModel().getProperty("/login");
-			return oLogin && oLogin.username && oLogin.password;
+			if (oLogin && oLogin.username && oLogin.password) {
+				return this.getModel("account").login(oLogin.username, oLogin.password);
+			} else {
+				return false;
+			}
 		}
 	});
 });

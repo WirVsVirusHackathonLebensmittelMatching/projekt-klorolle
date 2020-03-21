@@ -21,7 +21,7 @@
 					</VBox>
 
 					<VBox id="registerGroup" alignItems="Center">
-						<Button id="register" text="{i18n>register}" press=".onRegister" />
+						<Button id="register" text="{i18n>register}" press=".navTo('register')" />
 						<Button id="guestLogin" text="{i18n>loginAsGuest}" press=".onLogin(true)" />
 					</VBox>
 				</VBox>

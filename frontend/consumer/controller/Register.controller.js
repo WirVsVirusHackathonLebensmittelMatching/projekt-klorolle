@@ -1,8 +1,7 @@
 sap.ui.define([
-	"./BaseController"
-], function (
-	BaseController
-) {
+	"./BaseController",
+	"sap/m/MessageToast"
+], function (BaseController, MessageToast) {
 	"use strict";
 	
 	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Account", {
@@ -43,7 +42,12 @@ sap.ui.define([
 			}
 
 			if (bOk) {
-				//TODO: Register account
+				let bSuccess = this.getModel("account").register(oRegistration.username, oRegistration.password);
+				if (bSuccess) {
+					this.navTo("account");
+				} else {
+					MessageToast.show(this.getText("registrationFailed"));
+				}
 			}
 		}
 	});

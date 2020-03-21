@@ -61,6 +61,9 @@
 					"mockdata": "test/mockdata.json"
 				}
 			},
+			"account": {
+				"type": "com.wir.vs.virus.timeslots.Consumer.model.AccountModel"
+			},
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
