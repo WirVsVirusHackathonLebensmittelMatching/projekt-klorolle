@@ -1,9 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"com/wir/vs/virus/timeslots/ShopOwner/model/models"
+	"sap/m/GroupHeaderListItem"
 ], function (
 	Controller,
-	models
+	GroupHeaderListItem
 ) {
 	"use strict";
 
@@ -40,6 +40,13 @@ sap.ui.define([
 
 		toGoods: function () {
 			this.oRouter.navTo("Goods", {id: this.sId});
+		},
+
+		getGroupHeader: function (oGroup){
+			return new GroupHeaderListItem({
+				title: oGroup.key,
+				upperCase: false
+			});
 		}
 	});
 });

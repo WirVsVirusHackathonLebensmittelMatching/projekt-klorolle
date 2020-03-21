@@ -1,29 +1,11 @@
 sap.ui.define([
-	"sap/ui/model/json/JSONModel"
-], function (JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"com/wir/vs/virus/timeslots/ShopOwner/data/Goods"
+], function (
+	JSONModel,
+	Goods
+) {
 	"use strict";
-
-	var dummyData = [{
-		name : "Nudeln",
-		category : "food",
-		status : "short"
-	},{
-		name : "Milch",
-		category : "food",
-		status : "available"
-	},{
-		name : "Gemüse",
-		category : "food",
-		status : "unknown"
-	},{
-		name : "Obst",
-		category : "food",
-		status : "short"
-	},{
-		name : "Nüsse",
-		category : "food",
-		status : "empty"
-	}];
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.GoodsModel", {
 		shopId: undefined,
@@ -34,7 +16,7 @@ sap.ui.define([
 			this.shopId = sShopId;
 			// TODO: load data for a given shop
 			return new Promise(function (resolve, reject) {
-				this.setData(dummyData);
+				this.setData(Goods);
 			}.bind(this));
 		},
 
