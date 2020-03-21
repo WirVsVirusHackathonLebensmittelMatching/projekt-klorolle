@@ -1,11 +1,11 @@
 const shop = {
   $id: 'shop',
   type: 'object',
-  required: ['id', 'name', 'postalcode'],
+  required: ['id', 'name', 'postalCode'],
   properties: {
     id: { type: 'string', format: 'uuid' },
     name: { type: 'string' },
-    postalcode: { type: 'integer', example: 51432 },
+    postalCode: { type: 'integer', example: 51432 },
     timeslots: {
       type: 'object',
       properties: {
@@ -82,14 +82,36 @@ const createOne = {
   description: 'Creates a shop.',
   summary: 'shop create',
   tags: ['shops'],
-  body: 'shop#',
+  body: {
+    type: 'object',
+    required: ['name', 'postalCode'],
+    properties: {
+      name: { type: 'string' },
+      postalCode: { type: 'integer' },
+    },
+  },
 };
 
 const updateOne = {
   description: 'Update a shop by ID',
   summary: 'shop update',
   tags: ['shops'],
-  body: 'shop#',
+  body: {
+    type: 'object',
+    properties: {
+      name: { type: 'string' },
+      postalCode: { type: 'integer' },
+      timeslots: {
+        type: 'object',
+        properties: {
+          from: { type: 'integer', description: 'Staring time of work day', example: '08:00' },
+          to: { type: 'integer', description: 'End time of work day', example: '19:00' },
+          slotDuration: { type: 'integer', description: 'Time per slot in minutes', example: 20 },
+          parallelSlots: { type: 'integer', description: 'Amount of concurrently available slots', example: 5 },
+        },
+      },
+    },
+  },
   params: {
     type: 'object',
     properties: {
