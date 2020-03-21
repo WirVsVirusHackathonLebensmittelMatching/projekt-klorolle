@@ -46,6 +46,7 @@ const findByPostalCode = {
   },
   params: {
     type: 'object',
+    required: ['postalCode'],
     properties: {
       postalCode: {
         type: 'string',
@@ -72,6 +73,7 @@ const findOne = {
   },
   params: {
     type: 'object',
+    required: ['shop'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
     },
@@ -114,6 +116,7 @@ const updateOne = {
   },
   params: {
     type: 'object',
+    required: ['shop'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
     },
@@ -126,6 +129,7 @@ const deleteOne = {
   tags: ['shops'],
   params: {
     type: 'object',
+    required: ['shop'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
     },
