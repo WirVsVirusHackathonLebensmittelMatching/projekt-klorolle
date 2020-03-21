@@ -1,22 +1,47 @@
 sap.ui.define([
-	"./BaseController"
+	"./BaseController",
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/core/ValueState"
 ], function (
-	BaseController
+	BaseController,
+	JSONModel,
+	ValueState
 ) {
 	"use strict";
 	
 	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Login", {
 		onInit: function () {
-			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			this.createViewModel({
+				login: {
+					username: "",
+					password: "",
+					state: ValueState.None
+				}
+			});
 		},
-		
-		onSearchShop: function(oEvent)
-		{
-			if (oEvent.getParameter("refreshButtonPressed")) {
-				this.getModel().refreshShops();
+
+		onLogin: function(bAsGuest) {
+			if (bAsGuest) {
+				this.getRouter().navTo("zipCodeSearch");
 			} else {
-				this.getModel().searchShops(oEvent.getParameter("query"));
+				if (this._loginOk()) {
+					this.getModel("view").setProperty("/login/state", ValueState.Success);
+					this.getRouter().navTo("account");
+				 } else {
+					 this.getModel("view").setProperty("/login/state", ValueState.Error);
+				 }
 			}
+		},
+
+		onRegister: function() {
+			sap.ui.require(["sap/m/MessageToast"], function(MessageToast) {
+				MessageToast.show("Not implemented!");
+			})
+		},
+
+		_loginOk: function() {
+			let oLogin = this.getViewModel().getProperty("/login");
+			return oLogin && oLogin.username && oLogin.password;
 		}
 	});
 });

@@ -5,40 +5,25 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
-		<Page id="page" title="{i18n>selectShopTitle}">
+		<Page id="page" title="{i18n>loginTitle}">
 			<content>
-				<VBox alignItems="Center">
-					<Image src="media/klopa_transparent.png" decorative="true" height="100px"/>
-					<List
-						id="shopList"
-						items="{/shops}"
-					>
-						<layoutData>
-							<FlexItemData alignSelf="Stretch"/>
-						</layoutData>
-						<headerToolbar>
-							<Toolbar id="shopListToolbar">
-								<content>
-									<Title id="shopListTitle" text="{i18n>availableShops}" />
-									<ToolbarSpacer />
-									<SearchField 
-										id="shopSearch"
-										placeholder="{i18n>searchByZipCode}"
-										showRefreshButton="true"
-										width="30%"
-										search="onSearchShop"
-									/>
-								</content>
-							</Toolbar>
-						</headerToolbar>
-						<items>
-							<ObjectListItem
-								id="shopListItem"
-								type="Navigation"
-								title="{name}"
-							/>
-						</items>
-					</List>
+				<VBox alignItems="Center" justifyContent="SpaceAround" height="100%">
+					<Image src="media/klopa_transparent.png" decorative="true" height="300px"/>
+
+					<VBox id="loginGroup" alignItems="Center">
+						<Label labelFor="username" text="{i18n>username}" />
+						<Input id="username" value="{view>/login/username}" valueState="{view>/login/state}" />
+
+						<Label labelFor="password" text="{i18n>password}" />
+						<Input id="password" value="{view>/login/password}" type="Password" valueState="{view>/login/state}" />
+
+						<Button id="login" text="{i18n>login}" press=".onLogin(false)" type="Emphasized" />
+					</VBox>
+
+					<VBox id="registerGroup" alignItems="Center">
+						<Button id="register" text="{i18n>register}" press=".onRegister" />
+						<Button id="guestLogin" text="{i18n>loginAsGuest}" press=".onLogin(true)" />
+					</VBox>
 				</VBox>
 			</content>
 		</Page>
