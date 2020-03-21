@@ -18,13 +18,15 @@ sap.ui.define([
 			this.shopId = sShopId;
 			this.loadData("/api/v1/shops/" + this.shopId + "/goods/").then(function () {
 				var oData = this.getData();
-				var oShopGoods = Object.assign({}, Goods);
+				var oShopGoods = Goods.slice();
 				oData.forEach(function (oGood) {
 					var oMatchingGood = oShopGoods.find(function (oShopGood) {
 						return oShopGood.name === oGood.name;
 					});
-					oMatchingGood.status = oGood.status;
-					oMatchingGood.id = oGood.id;
+					if (oMatchingGood) {
+						oMatchingGood.status = oGood.status;
+						oMatchingGood.id = oGood.id;
+					}
 				});
 				this.setData(oShopGoods);
 			}.bind(this));
