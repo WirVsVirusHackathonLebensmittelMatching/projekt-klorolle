@@ -18,8 +18,8 @@ sap.ui.define([
 		
 		onLogin: function (oEvent) {
 			var oSource = oEvent.getSource();
-			var sShopName = oSource.getSelectedKey();
-			this.oRouter.navTo("Main", {id: sShopName});
+			var sShopId = oSource.getSelectedKey();
+			this.oRouter.navTo("Main", {id: sShopId});
 		},
 		
 		createDialog: function () {
