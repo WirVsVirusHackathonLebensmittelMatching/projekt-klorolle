@@ -27,14 +27,11 @@ module.exports = (fastify, opts, done) => {
   // create good
   fastify.post('/', { schema: schemas.createOne },
     async ({ body, params }) => {
-      console.log(params);
-
       const good = body;
       good.shop = params.shop; // set shop id
       good.id = uuid(); // generate uuid
 
       db.get('goods').push(good).write();
-      console.log(good);
       return good;
     });
 
