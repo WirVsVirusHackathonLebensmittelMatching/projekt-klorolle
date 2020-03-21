@@ -20,20 +20,38 @@ sap.ui.define([
 				var oData = this.getData();
 				var oShopGoods = Object.assign({}, Goods);
 				oData.forEach(function (oGood) {
-					oShopGoods.find(function (oShopGood) {
+					var oMatchingGood = oShopGoods.find(function (oShopGood) {
 						return oShopGood.name === oGood.name;
-					}).status = oGood.status;
+					});
+					oMatchingGood.status = oGood.status;
+					oMatchingGood.id = oGood.id;
 				});
 				this.setData(oShopGoods);
 			}.bind(this));
 		},
 
-		setGood: function (mProperties) {
-			// TODO: set a specific good on the shop
-			return new Promise(function (resolve, reject) {
-				var oData = this.getData();
-				oData[mProperties.name] = mProperties.status;
-				this.setData(oData);
+		changeGood: function (sPath, sStatus) {
+			var oGood = this.getProperty(sPath);
+			var sInitialStatus = oGood.status;
+			oGood.status = sStatus;
+			var sUrl = "/api/v1/shops/" + this.shopId + "/goods/";
+			var oSendingPromise;
+			if (sInitialStatus === "unknown") {
+				oSendingPromise = Connection.post(sUrl, oGood);
+			} else {
+				sUrl += oGood.id;
+				if (sStatus === "unknown") {
+					oSendingPromise = Connection.remove(sUrl);
+				} else {
+					oSendingPromise = Connection.put(sUrl, oGood);
+				}
+			}
+
+			return oSendingPromise.then(function (oWrittenGood) {
+				if (oWrittenGood) {
+					this.setProperty(sPath + "/id", oWrittenGood.id);
+				}
+				this.setProperty(sPath + "/status", sStatus);
 			}.bind(this));
 		}
 	});

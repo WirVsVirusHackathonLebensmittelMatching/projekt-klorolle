@@ -29,6 +29,12 @@ sap.ui.define([
 
 			this.getView().getModel("goods").load(this.sId);
 		},
+
+		onGoodChanged: function (oEvent) {
+			var oBindingContext = oEvent.getSource().getBindingContext("goods");
+			var sStatus = oEvent.getParameter("selectedItem").getKey();
+			this.getView().getModel("goods").changeGood(oBindingContext.getPath(), sStatus);
+		},
 		
 		toSlotsConfig: function () {
 			this.oRouter.navTo("SlotConfig", {id: this.sId});
