@@ -6,6 +6,9 @@ sap.ui.define([
 	Fragment
 ) {
 	"use strict";
+
+	var bNameValid = false;
+	var bPostalCodeValid = false;
 	
 	return Controller.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Login", {
 		onInit: function () {
@@ -16,7 +19,7 @@ sap.ui.define([
 		onLogin: function (oEvent) {
 			var oSource = oEvent.getSource();
 			var sShopName = oSource.getSelectedKey();
-			this.oRouter.navTo("Main", {name: sShopName});
+			this.oRouter.navTo("Main", {id: sShopName});
 		},
 		
 		createDialog: function () {
@@ -26,11 +29,14 @@ sap.ui.define([
 				controller : {
 					onRegistryConfirm: function () {
 						var sShopName = sap.ui.getCore().byId("registry_fragment--shopNameInput").getValue();
+						var sPostalCode = sap.ui.getCore().byId("registry_fragment--shopPostalCodeInput").getValue();
+						var nPostalCode = Number.parseInt(sPostalCode);
 						this.getView().getModel("shops").registerShop({
-							name: sShopName
+							name: sShopName,
+							postalCode: nPostalCode
 						}).then(function () {
 							this.oDialog.close();
-							this.oRouter.navTo("SlotConfig", {name: sShopName});
+							this.oRouter.navTo("SlotConfig", {id: sShopName});
 						}.bind(this));
 					}.bind(this),
 					onRegistryCancel: function () {
@@ -38,7 +44,13 @@ sap.ui.define([
 					}.bind(this),
 					onNameLiveChange: function (oEvent) {
 						var sValue = oEvent.getParameter("value");
-						sap.ui.getCore().byId("registry_fragment--registerConfirm").setEnabled(!!sValue);
+						bNameValid = !!sValue;
+						sap.ui.getCore().byId("registry_fragment--registerConfirm").setEnabled(bNameValid && bPostalCodeValid);
+					},
+					onPostalCodeLiveChange: function (oEvent) {
+						var sValue = oEvent.getParameter("value");
+						bPostalCodeValid = sValue.length === 5;
+						sap.ui.getCore().byId("registry_fragment--registerConfirm").setEnabled(bNameValid && bPostalCodeValid);
 					}
 				}
 			});
