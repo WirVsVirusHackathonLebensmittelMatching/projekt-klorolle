@@ -5,12 +5,20 @@
             title="{i18n>registryDialogTitle}"
             type="Message" >
         <content>
+            <Label text="{i18n>shopName}" />
             <Input
                     id="shopNameInput"
                     type="Text"
                     maxLength="200"
                     liveChange=".onNameLiveChange"
                     placeholder="{i18n>namePlaceholder}" />
+            <Label text="{i18n>shopPostalCode}" />
+            <Input
+                    id="shopPostalCodeInput"
+                    maxLength="200"
+                    liveChange=".onPostalCodeLiveChange"
+                    type="Number"
+                    placeholder="{i18n>postalCodePlaceholder}" />
         </content>
         <beginButton>
             <Button

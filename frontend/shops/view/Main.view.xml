@@ -23,7 +23,15 @@
                     </OverflowToolbar>
                 </headerToolbar>
                 <content>
-                    <List items="{goods>/}" class="sapUiContentPadding" >
+                    <List items="{
+                                path: 'goods>/',
+                                sorter: {
+                                    path: 'category',
+                                    descending: false,
+                                    group: true
+                                },
+                                groupHeaderFactory: '.getGroupHeader'
+                            }" class="sapUiContentPadding" >
                         <InputListItem label="{goods>name}">
                             <Select
                                     selectedKey="{goods>status}"

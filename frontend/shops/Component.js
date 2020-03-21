@@ -19,7 +19,15 @@ sap.ui.define([
 		init: function () {
 			UIComponent.prototype.init.apply(this, arguments);
 			this.getRouter().initialize();
-			this.setModel(models.createShopsModel(), "shops");
+			var shopModel = models.createShopsModel();
+			this.setModel(shopModel, "shops");
+			shopModel.load();
+			var oSlotsModel = models.createSlotsModel();
+			this.setModel(oSlotsModel, "slots");
+			var oSlotsConfigModel = models.createSlotsConfigModel();
+			this.setModel(oSlotsConfigModel, "slotsConfig");
+			var oGoodsModel = models.createGoodsModel();
+			this.setModel(oGoodsModel, "goods");
 		}
 	});
 });
