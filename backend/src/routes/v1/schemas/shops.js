@@ -9,8 +9,8 @@ const shop = {
     timeslots: {
       type: 'object',
       properties: {
-        from: { type: 'integer', description: 'Staring time of work day', example: '08:00' },
-        to: { type: 'integer', description: 'End time of work day', example: '19:00' },
+        from: { type: 'string', description: 'Staring time of work day', example: '08:00' },
+        to: { type: 'string', description: 'End time of work day', example: '19:00' },
         slotDuration: { type: 'integer', description: 'Time per slot in minutes', example: 20 },
         parallelSlots: { type: 'integer', description: 'Amount of concurrently available slots', example: 5 },
       },
@@ -106,8 +106,8 @@ const updateOne = {
       timeslots: {
         type: 'object',
         properties: {
-          from: { type: 'integer', description: 'Staring time of work day', example: '08:00' },
-          to: { type: 'integer', description: 'End time of work day', example: '19:00' },
+          from: { type: 'string', description: 'Staring time of work day', example: '08:00' },
+          to: { type: 'string', description: 'End time of work day', example: '19:00' },
           slotDuration: { type: 'integer', description: 'Time per slot in minutes', example: 20 },
           parallelSlots: { type: 'integer', description: 'Amount of concurrently available slots', example: 5 },
         },
