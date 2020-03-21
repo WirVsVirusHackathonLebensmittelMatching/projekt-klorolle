@@ -157,7 +157,25 @@ sap.ui.define([
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.SlotsModel", {
 		load: function (sShopName) {
-			this.setData(dummyData);
+			return new Promise(function (resolve, reject) {
+				this.setData(dummyData);
+				resolve();
+			}.bind(this));
+		},
+
+		editSlots: function () {
+			// todo allow slot editing
+			return Promise.resolve();
+		},
+
+		createSlot: function () {
+			// todo allow slot creation
+			return Promise.resolve();
+		},
+
+		deleteSlot: function () {
+			// todo allow slot deletion
+			return Promise.resolve();
 		}
 	});
 });

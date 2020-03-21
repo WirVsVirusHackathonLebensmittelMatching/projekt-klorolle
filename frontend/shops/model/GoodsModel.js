@@ -15,13 +15,19 @@ sap.ui.define([
 
 	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.GoodsModel", {
 		load: function (sShopName) {
-			this.setData(dummyData);
+			// TODO: load data for a given shop
+			return new Promise(function (resolve, reject) {
+				this.setData(dummyData);
+			}.bind(this));
 		},
 
 		setGood: function (mProperties) {
-			var oData = this.getData();
-			oData[mProperties.name] = mProperties.status;
-			this.setData(oData);
+			// TODO: set a specific good on the shop
+			return new Promise(function (resolve, reject) {
+				var oData = this.getData();
+				oData[mProperties.name] = mProperties.status;
+				this.setData(oData);
+			}.bind(this));
 		}
 	});
 });
