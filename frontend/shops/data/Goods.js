@@ -2,7 +2,7 @@ sap.ui.define([], function () {
 	"use strict";
 
 	var mItems = {
-		food: [
+		Lebensmittel: [
 			"Nudeln",
 			"Fertig-Suppen",
 			"Mehl",
@@ -30,7 +30,7 @@ sap.ui.define([], function () {
 			"Honig",
 			"Marmelade"
 		],
-		hygiene: [
+		Hygiene: [
 			"Desinfektionsmittel",
 			"Toiletten Papier",
 			"Seifen"
