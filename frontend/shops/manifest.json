@@ -95,6 +95,10 @@
 				"name": "Inbox",
 				"pattern": "{name}/inbox",
 				"target": ["TargetInbox"]
+			}, {
+				"name": "Goods",
+				"pattern": "{name}/goods",
+				"target": ["TargetGoods"]
 			}],
 			"targets": {
 				"TargetLogin": {
@@ -126,6 +130,12 @@
 					"transition": "slide",
 					"viewId": "Inbox",
 					"viewName": "Inbox"
+				},
+				"TargetGoods": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewId": "Goods",
+					"viewName": "Goods"
 				}
 			}
 		}

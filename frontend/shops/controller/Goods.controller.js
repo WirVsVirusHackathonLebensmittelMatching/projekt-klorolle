@@ -5,7 +5,7 @@ sap.ui.define([
 ) {
 	"use strict";
 
-	return DetailsPageController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Slots", {
-		sRoute: "Slots"
+	return DetailsPageController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Goods", {
+		sRoute: "Goods"
 	});
 });

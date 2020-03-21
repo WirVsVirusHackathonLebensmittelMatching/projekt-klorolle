@@ -1,0 +1,7 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Goods" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<Page id="page" showNavButton="true" title="{i18n>goodsTitle}" navButtonPress="onNavBack">
+		<content>
+		</content>
+	</Page>
+</mvc:View>

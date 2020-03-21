@@ -37,9 +37,13 @@ sap.ui.define([
 		toUpcoming: function () {
 			this.oRouter.navTo("Upcoming", {name: this.sName});
 		},
-		
+
 		toInbox: function () {
 			this.oRouter.navTo("Inbox", {name: this.sName});
+		},
+
+		toGoods: function () {
+			this.oRouter.navTo("Goods", {name: this.sName});
 		}
 	});
 });
