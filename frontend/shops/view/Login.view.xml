@@ -1,0 +1,25 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Login" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>loginTitle}">
+			<content>
+				<MessageStrip
+					text="This should be a login screen!"
+					type="Warning"
+					showIcon="true">
+				</MessageStrip>
+				<l:VerticalLayout>
+					<Select
+							id="loginSelect"
+							items="{
+								path: 'shops>/',
+								sorter: { path: 'name' }
+							}"
+							width="300px"
+							change="onLogin" >
+						<core:Item key="{shops>name}" text="{shops>name}" />
+					</Select>
+					<Button text="{i18n>register}" press="onRegister" />
+				</l:VerticalLayout>
+			</content>
+		</Page>
+</mvc:View>

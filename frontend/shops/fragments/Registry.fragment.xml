@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core" >
+    <Dialog
+            title="{i18n>registryDialogTitle}"
+            type="Message" >
+        <content>
+            <Input
+                    id="shopNameInput"
+                    type="Text"
+                    maxLength="200"
+                    liveChange=".onNameLiveChange"
+                    placeholder="{i18n>namePlaceholder}" />
+        </content>
+        <beginButton>
+            <Button
+                id="registerConfirm"
+                text="{i18n>confirmButton}"
+                type="Emphasized"
+                enabled="false"
+                press=".onRegistryConfirm" />
+        </beginButton>
+        <endButton>
+            <Button
+                text="{i18n>cancelButton}"
+                press=".onRegistryCancel" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

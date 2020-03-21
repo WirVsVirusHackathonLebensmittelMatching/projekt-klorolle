@@ -1,0 +1,143 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.wir.vs.virus.timeslots.ShopOwner",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.38.11"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.wir.vs.virus.timeslots.ShopOwner.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "App"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.wir.vs.virus.timeslots.ShopOwner.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.wir.vs.virus.timeslots.ShopOwner.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "Login",
+				"pattern": "",
+				"target": ["TargetLogin"]
+			}, {
+				"name": "Main",
+				"pattern": "{name}/main",
+				"target": ["TargetMain"]
+			}, {
+				"name": "Slots",
+				"pattern": "{name}/slots",
+				"target": ["TargetSlots"]
+			}, {
+				"name": "Upcoming",
+				"pattern": "{name}/upcoming",
+				"target": ["TargetUpcoming"]
+			}, {
+				"name": "Inbox",
+				"pattern": "{name}/inbox",
+				"target": ["TargetInbox"]
+			}, {
+				"name": "Goods",
+				"pattern": "{name}/goods",
+				"target": ["TargetGoods"]
+			}],
+			"targets": {
+				"TargetLogin": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewId": "Login",
+					"viewName": "Login"
+				},
+				"TargetMain": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewId": "Main",
+					"viewName": "Main"
+				},
+				"TargetSlots": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewId": "Slots",
+					"viewName": "Slots"
+				},
+				"TargetUpcoming": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewId": "Upcoming",
+					"viewName": "Upcoming"
+				},
+				"TargetInbox": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewId": "Inbox",
+					"viewName": "Inbox"
+				},
+				"TargetGoods": {
+					"viewType": "XML",
+					"transition": "slide",
+					"viewId": "Goods",
+					"viewName": "Goods"
+				}
+			}
+		}
+	}
+}
