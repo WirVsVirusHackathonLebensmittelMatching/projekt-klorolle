@@ -13,6 +13,7 @@ module.exports = (fastify, opts, done) => {
       },
       definitions: {
         Shop: {
+          $id: 'shop',
           type: 'object',
           required: ['id', 'name'],
           properties: {
@@ -23,6 +24,7 @@ module.exports = (fastify, opts, done) => {
         },
 
         ShopOwner: {
+          $id: 'shopowner',
           required: ['id', 'email'],
           properties: {
             id: { type: 'string', format: 'uuid' },
@@ -32,6 +34,7 @@ module.exports = (fastify, opts, done) => {
         },
 
         TimeSlot: {
+          $id: 'timeslot',
           type: 'object',
           required: ['id', 'start', 'end'],
           properties: {
@@ -45,6 +48,7 @@ module.exports = (fastify, opts, done) => {
         },
 
         Customer: {
+          $id: 'customer',
           type: 'object',
           required: ['id', 'name', 'email'],
           properties: {
@@ -55,6 +59,7 @@ module.exports = (fastify, opts, done) => {
         },
 
         Order: {
+          $id: 'order',
           type: 'object',
           required: ['id', 'shop', 'timeSlot'],
           properties: {
@@ -64,7 +69,8 @@ module.exports = (fastify, opts, done) => {
           },
         },
 
-        ShopGoods: {
+        Good: {
+          $id: 'good',
           type: 'object',
           required: ['id', 'shop', 'name', 'status'],
           properties: {

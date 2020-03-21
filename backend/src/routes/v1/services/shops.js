@@ -33,7 +33,7 @@ module.exports = (fastify, opts, done) => {
     });
 
   // find one shop
-  fastify.get('/:shop', { schema: schemas.findAll },
+  fastify.get('/:shop', { schema: schemas.findOne },
     async ({ params }) => {
       const shop = db.get('shops').find({ id: params.shop }).value();
       return shop;
@@ -50,7 +50,7 @@ module.exports = (fastify, opts, done) => {
     });
 
   // update shop
-  fastify.put('/:shop', { schema: schemas.deleteOne },
+  fastify.put('/:shop', { schema: schemas.updateOne },
     async (request, reply) => {
       let shop = db.get('shops').find({ id: request.params.shop });
 
