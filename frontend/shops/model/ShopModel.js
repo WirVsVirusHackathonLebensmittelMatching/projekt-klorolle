@@ -14,7 +14,7 @@ sap.ui.define([
 				return Promise.resolve();
 			}
 			this.shopId = sShopId;
-			this.setData(this.loadData("/api/v1/shop/" + sShopId));
+			this.setData(this.loadData("/api/v1/shops/" + sShopId));
 		},
 
 		editSlotsConfig: function (mConfig) {
