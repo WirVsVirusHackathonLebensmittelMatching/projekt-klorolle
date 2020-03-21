@@ -1,8 +1,10 @@
 // Require the framework and instantiate it
+require('dotenv').load();
 const path = require('path');
 const fastify = require('fastify')({ logger: true });
 const db = require('./db');
 const apiRoutes = require('./api');
+const PORT = process.env.PORT || 3000;
 
 const ENV = process.env.NODE_ENV || 'production';
 
@@ -16,7 +18,7 @@ const publicPath = ENV === 'production'
 // serve static frontend code
 fastify.register(require('fastify-static'), {
   root: publicPath,
-  index: ['index.html']
+  index: ['index.html'],
 });
 
 // send index instead of error
@@ -27,7 +29,7 @@ fastify.register(require('fastify-static'), {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(3000, '0.0.0.0');
+    await fastify.listen(PORT, '0.0.0.0');
     fastify.log.info(`Server listening on ${fastify.server.address().port}`);
   } catch (err) {
     fastify.log.error(err);
