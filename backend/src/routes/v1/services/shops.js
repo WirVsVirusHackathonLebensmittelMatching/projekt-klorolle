@@ -36,8 +36,13 @@ module.exports = (fastify, opts, done) => {
 
   // find one shop
   fastify.get('/:shop', { schema: schemas.findOne },
-    async ({ params }) => {
+    async ({ params }, reply) => {
       const shop = db.get('shops').find({ id: params.shop }).value();
+
+      if (!shop) {
+        return reply.callNotFound();
+      }
+
       return shop;
     });
 
@@ -53,8 +58,8 @@ module.exports = (fastify, opts, done) => {
 
   // update shop
   fastify.put('/:shop', { schema: schemas.updateOne },
-    async (request, reply) => {
-      let shop = db.get('shops').find({ id: request.params.shop });
+    async ({ params, body }, reply) => {
+      let shop = db.get('shops').find({ id: params.shop }).value();
 
       if (!shop) {
         return reply.callNotFound();
@@ -62,17 +67,19 @@ module.exports = (fastify, opts, done) => {
 
       shop = {
         ...shop,
-        ...request.body,
+        ...body,
       };
 
-      db.get('shops').find({ id: request.params.shop });
+      db.get('shops').find({ id: params.shop }).assign(shop).write();
 
       return shop;
     });
 
   // delete shop
   fastify.delete('/:shop', { schema: schemas.deleteOne },
-    async () => ({ shops: [] }));
+    async ({ params }) => {
+      db.get('shops').remove({ id: params.shop }).write();
+    });
 
   done();
 };

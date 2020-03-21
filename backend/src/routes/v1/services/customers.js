@@ -1,9 +1,9 @@
-const schemas = require('../schemas/customers');
+// const schemas = require('../schemas/customers');
 
 module.exports = (fastify, opts, done) => {
-  fastify.put('/order', async () => null);
+  // fastify.put('/order', async () => null);
 
-  fastify.addSchema(schemas.customer);
+  // fastify.addSchema(schemas.customer);
 
   done();
 };
