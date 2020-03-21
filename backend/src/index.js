@@ -16,6 +16,7 @@ const publicPath = ENV === 'production'
 // serve static frontend code
 fastify.register(require('fastify-static'), {
   root: publicPath,
+  index: ['index.html']
 });
 
 // send index instead of error
