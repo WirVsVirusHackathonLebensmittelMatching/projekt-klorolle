@@ -1,24 +1,41 @@
-<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-	xmlns="sap.m">
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Main" xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:dc="sap.suite.ui.microchart" displayBlock="true"
+		  xmlns="sap.m">
 	<Page id="page"> <!--showNavButton="true" navButtonPress="onNavBack" -->
 		<content>
 			<List>
 				<StandardListItem
 						type="Navigation"
-						title="{i18n>inboxMenuItem}"
-						press="toInbox" />
-				<StandardListItem 
+						title="{i18n>slotsMenuItem}"
+						press="toSlots" />
+				<StandardListItem
 						type="Navigation"
-						title="{i18n>slotsMenuItem}" 
-						press="toSlots" /> 
-				<StandardListItem 
-						type="Navigation"
-						title="{i18n>upcomingMenuItem}" 
+						title="{i18n>upcomingMenuItem}"
 						press="toUpcoming" />
 				<StandardListItem
 						type="Navigation"
-						title="{i18n>goodsMenuItem}"
-						press="toGoods" />
+						title="{i18n>inboxMenuItem}"
+						press="toInbox" />
+				<CustomListItem
+						type="Navigation"
+						press="toGoods" >
+
+					<Title text="{i18n>goodsMenuItem}" class="sapUiSmallMargin" />
+					<VBox>
+						<FlexBox width="22rem" height="10rem" alignItems="center" justifyContent="SpaceBetween">
+							<items>
+								<dc:InteractiveDonutChart selectionChanged="onSelectionChanged" displayedSegments="4" press="press">
+									<dc:segments>
+										<dc:InteractiveDonutChartSegment label="{i18n>inStock}" value="5" displayedValue="5" color="Good" />
+										<dc:InteractiveDonutChartSegment label="{i18n>lowStock}" value="2" displayedValue="2" color="Critical" />
+										<dc:InteractiveDonutChartSegment label="{i18n>outOfStock}" value="10" displayedValue="10" color="Error" />
+									</dc:segments>
+								</dc:InteractiveDonutChart>
+							</items>
+						</FlexBox>
+					</VBox>
+				</CustomListItem>
+
 			</List>
 		</content>
 	</Page>
