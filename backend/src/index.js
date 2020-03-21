@@ -1,9 +1,10 @@
 // Require the framework and instantiate it
-require('dotenv').load();
+require('dotenv').config();
 const path = require('path');
 const fastify = require('fastify')({ logger: true });
 const db = require('./db');
 const apiRoutes = require('./api');
+
 const PORT = process.env.PORT || 3000;
 
 const ENV = process.env.NODE_ENV || 'production';
