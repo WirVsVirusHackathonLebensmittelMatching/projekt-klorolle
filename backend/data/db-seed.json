@@ -3,27 +3,27 @@
     {
       "id": "0abb3710-3c2c-4d36-b013-449bbfb79746",
       "name": "Rewe",
-      "postalcode": 112345
+      "postalCode": 112345
     },
     {
       "id": "7f7de513-8c65-4f25-978e-ba2cd0fe7923",
       "name": "Edeka",
-      "postalcode": 112345
+      "postalCode": 112345
     },
     {
       "id": "6282cb03-5495-4f79-843f-8814c2a26c15",
       "name": "Real",
-      "postalcode": 112345
+      "postalCode": 112345
     },
     {
       "id": "d1fd1d93-7b21-4669-a5cd-97b91946a753",
       "name": "Aldi",
-      "postalcode": 112345
+      "postalCode": 112345
     },
     {
       "id": "4367c06c-eb05-410e-9444-95257212f84b",
       "name": "Lidl",
-      "postalcode": 112345
+      "postalCode": 112345
     }
   ],
   "shopGoods": [],
