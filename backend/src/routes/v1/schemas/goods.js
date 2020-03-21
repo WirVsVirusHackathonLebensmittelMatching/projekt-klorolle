@@ -24,6 +24,7 @@ const findAll = {
   },
   params: {
     type: 'object',
+    required: ['shop'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
     },
@@ -35,10 +36,9 @@ const findOne = {
   summary: 'good get',
   tags: ['goods'],
   response: {
-    // 200: {
-    //   type: 'object',
-    //   properties: 'good#',
-    // },
+    200: {
+      $ref: 'good#',
+    },
     404: {
       type: 'object',
       properties: {
@@ -48,12 +48,9 @@ const findOne = {
   },
   params: {
     type: 'object',
+    required: ['shop'],
     properties: {
-      shop: {
-        type: 'string',
-        fomat: 'uuid',
-        description: 'shop id',
-      },
+      shop: { type: 'string', fomat: 'uuid' },
     },
   },
 };
@@ -64,6 +61,7 @@ const createOne = {
   tags: ['goods'],
   body: {
     type: 'object',
+    required: ['name', 'status'],
     properties: {
       name: { type: 'string' },
       status: { type: 'string' },
@@ -71,19 +69,14 @@ const createOne = {
   },
   params: {
     type: 'object',
+    required: ['shop'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
     },
   },
   response: {
     200: {
-      type: 'object',
-      properties: {
-        id: { type: 'string', format: 'uuid' },
-        shop: { type: 'string', format: 'uuid' },
-        name: { type: 'string' },
-        status: { type: 'string' },
-      },
+      $ref: 'good#',
     },
   },
 };
@@ -95,13 +88,16 @@ const updateOne = {
   body: {
     type: 'object',
     properties: {
-      done: { type: 'boolean' },
+      name: { type: 'string' },
+      status: { type: 'string' },
     },
   },
   params: {
     type: 'object',
+    required: ['shop', 'good'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
+      good: { type: 'string', fomat: 'uuid' },
     },
   },
 };
@@ -112,8 +108,10 @@ const deleteOne = {
   tags: ['goods'],
   params: {
     type: 'object',
+    required: ['shop', 'good'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
+      good: { type: 'string', fomat: 'uuid' },
     },
   },
 };
