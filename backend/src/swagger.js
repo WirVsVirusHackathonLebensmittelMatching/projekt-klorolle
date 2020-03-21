@@ -77,7 +77,7 @@ module.exports = (fastify, opts, done) => {
             id: { type: 'string', format: 'uuid' },
             shop: { type: 'string', format: 'uuid' },
             name: { type: 'string' },
-            status: { type: 'string', enum: ['available', 'barely', 'empty', 'unknown'] },
+            status: { type: 'string', enum: ['available', 'short', 'empty', 'unknown'] },
           },
         },
       },
