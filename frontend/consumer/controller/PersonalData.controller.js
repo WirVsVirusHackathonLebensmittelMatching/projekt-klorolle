@@ -30,6 +30,7 @@ sap.ui.define([
 		onCancel: function()
 		{
 			this.getModel("account").reloadAccountData();
+			this.navTo("account");
 		}
 	});
 });
