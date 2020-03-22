@@ -118,6 +118,14 @@
 				"name": "shopDetails",
 				"pattern": "shop/{shopId}",
 				"target": ["shopDetails"]
+			}, {
+				"name": "fastLaneTypeSelect",
+				"pattern": "shop/{shopId}/fastLaneTypeSelect",
+				"target": ["fastLaneTypeSelect"]
+			}, {
+				"name": "fastLaneConfirm",
+				"pattern": "shop/{shopId}/fastLaneConfirm/{orderId}",
+				"target": ["fastLaneConfirm"]
 			}],
 			"targets": {
 				"login": {
@@ -147,6 +155,14 @@
 				"shopDetails": {
 					"viewId": "ShopDetails",
 					"viewName": "ShopDetails"
+				},
+				"fastLaneTypeSelect": {
+					"viewId": "FastLaneTypeSelect",
+					"viewName": "FastLaneTypeSelect"
+				},
+				"fastLaneConfirm": {
+					"viewId": "FastLaneConfirm",
+					"viewName": "FastLaneConfirm"
 				},
 				"notFound": {
 					"viewId": "NotFound",

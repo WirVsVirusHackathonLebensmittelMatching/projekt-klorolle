@@ -1,0 +1,18 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.FastLaneTypeSelect"
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>nextFastLane}">
+			<content>
+				<VBox alignItems="Center">
+					<Label text="{i18n>askAboutFastLaneType}" />
+					<TextArea id="comment" class="sapUiLargeMarginTop" width="100%" />
+					<Button id="shopping" text="{i18n>shopping}" press=".onProceedFastLane(false)" class="sapUiLargeMarginTop" />
+					<Button id="pickup" text="{i18n>pickup}" press=".onProceedFastLane(true)" class="sapUiLargeMarginTop" />
+				</VBox>
+			</content>
+		</Page>
+</mvc:View>

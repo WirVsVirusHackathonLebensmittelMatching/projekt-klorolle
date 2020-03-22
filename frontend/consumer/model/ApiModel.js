@@ -58,20 +58,36 @@ sap.ui.define([
             }
         },
 
-        /**
-         * Select the currently displayed shop. Updates the model path at /shop.
-         * @param {String} sShopId The ID of the shop.
-         */
-        selectShop: function(sShopId)
-        {
-            if (this._live)
-            {
-                this._api.get("/shops/" + encodeURL(sShopId)).then(function(oData) {
-                    this.setProperty("/shop", oData);
-                    this._updateGoods();
-                }.bind(this));
-            }
-        },
+		/**
+		 * Select the currently displayed shop. Updates the model path at /shop.
+		 * @param {String} sShopId The ID of the shop.
+		 */
+		selectShop: function(sShopId) {
+			if (this._live)
+			{
+				this._api.get("/shops/" + encodeURL(sShopId)).then(function(oData) {
+					this.setProperty("/shop", oData);
+					this._updateGoods();
+				}.bind(this));
+			}
+		},
+
+		findNextFastLane: function(sShopId) {
+			var dummySuggestion = {
+				"shop": sShopId,
+				"dateStart": "Sun Mar 22 2020 12:44:39 GMT+0100 (Central European Standard Time)",
+				"duration": 20,
+				"type": "",
+				"comment": ""
+			};
+
+			this.setProperty("/order", dummySuggestion);
+			return Promise.resolve(dummySuggestion);
+		},
+
+		confirmOrder: function (oOrder) {
+			return this._api.post("/api/v1/shops/" + oOrder.shop + "/orders/", JSON.stringify(oOrder));
+		},
 
         /**
          * Update goods for the currently selected shop.

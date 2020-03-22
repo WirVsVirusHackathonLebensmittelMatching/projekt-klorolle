@@ -1,9 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/wir/vs/virus/timeslots/Consumer/model/models",
+	"com/wir/vs/virus/timeslots/Consumer/model/OrderModel",
 	"sap/base/util/UriParameters"
-], function (UIComponent, Device, models, UriParameters) {
+], function (UIComponent, Device, OrderModel, UriParameters) {
 	"use strict";
 
 	return UIComponent.extend("com.wir.vs.virus.timeslots.Consumer.Component", {
@@ -25,6 +25,7 @@ sap.ui.define([
 			let bUseMockData = oParameters.has("mockdata") && oParameters.get("mockdata") === "true";
 			//Initialize main model
 			this.getModel().init(bUseMockData);
+			this.setModel(new OrderModel(), "order");
 
 			this.getRouter().initialize();
 		}
