@@ -24,6 +24,9 @@
                                 showCloseButton="false"
                                 authorName="{slots>customer}" />
                     </List>
+                    <MessageStrip
+                            text="Es ist ein Filter für anstehende Fast Lanes vorgesehen, der nur die nächste Stunde anzeigt. Dieser ist implementiert, aber aktuell deaktiviert."
+                            showIcon="true" />
                     <List   headerText="{i18n>ordersUpcoming}"
                             items="{
                                 path: 'slots>/upcoming'}"
@@ -33,11 +36,8 @@
                                 press="onOrderPress"
                                 showCloseButton="false"
                                 datetime="{path: 'slots>startsInMin', formatter:'.formatInMins'}"
-                                authorName="{slots>customer}" />
+                                authorName="{slots>id}" />
                     </List>
-                    <MessageStrip
-                            text="Aktuell ist die Filterung ausgeschaltet: sonst sieht man nur die nächste Stunde."
-                            showIcon="true" />
                 </content>
             </Panel>
             <Panel width="auto" class="sapUiResponsiveMargin">
