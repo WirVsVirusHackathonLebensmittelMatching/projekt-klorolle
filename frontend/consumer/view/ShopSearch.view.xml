@@ -8,7 +8,6 @@
 		<Page id="page" title="{i18n>selectShopTitle}">
 			<content>
 				<VBox alignItems="Center">
-					<Image src="media/klopa_transparent.png" decorative="true" height="100px"/>
 					<List
 						id="shopList"
 						items="{/shops}"
