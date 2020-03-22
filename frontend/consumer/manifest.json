@@ -126,6 +126,14 @@
 				"name": "fastLaneConfirm",
 				"pattern": "shop/{shopId}/fastLaneConfirm/{orderId}",
 				"target": ["fastLaneConfirm"]
+			}, {
+				"name": "orderList",
+				"pattern": "orders",
+				"target": ["orderList"]
+			}, {
+				"name": "orderDetails",
+				"pattern": "orders/{orderId}",
+				"target": ["orderDetails"]
 			}],
 			"targets": {
 				"login": {
@@ -161,6 +169,14 @@
 					"viewName": "FastLaneTypeSelect"
 				},
 				"fastLaneConfirm": {
+					"viewId": "FastLaneConfirm",
+					"viewName": "FastLaneConfirm"
+				},
+				"orderList": {
+					"viewId": "OrderList",
+					"viewName": "OrderList"
+				},
+				"orderDetails": {
 					"viewId": "FastLaneConfirm",
 					"viewName": "FastLaneConfirm"
 				},

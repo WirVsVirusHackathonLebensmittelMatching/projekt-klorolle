@@ -1,7 +1,8 @@
 sap.ui.define([
-	"./BaseController"
+	"./BaseController",
+	"../model/UUID"
 ], function (
-	BaseController
+	BaseController, UUID
 ) {
 	"use strict";
 	
@@ -19,12 +20,13 @@ sap.ui.define([
 			let oOrder = this.getView().getModel().getProperty("/order");
 			oOrder.type = bPickUp ? "clickAndCollect" : "shopYourself";
 			oOrder.comment = this.getView().byId("comment").getValue();
-			oOrder.customer = "3fa85f64-5717-4562-b3fc-2c963f66afa6";
+			oOrder.customer = UUID.createV4();
 
 			this.getView().getModel().confirmOrder(oOrder).then(function (oPlacedOrder) {
-				this.getView().getModel().setProperty("/order", oPlacedOrder);
-				this.getRouter().navTo("fastLaneConfirm", {
-					shopId: oPlacedOrder.shop,
+				//Postprocess order
+				oPlacedOrder.shopName = this.getModel().getProperty("/shop/name");
+				this.getView().getModel("account").addOrder(oPlacedOrder);
+				this.getRouter().navTo("orderDetails", {
 					orderId: oPlacedOrder.id
 				});
 			}.bind(this));

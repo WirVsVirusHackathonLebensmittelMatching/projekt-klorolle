@@ -1,0 +1,27 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.FastLaneConfirm"
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>fastlanesPageTitle}">
+			<content>
+				<List 
+					id="orderList" 
+					headerText="{i18n>orders}"
+					items="{account>/orders}"
+				>
+					<items>
+						<ObjectListItem
+							type="Navigation"
+							title="{account>shopName}"
+							number="{account>dateStart}"
+							press=".navTo('orderDetails', {orderId: ${account>id} })"
+						>
+						</ObjectListItem>
+					</items>
+				</List>
+			</content>
+		</Page>
+</mvc:View>
