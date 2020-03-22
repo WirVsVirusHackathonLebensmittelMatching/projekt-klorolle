@@ -7,14 +7,14 @@
 			<InputListItem label="{i18n>from}">
 			<TimePicker
 					id="shoppingTimeFrom"
-					value="{shop>/timeslots/timeFrom}"
+					value="{shop>/timeslots/from}"
 					valueFormat="HH:mm"
 					displayFormat="HH:mm" />
 			</InputListItem>
 			<InputListItem label="{i18n>to}">
 				<TimePicker
 						id="shoppingTimeTo"
-						value="{shop>/timeslots/timeTo}"
+						value="{shop>/timeslots/to}"
 						valueFormat="HH:mm"
 						displayFormat="HH:mm" />
 			</InputListItem>

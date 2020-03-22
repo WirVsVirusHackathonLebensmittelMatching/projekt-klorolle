@@ -26,8 +26,8 @@ sap.ui.define([
 		onConfirmSlotConfig: function () {
 			var oView = this.getView();
 			var oConfig = {
-				timeFrom: oView.byId("shoppingTimeFrom").getValue(),
-				timeTo: oView.byId("shoppingTimeTo").getValue(),
+				from: oView.byId("shoppingTimeFrom").getValue(),
+				to: oView.byId("shoppingTimeTo").getValue(),
 				slotDuration: Number.parseInt(oView.byId("slotDuration").getValue()),
 				parallelSlots: Number.parseInt(oView.byId("parallelSlots").getValue())
 			};

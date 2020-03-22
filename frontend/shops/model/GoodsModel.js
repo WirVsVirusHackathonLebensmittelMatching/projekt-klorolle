@@ -13,6 +13,7 @@ sap.ui.define([
 		shopId: undefined,
 		load: function (sShopId) {
 			if (sShopId === this.shopId) {
+				this.updateBindings();
 				return Promise.resolve();
 			}
 			this.shopId = sShopId;

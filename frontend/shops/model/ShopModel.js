@@ -11,6 +11,7 @@ sap.ui.define([
 		shopId: undefined,
 		load: function (sShopId) {
 			if (sShopId === this.shopId) {
+				this.updateBindings();
 				return Promise.resolve();
 			}
 			this.shopId = sShopId;
@@ -21,8 +22,8 @@ sap.ui.define([
 			var oShop = this.getData();
 			oShop.timeslots = mConfig;
 
-			return Connection.put("/api/v1/shops/" + this.shopId, oShop).then(function () {
-				this.setProperty("timeslots", mConfig);
+			return Connection.put("/api/v1/shops/" + this.shopId, oShop).then(function (oWrittenShop) {
+				this.setData(oWrittenShop);
 			}.bind(this));
 		}
 	});
