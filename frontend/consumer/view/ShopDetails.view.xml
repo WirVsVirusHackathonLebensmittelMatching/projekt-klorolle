@@ -9,7 +9,10 @@
 			<content>
 				<VBox alignItems="Center">
 					<Button id="findNextFastlane" text="{i18n>findNextFastlane}" press=".onFindNextFastlane" class="sapUiSmallMarginTopBottom" />
-					<Button id="showShopCalendar" text="{i18n>showShopCalendar}" press=".onShowShopCalendar" class="sapUiSmallMarginTopBottom" />
+					<Button id="showShopCalendar" enabled="false" text="{i18n>showShopCalendar}" press=".onShowShopCalendar" class="sapUiSmallMarginTopBottom" />
+					<MessageStrip
+							text="Wir vergeben leider aktuell nur Termine am gleichen Tag."
+							showIcon="true" />
 					<List
 						id="shopInfos"
 						items="{/shop/goods}"

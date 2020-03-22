@@ -1,7 +1,9 @@
 sap.ui.define([
-	"./BaseController"
+	"./BaseController",
+	"sap/m/MessageBox"
 ], function (
-	BaseController
+	BaseController,
+	MessageBox
 ) {
 	"use strict";
 	
@@ -23,6 +25,9 @@ sap.ui.define([
 				oBaseModel.setProperty("/order", oFastLane);
 				this.getRouter().navTo("fastLaneTypeSelect", {shopId: sShopId});
 			}.bind(this))
+			.catch(function (sError) {
+				MessageBox.error(sError);
+			})
 		}
 	});
 });

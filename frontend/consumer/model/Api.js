@@ -74,7 +74,7 @@ sap.ui.define([
                     } else {
                         Log.error("Call to " + sPath + " failed: " + textStatus);
                     }
-                    reject(textStatus);
+                    reject(jqXHR.responseJSON.message);
                 });
             });
         },
