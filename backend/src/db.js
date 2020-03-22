@@ -18,7 +18,8 @@ const db = low(adapter);
 db.defaults({
   shops: [],
   goods: [],
-  timeslots: [],
+  orders: [],
+  customer: [],
 }).write();
 
 db.read();
