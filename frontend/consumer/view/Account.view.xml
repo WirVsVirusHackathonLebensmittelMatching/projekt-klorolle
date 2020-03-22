@@ -24,7 +24,8 @@
 							class="sapUiMediumMarginTopBottom" 
 						/>
 						<Button 
-							id="messages" 
+							id="messages"
+							enabled="false"
 							text="{i18n>messages}"
 							icon="sap-icon://paper-plane"
 							press=".navTo('messages')" 
