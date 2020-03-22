@@ -48,10 +48,7 @@ const findByPostalCode = {
     type: 'object',
     required: ['postalCode'],
     properties: {
-      postalCode: {
-        type: 'string',
-        description: 'Postalcode',
-      },
+      postalCode: { type: 'integer' },
     },
   },
 };

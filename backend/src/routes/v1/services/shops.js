@@ -27,7 +27,7 @@ module.exports = (fastify, opts, done) => {
       return shops;
     });
 
-  // find by shops by postalcode
+  // find shops by postalcode
   fastify.get('/byPostalCode/:postalCode', { schema: schemas.findByPostalCode },
     async ({ params }) => {
       const shops = db.get('shops').filter({ postalCode: params.postalCode }).value() || [];
