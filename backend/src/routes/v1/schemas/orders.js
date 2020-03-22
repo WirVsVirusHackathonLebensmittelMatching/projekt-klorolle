@@ -93,10 +93,9 @@ const createOne = {
   tags: ['orders'],
   body: {
     type: 'object',
-    required: ['customer', 'shop', 'dateStart'],
+    required: ['customer', 'dateStart'],
     properties: {
       customer: { type: 'string', format: 'uuid' },
-      shop: { type: 'string', format: 'uuid' },
       dateStart: { type: 'string', format: 'date-time' },
       type: { type: 'string', enum: ['shopYourself', 'clickAndCollect'] },
       status: { type: 'string', enum: ['', 'rejected'] },

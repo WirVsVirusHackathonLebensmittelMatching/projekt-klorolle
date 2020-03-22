@@ -57,7 +57,7 @@ module.exports = (fastify, opts, done) => {
       function getOrdersOfSlot(minutes) {
         const orders = db.get('orders')
           .filter({ shop: params.shop })
-          .filter((o) => moment(o).duration().asMinutes() < i)
+          .filter((o) => moment(o).duration().asMinutes() === minutes)
           .value();
 
         return orders.length || -1;
@@ -84,7 +84,10 @@ module.exports = (fastify, opts, done) => {
 
       // no free timeslot for date found
       if (!dateStart) {
-        return reply();
+        return reply
+          .code(409)
+          .type('application/json')
+          .send({ message: 'No free timeslot' });
       }
 
       const order = {
@@ -102,13 +105,19 @@ module.exports = (fastify, opts, done) => {
   fastify.post('/', { schema: schemas.createOne },
     async ({ body, params }, reply) => {
       const shop = db.get('shops').find({ id: params.shop }).value();
-      console.log(shop);
 
       if (!shop) {
         return reply
           .code(404)
           .type('application/json')
           .send({ message: 'Shop does not exist' });
+      }
+
+      if (!shop.timeslots || !shop.timeslots.slotDuration) {
+        return reply
+          .code(409)
+          .type('application/json')
+          .send({ message: 'Please contact shop owner!' });
       }
 
       const order = body;
