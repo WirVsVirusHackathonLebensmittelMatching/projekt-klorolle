@@ -8,11 +8,12 @@
 		<Page id="page" title="{/shop/name}">
 			<content>
 				<VBox alignItems="Center">
+                    <MessageStrip
+                            text="Wir vergeben aktuell nur Termine am gleichen oder folgenden Tag."
+                            showIcon="true"
+                            class="sapUiTinyMargin" />
 					<Button id="findNextFastlane" text="{i18n>findNextFastlane}" press=".onFindNextFastlane" class="sapUiSmallMarginTopBottom" />
 					<Button id="showShopCalendar" enabled="false" text="{i18n>showShopCalendar}" press=".onShowShopCalendar" class="sapUiSmallMarginTopBottom" />
-					<MessageStrip
-							text="Wir vergeben aktuell nur Termine am gleichen oder folgenden Tag."
-							showIcon="true" />
 					<List
 						id="shopInfos"
 						items="{/shop/goods}"
