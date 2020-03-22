@@ -95,6 +95,10 @@
               "name": "Calendar",
               "pattern": "{id}/slotCalendar",
               "target": ["TargetCalendar"]
+            }, {
+              "name": "Order",
+              "pattern": "{id}/order/{orderId}",
+              "target": ["TargetOrder"]
             }],
 			"targets": {
 				"TargetLogin": {
@@ -121,12 +125,18 @@
 					"viewId": "SlotConfig",
 					"viewName": "SlotConfig"
 				},
-				"TargetCalendar": {
-					"viewType": "XML",
-					"transition": "slide",
-					"viewId": "Calendar",
-					"viewName": "Calendar"
-				}
+                "TargetCalendar": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "viewId": "Calendar",
+                  "viewName": "Calendar"
+                },
+                "TargetOrder": {
+                  "viewType": "XML",
+                  "transition": "slide",
+                  "viewId": "Order",
+                  "viewName": "Order"
+                }
 			}
 		}
 	}

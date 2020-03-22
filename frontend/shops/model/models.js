@@ -2,12 +2,14 @@ sap.ui.define([
 	"com/wir/vs/virus/timeslots/ShopOwner/model/GoodsModel",
 	"com/wir/vs/virus/timeslots/ShopOwner/model/SlotsModel",
 	"com/wir/vs/virus/timeslots/ShopOwner/model/ShopModel",
-	"com/wir/vs/virus/timeslots/ShopOwner/model/ShopsModel"
+	"com/wir/vs/virus/timeslots/ShopOwner/model/ShopsModel",
+	"com/wir/vs/virus/timeslots/ShopOwner/model/OrderModel"
 ], function (
 	GoodsModel,
 	SlotsModel,
 	ShopModel,
-	ShopsModel
+	ShopsModel,
+	OrderModel
 ) {
 	"use strict";
 
@@ -34,7 +36,12 @@ sap.ui.define([
 			var oModel = new SlotsModel();
 			oModel.setDefaultBindingMode("OneWay");
 			return oModel;
-		}
+		},
 
+		createOrderModel: function () {
+			var oModel = new OrderModel();
+			oModel.setDefaultBindingMode("OneWay");
+			return oModel;
+		}
 	};
 });

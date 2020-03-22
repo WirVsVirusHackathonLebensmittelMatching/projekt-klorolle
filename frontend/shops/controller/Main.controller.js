@@ -29,6 +29,7 @@ sap.ui.define([
 
 			this.getView().getModel("goods").load(this.sId);
 			this.getView().getModel("shop").load(this.sId);
+			this.getView().getModel("slots").load(this.sId);
 		},
 
 		onGoodChanged: function (oEvent) {
@@ -54,6 +55,16 @@ sap.ui.define([
 				title: oGroup.key,
 				upperCase: false
 			});
+		},
+
+		formatInMins: function (nInMins) {
+			return "in " + nInMins + " Min";
+		},
+
+		onOrderPress: function (oEvent) {
+			var oBindingContext = oEvent.getSource().getBindingContext("slots");
+			var sOrderId = oBindingContext.getModel().getProperty(oBindingContext.getPath()).id;
+			this.oRouter.navTo("Order", {id: this.sId, orderId: sOrderId});
 		}
 	});
 });
