@@ -72,7 +72,9 @@
 			}
 		},
 		"resources": {
-			
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
