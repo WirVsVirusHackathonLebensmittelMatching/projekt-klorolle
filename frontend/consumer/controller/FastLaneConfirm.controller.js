@@ -15,6 +15,10 @@ sap.ui.define([
 		{
 			let oArguments = oEvent.getParameter("arguments");
 			this.getModel("account").selectOrder(oArguments.orderId);
+		},
+
+		formatDate: function (sDate) {
+			return new Date(sDate).toLocaleString();
 		}
 	});
 });

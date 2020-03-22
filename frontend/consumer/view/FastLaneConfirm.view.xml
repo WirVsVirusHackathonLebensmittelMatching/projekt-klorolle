@@ -7,8 +7,9 @@
 			<content>
 				<VBox alignItems="Center" class="sapUiLargeMarginTop">
 					<Label text="{i18n>fastLaneConfirmed}" />
-					<Label text="{account>/order/dateStart}" design="Bold" class="sapUiSmallMarginTop"/>
-					<Label text="{account>/order/id}" design="Bold" class="sapUiSmallMarginTop" />
+					<Label text="{path: 'account>/order/dateStart', formatter:'.formatDate'}" design="Bold" />
+					<Label text="{i18n>fastLaneId}"  class="sapUiSmallMarginTop" />
+					<Label text="{account>/order/id}" design="Bold" />
 					<Label text="{i18n>fastLaneConfirmSeeYou}" class="sapUiSmallMarginTop" />
 				</VBox>
 			</content>
