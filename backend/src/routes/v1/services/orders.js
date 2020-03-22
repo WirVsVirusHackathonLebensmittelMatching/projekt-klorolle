@@ -44,40 +44,74 @@ module.exports = (fastify, opts, done) => {
     async ({ params }, reply) => {
       const shop = db.get('shops').find({ id: params.shop }).value();
       if (!shop) {
-        return reply.callNotFound();
+        return reply
+          .code(409)
+          .type('application/json')
+          .send({ message: 'Shop not found' });
       }
 
-      const requestedDate = moment(params.date, 'DD/MM/YYYY');
+      // get slot start from minutes
+      function getSlotStart(minutes) {
+        return minutes - (minutes % shop.timeslots.slotDuration);
+      }
 
-      // is requested date in the past
-      if (requestedDate < moment()) {
-        return reply.callNotFound();
+      function minutesSinceMidnight(date) {
+        const mmtMidnight = date.clone().startOf('day');
+
+        // Difference in minutes
+        return date.diff(mmtMidnight, 'minutes');
       }
 
       function getOrdersOfSlot(minutes) {
         const orders = db.get('orders')
           .filter({ shop: params.shop })
-          .filter((o) => moment(o).duration().asMinutes() === minutes)
+          .filter((o) => {
+            const i = getSlotStart(minutesSinceMidnight(moment(o)));
+            const j = getSlotStart(minutes);
+            return i === j;
+          })
           .value();
 
         return orders.length || -1;
       }
 
-      let min = moment(shop.timeslots.from);
+      const requestedDate = moment(params.date, 'YYYY/MM/DD');
+
+      // is requested date in the past
+      if (requestedDate.diff(moment(), 'days') < 0) {
+        return reply
+          .code(409)
+          .type('application/json')
+          .send({ message: 'You can not request slots for past dates' });
+      }
+
+      if (!shop.timeslots || !shop.timeslots.from) {
+        return reply
+          .code(409)
+          .type('application/json')
+          .send({ message: 'Please contact the shop owner!' });
+      }
+
+      let from = moment(shop.timeslots.from, 'HH:mm');
 
       // if requested day is today
       if (requestedDate.isSame(moment(), 'day')) {
-        min = moment.max(min, moment());
+        from = moment.max(from, moment());
       }
 
-      const from = min.duration().asMinutes();
-      const to = moment(shop.timeslots.to).duration().asMinutes();
+      from = minutesSinceMidnight(from);
+      from = getSlotStart(from);
+      const to = minutesSinceMidnight(moment(shop.timeslots.to, 'HH:mm'));
 
       let dateStart;
-      for (let i = 0; i <= to; i += shop.timeslots.slotDuration) {
+      for (let i = from; i <= to; i += shop.timeslots.slotDuration) {
         // if in future and after opening and if timeslots left
         if (i > from && getOrdersOfSlot(i) < shop.timeslots.parallelSlots) {
-          dateStart = 0;
+          requestedDate.set({
+            minute: i % 60,
+            hour: Math.floor(i / 60),
+          });
+          dateStart = requestedDate.utcOffset(0).toISOString();
           break;
         }
       }
@@ -117,7 +151,7 @@ module.exports = (fastify, opts, done) => {
         return reply
           .code(409)
           .type('application/json')
-          .send({ message: 'Please contact shop owner!' });
+          .send({ message: 'Please contact the shop owner!' });
       }
 
       const order = body;
