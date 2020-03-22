@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController, MessageToast) {
 	"use strict";
 	
-	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Account", {
+	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Register", {
 		onInit: function () {
 			this.createViewModel({
 				registration: {

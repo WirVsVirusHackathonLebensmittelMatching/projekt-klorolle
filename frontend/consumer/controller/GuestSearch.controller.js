@@ -9,7 +9,7 @@ sap.ui.define([
 ) {
 	"use strict";
 	
-	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Login", {
+	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.GuestSearch", {
 		onInit: function () {
 			this.createViewModel({
 				search: {

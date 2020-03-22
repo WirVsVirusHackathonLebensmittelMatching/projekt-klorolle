@@ -5,7 +5,7 @@ sap.ui.define([
 ) {
 	"use strict";
 	
-	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Account", {
+	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.PersonalData", {
 		onInit: function () {
 			this.getRouter().getRoute("personalData").attachPatternMatched(this.onPatternMatched, this);
 		},
