@@ -6,6 +6,13 @@
 
 Description ...
 
+## Links
+- [Docs](https://wirvsvirushackathonlebensmittelmatching.github.io/projekt-klorolle/)
+- [Demo index](http://klopa-ci.dreier.cloud/)
+- [Demo Consumer App](http://klopa-ci.dreier.cloud/consumer/)
+- [Demo Shop App](http://klopa-ci.dreier.cloud/shops/)
+- [Swagger docs](http://klopa-ci.dreier.cloud/api/docs/)
+
 ## Development
 ```
 cd backend/
