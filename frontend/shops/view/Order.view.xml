@@ -55,7 +55,7 @@
 			<OverflowToolbar>
 				<ToolbarSpacer/>
 				<Button type="Emphasized" text="{i18n>confirmButton}" press="onConfirm" />
-				<Button type="Reject" text="{i18n>rejectButton}" press="onReject" />
+				<Button type="Reject" enabled="false" text="{i18n>rejectButton}" press="onReject" />
 			</OverflowToolbar>
 		</footer>
 	</Page>

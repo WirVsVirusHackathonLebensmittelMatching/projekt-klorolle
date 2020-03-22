@@ -35,6 +35,9 @@
                                 datetime="{path: 'slots>startsInMin', formatter:'.formatInMins'}"
                                 authorName="{slots>customer}" />
                     </List>
+                    <MessageStrip
+                            text="Aktuell ist die Filterung ausgeschaltet: sonst sieht man nur die nächste Stunde."
+                            showIcon="true" />
                 </content>
             </Panel>
             <Panel width="auto" class="sapUiResponsiveMargin">
