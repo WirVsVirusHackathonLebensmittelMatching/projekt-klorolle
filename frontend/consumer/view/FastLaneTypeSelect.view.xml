@@ -11,8 +11,14 @@
 					<Label text="{i18n>comment}" class="sapUiSmallMarginTop" />
 					<TextArea id="comment" width="500px" rows="10" />
 					<Label text="{i18n>askAboutFastLaneType}" class="sapUiSmallMarginTop" />
-					<Button id="shopping" text="{i18n>shopping}" press=".onProceedFastLane(false)" class="sapUiSmallMarginTop" />
-					<Button id="pickup" text="{i18n>pickup}" press=".onProceedFastLane(true)" class="sapUiSmallMarginTop" />
+					<HBox
+						justifyContent="Center"
+						alignContent="SpaceBetween"
+						width="100%"
+					>
+						<Button id="shopping" text="{i18n>shopping}" press=".onProceedFastLane(false)" class="sapUiSmallMarginEnd"/>
+						<Button id="pickup" text="{i18n>pickup}" press=".onProceedFastLane(true)" class="sapUiSmallMarginBegin"/>
+					</HBox>
 				</VBox>
 			</content>
 		</Page>
