@@ -107,7 +107,7 @@ sap.ui.define([
 						return oData.state === "now";
 					}),
 					upcoming: aData.filter(function (oData) {
-						return oData.state === "future" && oData.startsInMin < 60;
+						return oData.state === "future" /*&& oData.startsInMin < 60*/;
 					})
 				});
 			}.bind(this));
