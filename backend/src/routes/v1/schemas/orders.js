@@ -97,7 +97,7 @@ const createOne = {
     properties: {
       customer: { type: 'string', format: 'uuid' },
       shop: { type: 'string', format: 'uuid' },
-      dateStart: { type: 'string', format: 'date' },
+      dateStart: { type: 'string', format: 'date-time' },
       type: { type: 'string', enum: ['shopYourself', 'clickAndCollect'] },
       status: { type: 'string', enum: ['', 'rejected'] },
       comment: { type: 'string' },
