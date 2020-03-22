@@ -19,7 +19,7 @@ sap.ui.define([
 		},
 
 		onSearch: function(bAsGuest) {
-			this.getRouter().navTo("searchByZipCode", {
+			this.getRouter().navTo("shopSearch", {
 				zipCode: this.getViewModel().getProperty("/search/zipCode")
 			});
 		}

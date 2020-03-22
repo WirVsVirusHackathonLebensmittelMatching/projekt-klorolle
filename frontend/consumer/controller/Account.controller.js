@@ -20,5 +20,12 @@ sap.ui.define([
 				this.navTo("login");
 			}
 		},
+
+		onFindFastlane: function()
+		{
+			this.getRouter().navTo("shopSearch", {
+				zipCode: this.getModel("account").getProperty("/zipCode")
+			});
+		}
 	});
 });

@@ -110,6 +110,10 @@
 				"name": "personalData",
 				"pattern": "account/personalData",
 				"target": ["personalData"]
+			}, {
+				"name": "shopSearch",
+				"pattern": "search/zip/:zipCode:/distance/:distance:",
+				"target": ["shopSearch"]
 			}],
 			"targets": {
 				"login": {
@@ -131,6 +135,10 @@
 				"account": {
 					"viewId": "Account",
 					"viewName": "Account"
+				},
+				"shopSearch": {
+					"viewId": "ShopSearch",
+					"viewName": "ShopSearch"
 				},
 				"notFound": {
 					"viewId": "NotFound",
