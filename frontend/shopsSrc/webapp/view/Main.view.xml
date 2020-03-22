@@ -1,0 +1,74 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Main" xmlns:mvc="sap.ui.core.mvc"
+		  displayBlock="true"
+          xmlns:core="sap.ui.core"
+		  xmlns="sap.m">
+	<Page id="page">
+		<content>
+            <Panel width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar height="3rem">
+                        <Title text="{i18n>whatsNext}"/>
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://settings" press="toSlotsConfig" />
+                        <Button icon="sap-icon://calendar" press="toCalendar" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <List   headerText="{i18n>ordersNow}"
+                            items="{
+                                path: 'slots>/now'}"
+                            class="sapUiContentPadding" >
+                        <NotificationListItem
+                                title="{path:'slots>type', formatter:'.formatTitle'}"
+                                press="onOrderPress"
+                                showCloseButton="false"
+                                authorName="{slots>customer}" />
+                    </List>
+                    <MessageStrip
+                            text="{i18n>noFilterActivatedMessage}"
+                            showIcon="true" />
+                    <List   headerText="{i18n>ordersUpcoming}"
+                            items="{
+                                path: 'slots>/upcoming'}"
+                          class="sapUiContentPadding" >
+                        <NotificationListItem
+                                title="{path:'slots>type', formatter:'.formatTitle'}"
+                                press="onOrderPress"
+                                showCloseButton="false"
+                                datetime="{path: 'slots>startsInMin', formatter:'.formatInMins'}"
+                                authorName="{slots>id}" />
+                    </List>
+                </content>
+            </Panel>
+            <Panel width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar height="3rem">
+                        <Title text="{i18n>customerInformation}"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <List items="{
+                                path: 'goods>/',
+                                sorter: {
+                                    path: 'category',
+                                    descending: false,
+                                    group: true
+                                },
+                                groupHeaderFactory: '.getGroupHeader'
+                            }" class="sapUiContentPadding" >
+                        <InputListItem label="{goods>name}">
+                            <Select
+                                    selectedKey="{goods>status}"
+                                    change="onGoodChanged" >
+                                <core:Item key="available" text="{i18n>goodAvailable}" />
+                                <core:Item key="short" text="{i18n>goodShort}" />
+                                <core:Item key="empty" text="{i18n>goodEmpty}" />
+                                <core:Item key="unknown" text="{i18n>goodUnknown}" />
+                            </Select>
+                        </InputListItem>
+                    </List>
+                </content>
+            </Panel>
+		</content>
+	</Page>
+</mvc:View>

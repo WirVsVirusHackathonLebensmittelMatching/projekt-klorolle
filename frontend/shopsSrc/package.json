@@ -1,0 +1,23 @@
+{
+  "name": "shops",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openui5/sap.f": "^1.75.0",
+    "@openui5/sap.m": "^1.75.0",
+    "@openui5/sap.ui.core": "^1.75.0",
+    "@openui5/sap.ui.layout": "^1.75.0",
+    "@openui5/sap.ui.support": "^1.75.0",
+    "@openui5/sap.ui.testrecorder": "^1.75.0",
+    "@openui5/sap.ui.unified": "^1.75.0",
+    "@openui5/themelib_sap_belize": "^1.75.0",
+    "@openui5/themelib_sap_fiori_3": "^1.75.0"
+  }
+}

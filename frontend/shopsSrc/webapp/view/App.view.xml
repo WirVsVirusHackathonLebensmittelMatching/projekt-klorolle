@@ -1,0 +1,6 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Login" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<Shell id="shell" title="{i18n>appTitle}">
+		<App id="app" />
+	</Shell>
+</mvc:View>

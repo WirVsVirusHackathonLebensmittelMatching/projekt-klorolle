@@ -1,0 +1,62 @@
+{
+	"name": "shops",
+	"version": "1.0.0",
+	"buildTimestamp": "202003222345",
+	"scmRevision": "",
+	"libraries": [
+		{
+			"name": "sap.ui.core",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.m",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.f",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.ui.layout",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.ui.unified",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.ui.support",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.ui.codeeditor",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.ui.fl",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		},
+		{
+			"name": "sap.ui.testrecorder",
+			"version": "1.75.0",
+			"buildTimestamp": "202003222345",
+			"scmRevision": ""
+		}
+	]
+}

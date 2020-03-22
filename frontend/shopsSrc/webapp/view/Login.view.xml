@@ -1,0 +1,27 @@
+<mvc:View controllerName="com.wir.vs.virus.timeslots.ShopOwner.controller.Login" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>loginTitle}">
+			<content>
+					<VBox id="loginGroup" alignItems="Center">
+                        <Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
+
+						<MessageStrip
+								text="{i18n>loginInfo}"
+								showIcon="true" class="sapUiMediumMarginTop" />
+						<Label labelFor="shopName" text="{i18n>loginShopName}" class="sapUiTinyMarginTop" />
+						<Input id="shopName" />
+						<Label labelFor="password" text="{i18n>password}" class="sapUiTinyMarginTop" />
+						<Input id="password" type="Password" enabled="false" />
+
+						<Button id="login" text="{i18n>login}" press="onLogin" type="Emphasized" class="sapUiSmallMargin" />
+						<MessageStrip
+								id="loginFailedMessage"
+								text="{i18n>loginFailed}"
+								type="Error"
+								visible="false"
+								showIcon="true" />
+						<Button id="register" text="{i18n>register}" press="onRegister" />
+					</VBox>
+			</content>
+		</Page>
+</mvc:View>
