@@ -23,6 +23,31 @@ sap.ui.define([
                 default:
                     return ValueState.None;
             }
+        },
+
+        orderTypeText: function(sOrderType)
+        {
+            switch(sOrderType)
+            {
+                case 'shopYourself':
+                    return this.getText("shopping");
+                case 'clickAndCollect':
+                    return this.getText("pickup");
+                default:
+                    return sOrderType;
+            }
+            
+        },
+
+        orderStatusText: function(sOrderStatus)
+        {
+            switch(sOrderStatus)
+            {
+                case 'rejected':
+                    return this.getText("rejected");
+                default:
+                    return "";
+            }
         }
 	};
 });

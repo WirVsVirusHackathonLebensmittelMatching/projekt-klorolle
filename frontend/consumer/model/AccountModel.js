@@ -22,8 +22,38 @@ sap.ui.define([
                 email: "",
                 zipCode: "",
                 city: "",
-                phoneNumber: ""
+                phoneNumber: "",
+                orders: []
             });
+            this.reloadAccountData();
+        },
+
+        /**
+         * Store a new order into the account.
+         * @param {Order} oOrderData The order data.
+         */
+        addOrder: function(oOrderData) {
+            let aOrders = this.getProperty("/orders");
+            if (!Array.isArray(aOrders)) {
+                aOrders = [];
+            }
+            aOrders.push(oOrderData);
+            this.setProperty("/orders", aOrders);
+            this.updateAccountData();
+        },
+
+        selectOrder: function(sOrderId)
+        {
+            let aOrders = this.getProperty("/orders");
+            for (let oOrder of aOrders)
+            {
+                if (oOrder.id === sOrderId) {
+                    this.setProperty("/order", oOrder);
+                    return;
+                }
+            }
+            //Order ID not found
+            this.setProperty("/order", undefined);
         },
 
         /**

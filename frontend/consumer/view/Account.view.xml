@@ -20,7 +20,7 @@
 							id="myFastlanes" 
 							text="{i18n>myFastlanes}" 
 							icon="sap-icon://time-account" 
-							press=".navTo('fastlanes')" 
+							press=".navTo('orderList')" 
 							class="sapUiMediumMarginTopBottom" 
 						/>
 						<Button 

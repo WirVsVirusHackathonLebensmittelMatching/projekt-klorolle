@@ -1,5 +1,5 @@
 <mvc:View 
-	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.FastLaneTypeSelect"
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.FastLaneConfirm"
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
@@ -7,8 +7,8 @@
 			<content>
 				<VBox alignItems="Center" class="sapUiLargeMarginTop">
 					<Label text="{i18n>fastLaneConfirmed}" />
-					<Label text="{/order/dateStart}" design="Bold" class="sapUiSmallMarginTop"/>
-					<Label text="{/order/id}" design="Bold" class="sapUiSmallMarginTop" />
+					<Label text="{account>/order/dateStart}" design="Bold" class="sapUiSmallMarginTop"/>
+					<Label text="{account>/order/id}" design="Bold" class="sapUiSmallMarginTop" />
 					<Label text="{i18n>fastLaneConfirmSeeYou}" class="sapUiSmallMarginTop" />
 				</VBox>
 			</content>
