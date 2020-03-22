@@ -6,6 +6,22 @@ sap.ui.define([
 	MessageBox
 ) {
 	"use strict";
+
+	function findFastLane(bRetry) {
+		var oBaseModel = this.getModel();
+		let sShopId = oBaseModel.getProperty("/shop").id;
+		oBaseModel.findNextFastLane(sShopId, bRetry).then(function (oFastLane) {
+			oBaseModel.setProperty("/order", oFastLane);
+			this.getRouter().navTo("fastLaneTypeSelect", {shopId: sShopId});
+		}.bind(this))
+			.catch(function (sError) {
+				if (!bRetry) {
+					findFastLane.call(this, true);
+				} else {
+					MessageBox.error(sError);
+				}
+			}.bind(this))
+	}
 	
 	return BaseController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.ShopDetails", {
 		onInit: function () {
@@ -19,15 +35,7 @@ sap.ui.define([
 		},
 
 		onFindNextFastlane: function () {
-			var oBaseModel = this.getModel();
-			let sShopId = oBaseModel.getProperty("/shop").id;
-			oBaseModel.findNextFastLane(sShopId).then(function (oFastLane) {
-				oBaseModel.setProperty("/order", oFastLane);
-				this.getRouter().navTo("fastLaneTypeSelect", {shopId: sShopId});
-			}.bind(this))
-			.catch(function (sError) {
-				MessageBox.error(sError);
-			})
+			findFastLane.call(this, false);
 		}
 	});
 });

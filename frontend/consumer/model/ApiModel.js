@@ -72,11 +72,14 @@ sap.ui.define([
 			}
 		},
 
-		findNextFastLane: function(sShopId) {
-			var today = new Date();
-			var dd = String(today.getDate()).padStart(2, '0');
-			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-			var yyyy = today.getFullYear();
+		findNextFastLane: function(sShopId, bNextDay) {
+			var oRequestedDate = new Date();
+			if (bNextDay) {
+				oRequestedDate = new Date(new Date(oRequestedDate).getTime() + (24 * 60 * 60 * 1000));
+			}
+			var dd = String(oRequestedDate.getDate()).padStart(2, '0');
+			var mm = String(oRequestedDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = oRequestedDate.getFullYear();
 			var date = yyyy + '-' + mm + '-' + dd;
 
 			return this._api.get("/shops/" + encodeURL(sShopId) + "/orders/nextTimeslot/" + date).then(function(oData) {

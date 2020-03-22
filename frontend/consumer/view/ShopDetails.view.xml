@@ -11,7 +11,7 @@
 					<Button id="findNextFastlane" text="{i18n>findNextFastlane}" press=".onFindNextFastlane" class="sapUiSmallMarginTopBottom" />
 					<Button id="showShopCalendar" enabled="false" text="{i18n>showShopCalendar}" press=".onShowShopCalendar" class="sapUiSmallMarginTopBottom" />
 					<MessageStrip
-							text="Wir vergeben leider aktuell nur Termine am gleichen Tag."
+							text="Wir vergeben aktuell nur Termine am gleichen oder folgenden Tag."
 							showIcon="true" />
 					<List
 						id="shopInfos"
