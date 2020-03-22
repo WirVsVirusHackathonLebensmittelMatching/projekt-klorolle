@@ -12,6 +12,8 @@
 					<List
 						id="shopList"
 						items="{/shops}"
+						class="sapUiResponsiveMargin"
+						width="auto"
 					>
 						<layoutData>
 							<FlexItemData alignSelf="Stretch"/>
