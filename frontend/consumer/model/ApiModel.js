@@ -73,16 +73,16 @@ sap.ui.define([
 		},
 
 		findNextFastLane: function(sShopId) {
-			var dummySuggestion = {
-				"shop": sShopId,
-				"dateStart": new Date(),
-				"duration": 20,
-				"type": "",
-				"comment": ""
-			};
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+			var date = yyyy + '-' + mm + '-' + dd;
 
-			this.setProperty("/order", dummySuggestion);
-			return Promise.resolve(dummySuggestion);
+			return this._api.get("/shops/" + encodeURL(sShopId) + "/orders/nextTimeslot/" + date).then(function(oData) {
+				this.setProperty("/order", oData);
+				return oData;
+			}.bind(this));
 		},
 
 		confirmOrder: function (oOrder) {
