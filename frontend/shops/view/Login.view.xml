@@ -6,7 +6,7 @@
                         <Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
 
 						<MessageStrip
-								text="Eine Registierung / ein existierender Marktname reicht aktuell für einen Login aus!"
+								text="{i18n>loginInfo}"
 								showIcon="true" class="sapUiMediumMarginTop" />
 						<Label labelFor="shopName" text="{i18n>loginShopName}" class="sapUiTinyMarginTop" />
 						<Input id="shopName" />
@@ -19,8 +19,7 @@
 								text="{i18n>loginFailed}"
 								type="Error"
 								visible="false"
-								showIcon="true">
-						</MessageStrip>
+								showIcon="true" />
 						<Button id="register" text="{i18n>register}" press="onRegister" />
 					</VBox>
 			</content>

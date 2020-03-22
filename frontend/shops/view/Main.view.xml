@@ -25,7 +25,7 @@
                                 authorName="{slots>customer}" />
                     </List>
                     <MessageStrip
-                            text="Es ist ein Filter für anstehende Fast Lanes vorgesehen, der nur die nächste Stunde anzeigt. Dieser ist implementiert, aber aktuell deaktiviert."
+                            text="{i18n>noFilterActivatedMessage}"
                             showIcon="true" />
                     <List   headerText="{i18n>ordersUpcoming}"
                             items="{
