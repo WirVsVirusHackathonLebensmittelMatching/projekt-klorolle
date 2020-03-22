@@ -1,6 +1,7 @@
 const path = require('path');
 const AutoLoad = require('fastify-autoload');
 const git = require('git-last-commit');
+const db = require('../../db');
 const { version } = require('../../../package.json');
 
 module.exports = (fastify, opts, done) => {
@@ -27,6 +28,19 @@ module.exports = (fastify, opts, done) => {
       });
     });
   }));
+
+  // TODO: remove for security reasons
+  // if (process.env.NODE_ENV === 'development') {
+  fastify.get('/resetDatabase', {
+    schema: {
+      summary: 'database reset',
+    },
+  }, async () => {
+    // reset database
+    db.seedDatabase();
+    return { message: 'Database resseted!' };
+  });
+  // }
 
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, 'services'),
