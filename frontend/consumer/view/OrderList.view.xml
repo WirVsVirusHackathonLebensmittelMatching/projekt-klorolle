@@ -1,7 +1,5 @@
 <mvc:View 
 	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.FastLaneConfirm"
-	xmlns:core="sap.ui.core" 
-	xmlns:l="sap.ui.layout" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
@@ -14,13 +12,12 @@
 				>
 					<items>
 						<ObjectListItem
-							type="Navigation"
 							title="{account>shopName}"
-							number="{account>dateStart}"
-							press=".navTo('orderDetails', {orderId: ${account>id} })"
+							number="{path: 'account>dateStart', formatter: '.formatDate'}"
 							icon="{= ${account>type} === 'shopYourself' ? 'sap-icon://cart' : 'sap-icon://basket'}"
 						>
 							<attributes>
+								<ObjectAttribute title="{i18n>id}" text="{account>id}" />
 								<ObjectAttribute 
 									title="{i18n>orderType}"
 									text="{
