@@ -64,6 +64,7 @@ const findNextTimeslot = {
       type: 'object',
       properties: {
         // customer: { type: 'string', format: 'uuid' },
+        shop: { type: 'string', format: 'uuid' },
         dateStart: { type: 'string', format: 'date-time' },
         duration: { type: 'integer' },
         status: { type: 'string' },
@@ -82,7 +83,7 @@ const findNextTimeslot = {
     required: ['shop', 'date'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
-      date: { type: 'string', fomat: 'date' },
+      date: { type: 'string', fomat: 'date', example: 'yyyy-mm-dd' },
     },
   },
 };

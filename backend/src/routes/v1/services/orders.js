@@ -66,7 +66,7 @@ module.exports = (fastify, opts, done) => {
         const orders = db.get('orders')
           .filter({ shop: params.shop })
           .filter((o) => {
-            const i = getSlotStart(minutesSinceMidnight(moment(o)));
+            const i = getSlotStart(minutesSinceMidnight(moment(o.dateStart)));
             const j = getSlotStart(minutes);
             return i === j;
           })
@@ -75,7 +75,7 @@ module.exports = (fastify, opts, done) => {
         return orders.length || -1;
       }
 
-      const requestedDate = moment(params.date, 'YYYY/MM/DD');
+      const requestedDate = moment(params.date, 'YYYY-MM-DD');
 
       // is requested date in the past
       if (requestedDate.diff(moment(), 'days') < 0) {
@@ -126,6 +126,7 @@ module.exports = (fastify, opts, done) => {
 
       const order = {
         // customer: '', // pre-set customer id
+        shop: params.shop,
         dateStart,
         duration: shop.timeslots.slotDuration,
         status: '',
