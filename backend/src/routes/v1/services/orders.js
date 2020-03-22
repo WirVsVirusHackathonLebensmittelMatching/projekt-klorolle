@@ -51,7 +51,7 @@ module.exports = (fastify, opts, done) => {
       order.id = uuid(); // generate uuid
       order.shop = params.shop; // set shop id
       // order.customer = ''; // set customer id // TODO: force customer id
-      order.duration = shop.duration;
+      order.duration = shop.timeslots.slotDuration;
 
       db.get('orders').push(order).write();
       return order;
