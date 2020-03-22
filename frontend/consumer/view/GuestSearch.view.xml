@@ -7,10 +7,10 @@
 	xmlns="sap.m">
 		<Page id="page" title="{i18n>guestSearchTitle}">
 			<content>
-				<VBox alignItems="Center" justifyContent="SpaceAround" height="100%">
-					<Image src="media/klopa_transparent.png" decorative="true" height="300px"/>
+				<VBox alignItems="Center" height="100%">
+					<Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
 
-					<VBox id="loginGroup" alignItems="Center">
+					<VBox id="loginGroup" alignItems="Center" class="sapUiSmallMarginTop">
 						<Label labelFor="zipCode" text="{i18n>searchByZipCode}" />
 						<Input id="zipCode" value="{view>/search/zipCode}" valueLiveUpdate="true"/>
 
