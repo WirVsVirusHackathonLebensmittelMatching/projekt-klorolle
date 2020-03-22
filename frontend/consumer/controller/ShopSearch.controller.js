@@ -12,11 +12,9 @@ sap.ui.define([
 		
 		onSearchShop: function(oEvent)
 		{
-			if (oEvent.getParameter("refreshButtonPressed")) {
-				this.getModel().refreshShops();
-			} else {
-				this.getModel().searchShops(oEvent.getParameter("query"));
-			}
+			this.getRouter().navTo("shopSearch", {
+				zipCode: oEvent.getParameter("query")
+			});
 		},
 
 		_onPatternMatched: function(oEvent)
