@@ -18,7 +18,26 @@
 							title="{account>shopName}"
 							number="{account>dateStart}"
 							press=".navTo('orderDetails', {orderId: ${account>id} })"
+							icon="{= ${account>type} === 'shopYourself' ? 'sap-icon://cart' : 'sap-icon://basket'}"
 						>
+							<attributes>
+								<ObjectAttribute 
+									title="{i18n>orderType}"
+									text="{
+										path: 'account>type',
+										formatter: '.formatter.orderTypeText'
+									}"/>
+							</attributes>
+
+							<firstStatus>
+								<ObjectStatus
+									state="{= ${account>status} === 'rejected' ? 'Error' : 'None'  }"
+									text="{
+										path: 'account>status',
+										formatter: '.formatter.orderStatusText'
+									}"
+								/>
+							</firstStatus>
 						</ObjectListItem>
 					</items>
 				</List>
