@@ -5,7 +5,7 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
-		<Page id="page" title="{i18n>accountPageTitle}">
+		<Page id="page" title="{i18n>accountPageTitle}" showNavButton="true" navButtonPress="onNavBack">
 			<content>
 				<VBox alignItems="Center">
 					<VBox id="loginGroup" alignItems="Center">

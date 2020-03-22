@@ -3,7 +3,7 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
-		<Page id="page" title="{i18n>fastLaneConfirmedTitle}">
+		<Page id="page" title="{i18n>fastLaneConfirmedTitle}" showNavButton="true" navButtonPress="onNavBack">
 			<content>
 				<VBox alignItems="Center" class="sapUiLargeMarginTop">
 					<Label text="{i18n>fastLaneConfirmed}" />

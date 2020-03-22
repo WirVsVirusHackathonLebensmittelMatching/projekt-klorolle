@@ -4,6 +4,7 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/ValueState",
 	"sap/m/MessageToast",
+	"sap/ui/core/routing/History",
 	"../model/formatter"
 ], function (
 	Controller,
@@ -11,6 +12,7 @@ sap.ui.define([
 	JSONModel,
 	ValueState,
 	MessageToast,
+	History,
 	formatter
 ) {
 	"use strict";
@@ -36,6 +38,17 @@ sap.ui.define([
 
 		navTo: function(sRoute, oParameters) {
 			this.getRouter().navTo(sRoute, oParameters);
+		},
+
+		onNavBack: function () {
+			var oHistory = History.getInstance();
+			var sPreviousHash = oHistory.getPreviousHash();
+
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				this.oRouter.navTo("Login", undefined, true);
+			}
 		},
 
 		setErrorState: function(sId, sTextKey) {

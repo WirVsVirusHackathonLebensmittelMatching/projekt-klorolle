@@ -3,7 +3,7 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
-		<Page id="page" title="{/shop/name}">
+		<Page id="page" title="{/shop/name}" showNavButton="true" navButtonPress="onNavBack">
 			<content>
 				<VBox alignItems="Center">
                     <MessageStrip

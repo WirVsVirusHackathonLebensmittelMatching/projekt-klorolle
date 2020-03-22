@@ -1,9 +1,9 @@
 <mvc:View 
-	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.FastLaneConfirm"
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.OrderList"
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
-		<Page id="page" title="{i18n>fastlanesPageTitle}">
+		<Page id="page" title="{i18n>fastlanesPageTitle}" showNavButton="true" navButtonPress="onNavBack">
 			<content>
 				<List 
 					id="orderList" 
