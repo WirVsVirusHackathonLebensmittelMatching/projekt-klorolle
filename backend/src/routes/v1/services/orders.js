@@ -54,40 +54,38 @@ module.exports = (fastify, opts, done) => {
         return reply.callNotFound();
       }
 
-      // function getOrdersOfSlot(minutes) {
-      //   const orders = db.get('orders')
-      //     .filter({ shop: params.shop })
-      //     .filter((o) => moment(o).isSame(minutes))
-      //     .value();
+      function getOrdersOfSlot(minutes) {
+        const orders = db.get('orders')
+          .filter({ shop: params.shop })
+          .filter((o) => moment(o).duration().asMinutes() < i)
+          .value();
 
-      //   return orders.length || -1;
-      // }
+        return orders.length || -1;
+      }
 
-      // let min = moment(shop.timeslots.from);
+      let min = moment(shop.timeslots.from);
 
-      // // if requested day is today
-      // if (requestedDate.isSame(moment(), 'day')) {
-      //   min = moment.max(min, moment());
-      // }
+      // if requested day is today
+      if (requestedDate.isSame(moment(), 'day')) {
+        min = moment.max(min, moment());
+      }
 
-      // const from = min.duration().asMinutes();
-      // const to = moment(shop.timeslots.to).duration().asMinutes();
+      const from = min.duration().asMinutes();
+      const to = moment(shop.timeslots.to).duration().asMinutes();
 
-      // let dateStart;
-      // for (let i = 0; i <= to; i += shop.timeslots.slotDuration) {
-      //   // if in future and after opening and if timeslots left
-      //   if (i > from && getOrdersOfSlot(i) < shop.timeslots.parallelSlots) {
-      //     dateStart = 0;
-      //     break;
-      //   }
-      // }
+      let dateStart;
+      for (let i = 0; i <= to; i += shop.timeslots.slotDuration) {
+        // if in future and after opening and if timeslots left
+        if (i > from && getOrdersOfSlot(i) < shop.timeslots.parallelSlots) {
+          dateStart = 0;
+          break;
+        }
+      }
 
-      // // no free timeslot for date found
-      // if (!dateStart) {
-      //   return reply();
-      // }
-
-      const dateStart = 0;
+      // no free timeslot for date found
+      if (!dateStart) {
+        return reply();
+      }
 
       const order = {
         // customer: '', // pre-set customer id
@@ -103,10 +101,14 @@ module.exports = (fastify, opts, done) => {
   // create order
   fastify.post('/', { schema: schemas.createOne },
     async ({ body, params }, reply) => {
-      const shop = db.get('shops').find({ shop: params.shop }).value();
+      const shop = db.get('shops').find({ id: params.shop }).value();
+      console.log(shop);
 
       if (!shop) {
-        return reply.callNotFound();
+        return reply
+          .code(404)
+          .type('application/json')
+          .send({ message: 'Shop does not exist' });
       }
 
       const order = body;
