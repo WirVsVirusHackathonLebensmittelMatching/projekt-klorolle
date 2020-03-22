@@ -1,0 +1,44 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.Account" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>accountPageTitle}">
+			<content>
+				<VBox alignItems="Center">
+					<VBox id="loginGroup" alignItems="Center">
+						<Button 
+							id="findFastlane" 
+							text="{i18n>findFastlane}" 
+							icon="sap-icon://search" 
+							press=".onFindFastlane" 
+							class="sapUiMediumMarginTopBottom" 
+						/>
+						<Button 
+							id="myFastlanes" 
+							text="{i18n>myFastlanes}" 
+							icon="sap-icon://time-account" 
+							press=".navTo('fastlanes')" 
+							class="sapUiMediumMarginTopBottom" 
+						/>
+						<Button 
+							id="messages" 
+							text="{i18n>messages}"
+							icon="sap-icon://paper-plane"
+							press=".navTo('messages')" 
+							class="sapUiMediumMarginTopBottom" 
+						/>
+						<Button 
+							id="editData" 
+							text="{i18n>editData}" 
+							icon="sap-icon://business-card"
+							press=".navTo('personalData')" 
+							class="sapUiMediumMarginTopBottom" 
+						/>
+					</VBox>
+				</VBox>
+			</content>
+		</Page>
+</mvc:View>

@@ -1,0 +1,41 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.Register" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>registerTitle}">
+			<content>
+				<form:SimpleForm 
+					id="registrationData" 
+					layout="ResponsiveGridLayout" 
+					editable="true"
+
+					labelSpanL="4"
+					emptySpanL="4"
+
+					labelSpanM="4"
+					emptySpanM="4"
+				>
+					<form:title>
+						<core:Title text="{i18n>userdata}" />
+					</form:title>
+					<form:content>
+						<Label labelFor="username" text="{i18n>username}" />
+						<Input id="username" value="{view>/registration/username}" />
+
+						<Label labelFor="password" text="{i18n>password}" />
+						<Input id="password" value="{view>/registration/password}" type="Password" />
+
+						<Label labelFor="passwordRepeat" text="{i18n>passwordRepeat}" />
+						<Input id="passwordRepeat" value="{view>/registration/passwordRepeat}" type="Password" />
+					</form:content>
+				</form:SimpleForm>
+
+				<VBox alignItems="Center">
+					<Button id="register" text="{i18n>register}" press=".onRegister" />
+				</VBox>
+			</content>
+		</Page>
+</mvc:View>
