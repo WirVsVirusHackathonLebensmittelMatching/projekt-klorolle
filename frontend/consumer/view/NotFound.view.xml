@@ -1,0 +1,15 @@
+<mvc:View 
+    controllerName="com.wir.vs.virus.timeslots.Consumer.controller.NotFound" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+	xmlns="sap.m">
+    <MessagePage
+        title="{i18n>targetNotFound}"
+        text="{i18n>targetNotFoundMessage}"
+        icon="sap-icon://error"
+    >
+        <customDescription>
+            <Link text="{i18n>targetNotFoundDescription}" press=".navTo('account')" textAlign="Center" wrapping="true"/>
+        </customDescription>
+    </MessagePage>
+</mvc:View>

@@ -83,7 +83,10 @@
 				"viewPath": "com.wir.vs.virus.timeslots.Consumer.view",
 				"controlAggregation": "pages",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"clearControlAggregation": false,
+				"bypassed": {
+					"target": "notFound"
+				}
 			},
 			"routes": [{
 				"name": "login",
@@ -126,6 +129,10 @@
 				"account": {
 					"viewId": "Account",
 					"viewName": "Account"
+				},
+				"notFound": {
+					"viewId": "NotFound",
+					"viewName": "NotFound"
 				}
 			}
 		}
