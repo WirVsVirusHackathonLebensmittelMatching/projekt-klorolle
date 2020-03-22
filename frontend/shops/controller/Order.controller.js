@@ -22,10 +22,6 @@ sap.ui.define([
 			this.getView().getModel("order").load(this.sId, this.orderId);
 		},
 
-		onNavBack: function () {
-			this.oRouter.navTo("Main", {id: this.sId}, true);
-		},
-
 		onConfirm: function () {
 			this.onNavBack();
 		}

@@ -19,7 +19,7 @@
                                 path: 'slots>/now'}"
                             class="sapUiContentPadding" >
                         <NotificationListItem
-                                title="{slots>type}"
+                                title="{path:'slots>type', formatter:'.formatTitle'}"
                                 press="onOrderPress"
                                 showCloseButton="false"
                                 authorName="{slots>customer}" />
@@ -29,7 +29,7 @@
                                 path: 'slots>/upcoming'}"
                           class="sapUiContentPadding" >
                         <NotificationListItem
-                                title="{slots>type}"
+                                title="{path:'slots>type', formatter:'.formatTitle'}"
                                 press="onOrderPress"
                                 showCloseButton="false"
                                 datetime="{path: 'slots>startsInMin', formatter:'.formatInMins'}"

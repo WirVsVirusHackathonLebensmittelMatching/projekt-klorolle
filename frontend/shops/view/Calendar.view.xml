@@ -18,11 +18,14 @@
                 </views>
                 <appointments>
                     <unified:CalendarAppointment
-                            title="{slots>title}"
-                            type="{slots>type}"
-                            startDate="{slots>from}"
-                            endDate="{slots>to}"
-                            tentative="{slots>tentative}" />
+                            title="{path:'slots>type', formatter:'.formatTitle'}"
+                            type="{path:'slots>type', formatter:'.formatType'}"
+                            startDate="{path:'slots>dateStart', formatter:'.formatStartDate'}"
+                            endDate="{parts: [{path:'slots>dateStart'},{path:'slots>duration'}], formatter:'.formatEndDate'}">
+                        <unified:customData>
+                            <core:CustomData key="id" value="{slots>id}" />
+                        </unified:customData>
+                    </unified:CalendarAppointment>
                 </appointments>
             </SinglePlanningCalendar>
 		</content>

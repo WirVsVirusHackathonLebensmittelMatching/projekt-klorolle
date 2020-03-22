@@ -57,6 +57,10 @@ sap.ui.define([
 			});
 		},
 
+		formatTitle: function (sType) {
+			return sType === "shopYourself" ? "Einkauf" : "ClickAndCollect";
+		},
+
 		formatInMins: function (nInMins) {
 			return "in " + nInMins + " Min";
 		},

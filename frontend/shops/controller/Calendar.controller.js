@@ -5,8 +5,6 @@ sap.ui.define([
 	DetailsPageController,
 	models
 ) {
-	"use strict";
-	
 	return DetailsPageController.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Calendar", {
 		sRoute: "Calendar",
 
@@ -16,9 +14,9 @@ sap.ui.define([
 
 		_onObjectMatched : function (oEvent) {
 			DetailsPageController.prototype._onObjectMatched.apply(this, [oEvent]);
-			var sId = oEvent.getParameter("arguments").id;
-			this.getView().getModel("slots").load(sId);
-			this.getView().getModel("shop").load(sId);
+			this.sId = oEvent.getParameter("arguments").id;
+			this.getView().getModel("slots").load(this.sId);
+			this.getView().getModel("shop").load(this.sId);
 		},
 
 		formatStartHour: function (oShop) {
@@ -37,6 +35,32 @@ sap.ui.define([
 			var nEndTime =  Number.parseInt(sTo.split(":")[0]);
 			var bRoundUp = sTo.split(":")[1] !== "00";
 			return bRoundUp ? nEndTime + 1 : nEndTime;
+		},
+
+		handleAppointmentSelect: function (oEvent) {
+			var oAppointment = oEvent.getParameter("appointment");
+			if (oAppointment) {
+				var sOrderId = oAppointment.getCustomData("id")[0].getValue();
+				this.oRouter.navTo("Order", {id: this.sId, orderId: sOrderId});
+			}
+		},
+
+		formatTitle: function (sType) {
+			return sType === "shopYourself" ? "Einkauf" : "ClickAndCollect";
+		},
+
+		formatType: function (sType) {
+			return sType === "shopYourself" ? "Type03" : "Type01";
+		},
+
+		formatStartDate: function (sStartDate) {
+			return new Date(sStartDate);
+		},
+
+		formatEndDate: function (sStartDate, sDuration) {
+			return new Date(new Date(sStartDate).getTime() + sDuration * 60000);
 		}
 	});
+
+	"use strict";
 });
