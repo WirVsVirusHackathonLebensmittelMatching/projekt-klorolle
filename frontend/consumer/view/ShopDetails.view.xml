@@ -8,8 +8,8 @@
 		<Page id="page" title="{/shop/name}">
 			<content>
 				<VBox alignItems="Center">
-					<Button id="findNextFastlane" text="{i18n>findNextFastlane}" press=".onFindNextFastlane" class="sapUiLargeMarginTop" />
-					<Button id="showShopCalendar" text="{i18n>showShopCalendar}" press=".onShowShopCalendar" class="sapUiLargeMarginTop" />
+					<Button id="findNextFastlane" text="{i18n>findNextFastlane}" press=".onFindNextFastlane" class="sapUiSmallMarginTopBottom" />
+					<Button id="showShopCalendar" text="{i18n>showShopCalendar}" press=".onShowShopCalendar" class="sapUiSmallMarginTopBottom" />
 					<List
 						id="shopInfos"
 						items="{/shop/goods}"
