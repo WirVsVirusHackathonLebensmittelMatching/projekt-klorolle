@@ -14,6 +14,36 @@
                     </OverflowToolbar>
                 </headerToolbar>
                 <content>
+                    <List   headerText="{i18n>ordersNow}"
+                            items="{
+                                path: 'slots>/',
+                                filters: [
+                                    {path: 'state', operator: 'EQ', value1: 'now'}
+                                ]}"
+                            class="sapUiContentPadding" >
+                        <NotificationListItem
+                                title="{slots>type}"
+                                press="onOrderPress"
+                                showCloseButton="false"
+                                authorName="{slots>customer}" />
+                    </List>
+                    <List   headerText="{i18n>ordersUpcoming}"
+                            items="{
+                                path: 'slots>/',
+                                sorter : {
+                                    path : 'startsInMin'
+                                },
+                                filters: [
+                                    {path: 'state', operator: 'EQ', value1: 'future'},
+			                        {path: 'startsInMin', operator: 'LT', value1: 60}]}"
+                          class="sapUiContentPadding" >
+                        <NotificationListItem
+                                title="{slots>type}"
+                                press="onOrderPress"
+                                showCloseButton="false"
+                                datetime="{path: 'slots>startsInMin', formatter:'.formatInMins'}"
+                                authorName="{slots>customer}" />
+                    </List>
                 </content>
             </Panel>
             <Panel width="auto" class="sapUiResponsiveMargin">
