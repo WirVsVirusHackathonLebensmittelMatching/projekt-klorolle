@@ -1,4 +1,5 @@
 const { v4: uuid } = require('uuid');
+const moment = require('moment');
 const db = require('../../../db');
 const schemas = require('../schemas/orders');
 
@@ -20,7 +21,7 @@ module.exports = (fastify, opts, done) => {
     });
 
   // find all orders by customer
-  fastify.get('/byCustomer/:customer', { schema: schemas.findAll },
+  fastify.get('/byCustomer/:customer', { schema: schemas.findByCustomer },
     async ({ params }) => {
       const orders = db.get('orders').filter({ shop: params.shop, customer: params.customer }).value() || [];
       return orders;
@@ -34,6 +35,67 @@ module.exports = (fastify, opts, done) => {
       if (!order) {
         return reply.callNotFound();
       }
+
+      return order;
+    });
+
+  // find next free timeslot and prepare order
+  fastify.get('/nextTimeslot/:date', { schema: schemas.findNextTimeslot },
+    async ({ params }, reply) => {
+      const shop = db.get('shops').find({ id: params.shop }).value();
+      if (!shop) {
+        return reply.callNotFound();
+      }
+
+      const requestedDate = moment(params.date, 'DD/MM/YYYY');
+
+      // is requested date in the past
+      if (requestedDate < moment()) {
+        return reply.callNotFound();
+      }
+
+      // function getOrdersOfSlot(minutes) {
+      //   const orders = db.get('orders')
+      //     .filter({ shop: params.shop })
+      //     .filter((o) => moment(o).isSame(minutes))
+      //     .value();
+
+      //   return orders.length || -1;
+      // }
+
+      // let min = moment(shop.timeslots.from);
+
+      // // if requested day is today
+      // if (requestedDate.isSame(moment(), 'day')) {
+      //   min = moment.max(min, moment());
+      // }
+
+      // const from = min.duration().asMinutes();
+      // const to = moment(shop.timeslots.to).duration().asMinutes();
+
+      // let dateStart;
+      // for (let i = 0; i <= to; i += shop.timeslots.slotDuration) {
+      //   // if in future and after opening and if timeslots left
+      //   if (i > from && getOrdersOfSlot(i) < shop.timeslots.parallelSlots) {
+      //     dateStart = 0;
+      //     break;
+      //   }
+      // }
+
+      // // no free timeslot for date found
+      // if (!dateStart) {
+      //   return reply();
+      // }
+
+      const dateStart = 0;
+
+      const order = {
+        // customer: '', // pre-set customer id
+        dateStart,
+        duration: shop.timeslots.slotDuration,
+        status: '',
+        comment: '',
+      };
 
       return order;
     });

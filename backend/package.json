@@ -21,6 +21,7 @@
     "fastify-swagger": "^2.5.0",
     "git-last-commit": "^1.0.0",
     "lowdb": "^1.0.0",
+    "moment": "^2.24.0",
     "uuid": "^7.0.2"
   },
   "devDependencies": {

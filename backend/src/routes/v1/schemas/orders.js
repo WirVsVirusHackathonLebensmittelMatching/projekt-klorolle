@@ -21,9 +21,7 @@ const findAll = {
   response: {
     200: {
       type: 'array',
-      items: {
-        $ref: 'order#',
-      },
+      items: 'order#',
     },
   },
   params: {
@@ -40,9 +38,7 @@ const findOne = {
   summary: 'order get',
   tags: ['orders'],
   response: {
-    200: {
-      $ref: 'order#',
-    },
+    200: 'order#',
     404: {
       type: 'object',
       properties: {
@@ -55,6 +51,38 @@ const findOne = {
     required: ['shop'],
     properties: {
       shop: { type: 'string', fomat: 'uuid' },
+    },
+  },
+};
+
+const findNextTimeslot = {
+  description: 'Returns a pre-filled order object for next available timeslot of a shop.',
+  summary: 'order findNextTimeslot',
+  tags: ['orders'],
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        // customer: { type: 'string', format: 'uuid' },
+        dateStart: { type: 'string', format: 'date-time' },
+        duration: { type: 'integer' },
+        status: { type: 'string' },
+        comment: { type: 'string' },
+      },
+    },
+    404: {
+      type: 'object',
+      properties: {
+        message: { type: 'string' },
+      },
+    },
+  },
+  params: {
+    type: 'object',
+    required: ['shop', 'date'],
+    properties: {
+      shop: { type: 'string', fomat: 'uuid' },
+      date: { type: 'string', fomat: 'date' },
     },
   },
 };
@@ -83,9 +111,7 @@ const createOne = {
     },
   },
   response: {
-    200: {
-      $ref: 'order#',
-    },
+    200: 'order#',
   },
 };
 
@@ -130,6 +156,7 @@ module.exports = {
   order,
   findAll,
   findOne,
+  findNextTimeslot,
   createOne,
   updateOne,
   deleteOne,
