@@ -4,13 +4,14 @@
 			<content>
 					<VBox id="loginGroup" alignItems="Center">
                         <Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
-						<Label labelFor="shopName" text="{i18n>loginShopName}" class="sapUiMediumMarginTop" />
-						<Input id="shopName" />
-						<Label labelFor="password" text="{i18n>password}" />
-						<Input id="password" type="Password" enabled="false" />
+
 						<MessageStrip
-								text="Eine Registierung / ein existierender Marktname reicht aktuell für einen login aus!"
-								showIcon="true" />
+								text="Eine Registierung / ein existierender Marktname reicht aktuell für einen Login aus!"
+								showIcon="true" class="sapUiMediumMarginTop" />
+						<Label labelFor="shopName" text="{i18n>loginShopName}" class="sapUiTinyMarginTop" />
+						<Input id="shopName" />
+						<Label labelFor="password" text="{i18n>password}" class="sapUiTinyMarginTop" />
+						<Input id="password" type="Password" enabled="false" />
 
 						<Button id="login" text="{i18n>login}" press="onLogin" type="Emphasized" class="sapUiSmallMargin" />
 						<MessageStrip
