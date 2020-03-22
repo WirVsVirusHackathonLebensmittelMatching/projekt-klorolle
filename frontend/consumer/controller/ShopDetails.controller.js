@@ -14,6 +14,15 @@ sap.ui.define([
 		{
 			let oArguments = oEvent.getParameter("arguments");
 			this.getModel().selectShop(oArguments.shopId);
+		},
+
+		onFindNextFastlane: function () {
+			var oBaseModel = this.getModel();
+			let sShopId = oBaseModel.getProperty("/shop").id;
+			oBaseModel.findNextFastLane(sShopId).then(function (oFastLane) {
+				oBaseModel.setProperty("/order", oFastLane);
+				this.getRouter().navTo("fastLaneTypeSelect", {shopId: sShopId});
+			}.bind(this))
 		}
 	});
 });
