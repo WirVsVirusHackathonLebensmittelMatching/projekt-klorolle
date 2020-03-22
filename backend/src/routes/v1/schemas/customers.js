@@ -6,6 +6,8 @@ const customer = {
     id: { type: 'string', format: 'uuid' },
     name: { type: 'string' },
     email: { type: 'string', format: 'email' },
+    password: { type: 'string', format: 'password' },
+    postalcode: { type: 'integer' },
   },
 };
 
@@ -52,7 +54,7 @@ const createOne = {
 };
 
 const updateOne = {
-  description: 'Update a shop by ID',
+  description: 'Update a customer by ID',
   tags: ['customers'],
   body: {
     type: 'object',
