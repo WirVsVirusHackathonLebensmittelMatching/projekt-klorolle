@@ -8,13 +8,13 @@ const dbPath = path.join(dbBasePath, 'db.json');
 
 function seedDatabase() {
   console.log('Database seeded!');
-  const dbSeedPath = path.join(dbBasePath, 'db-seed.json');
+  const dbSeedPath = path.join(__dirname, '..', 'db-seed.json');
   // not database found copy sample data
   fs.copyFileSync(dbSeedPath, dbPath);
 }
 
 // seed database in development if not existing
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' || process.env.DB_SEED) {
   try {
     fs.statSync(dbPath);
   } catch (e) {
@@ -30,7 +30,7 @@ db.defaults({
   shops: [],
   goods: [],
   orders: [],
-  customer: [],
+  consumers: [],
 }).write();
 
 db.read();

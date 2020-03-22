@@ -61,7 +61,7 @@
       "category": "supermarket"
     },
     {
-      "id": " 656ce94e-3608-4042-a780-179738992a8c",
+      "id": "656ce94e-3608-4042-a780-179738992a8c",
       "name": "Schlemmermarkt Kiel",
       "postalCode": 24105,
       "category": "supermarket"
@@ -73,31 +73,31 @@
     {
       "name": "Nudeln",
       "status": "empty",
-      "shop": "0abb3710-3c2c-4d36-b013-449bbfb79746",
+      "shop": "656ce94e-3608-4042-a780-179738992a8c",
       "id": "b5602589-a57a-4460-8857-453ffabd2c20"
     },
     {
       "name": "Milch",
       "status": "short",
-      "shop": "0abb3710-3c2c-4d36-b013-449bbfb79746",
+      "shop": "656ce94e-3608-4042-a780-179738992a8c",
       "id": "44af9bfd-4524-4f87-9d5f-a2cf29da9cf9"
     },
     {
       "name": "Gurke",
       "status": "short",
-      "shop": "0abb3710-3c2c-4d36-b013-449bbfb79746",
+      "shop": "656ce94e-3608-4042-a780-179738992a8c",
       "id": "0e5f24e0-d77a-4f68-97be-7833062f17f2"
     },
     {
       "name": "Äpfel",
       "status": "unknown",
-      "shop": "0abb3710-3c2c-4d36-b013-449bbfb79746",
+      "shop": "656ce94e-3608-4042-a780-179738992a8c",
       "id": "bc6717a5-c597-4271-83da-ef0123505212"
     },
     {
       "name": "Käse",
       "status": "unknown",
-      "shop": "0abb3710-3c2c-4d36-b013-449bbfb79746",
+      "shop": "656ce94e-3608-4042-a780-179738992a8c",
       "id": "2d71c3c3-2281-4033-a0a3-4ff541081734"
     },
     {

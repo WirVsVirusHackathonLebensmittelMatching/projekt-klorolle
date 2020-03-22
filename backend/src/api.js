@@ -8,6 +8,18 @@ module.exports = (fastify, opts, done) => {
   // Declare a routes
   fastify.get('/', async () => ({ hello: 'Welcome to Klopa!' }));
 
+  let securityDefinitions = {
+    apiKey: {
+      type: 'apiKey',
+      name: 'apiKey',
+      in: 'header',
+    },
+  };
+
+  if (process.env.INSECURE) {
+    securityDefinitions = {};
+  }
+
   // add swagger docs
   fastify.register(swagger, {
     routePrefix: '/docs',
@@ -17,16 +29,10 @@ module.exports = (fastify, opts, done) => {
         description: 'A REST backend for the Klopa web-app.',
         version,
       },
-      schemes: [process.env.NODE_ENV === 'production' ? 'https' : 'http'],
+      schemes: [(process.env.NODE_ENV === 'production' && !process.env.INSECURE) ? 'https' : 'http'],
       consumes: ['application/json'],
       produces: ['application/json'],
-      securityDefinitions: {
-        apiKey: {
-          type: 'apiKey',
-          name: 'apiKey',
-          in: 'header',
-        },
-      },
+      securityDefinitions,
       definitions: v1Definitions,
     },
     exposeRoute: true,
