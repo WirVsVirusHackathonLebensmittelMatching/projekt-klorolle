@@ -1,10 +1,10 @@
 sap.ui.define([
 	"./BaseController",
-	"sap/ui/model/json/JSONModel",
+	"sap/m/ButtonType",
 	"sap/ui/core/ValueState"
 ], function (
 	BaseController,
-	JSONModel,
+	ButtonType,
 	ValueState
 ) {
 	"use strict";
@@ -16,6 +16,9 @@ sap.ui.define([
 					username: "",
 					password: "",
 					state: ValueState.None
+				},
+				deleteData: {
+					inProgress: false
 				}
 			});
 		},
@@ -30,6 +33,26 @@ sap.ui.define([
 				 } else {
 					 this.getModel("view").setProperty("/login/state", ValueState.Error);
 				 }
+			}
+		},
+
+		onRemoveData: function() {
+			if (this.getViewModel().getProperty("/deleteData/inProgress")) {
+				//Second press, execute
+				let bSuccess = this.getModel("account").clearData();
+				if (bSuccess)
+				{
+					this.getViewModel().setProperty("/deleteData/inProgress", false);
+					this.showMessage("deleteLocalDataSuccess");
+					this.byId("removeData").setType(ButtonType.Ghost);
+				} else {
+					this.showMessage("deleteLocalDataFailure");
+				}
+			} else {
+				//First press, start progress
+				this.getViewModel().setProperty("/deleteData/inProgress", true);
+				this.showMessage("confirmDeletion");
+				this.byId("removeData").setType(ButtonType.Reject);
 			}
 		},
 

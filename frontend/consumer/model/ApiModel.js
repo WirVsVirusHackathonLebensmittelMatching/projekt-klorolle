@@ -14,6 +14,10 @@ sap.ui.define([
             this._live = true;
         },
 
+        /**
+         * Read initial shop list from backend.
+         * @param {Boolean} bUseMockData If true, mock data is used instead of the live data.
+         */
         init: function(bUseMockData)
         {
             if (bUseMockData) {
@@ -24,6 +28,10 @@ sap.ui.define([
             }
         },
 
+        /**
+         * Search for shops by postal/ZIP code code. Updates the model path /shops.
+         * @param {String} sQuery ZIP code.
+         */
         searchShops: function(sQuery)
         {
             if (!sQuery) {
@@ -38,7 +46,7 @@ sap.ui.define([
         },
 
         /**
-         * Refresh the shop list.
+         * Refresh the shop list. Rereads all shops and updates the model path /shops.
          */
         refreshShops: function()
         {
@@ -46,6 +54,35 @@ sap.ui.define([
             {
                 this._api.get("/shops").then(function(oData) {
                     this.setProperty("/shops", oData);
+                }.bind(this));
+            }
+        },
+
+        /**
+         * Select the currently displayed shop. Updates the model path at /shop.
+         * @param {String} sShopId The ID of the shop.
+         */
+        selectShop: function(sShopId)
+        {
+            if (this._live)
+            {
+                this._api.get("/shops/" + encodeURL(sShopId)).then(function(oData) {
+                    this.setProperty("/shop", oData);
+                    this._updateGoods();
+                }.bind(this));
+            }
+        },
+
+        /**
+         * Update goods for the currently selected shop.
+         */
+        _updateGoods: function()
+        {
+            if (this._live)
+            {
+                let sShopId = this.getProperty("/shop/id");
+                this._api.get("/shops/" + encodeURL(sShopId) + "/goods").then(function(oData) {
+                    this.setProperty("/shop/goods", oData);
                 }.bind(this));
             }
         }

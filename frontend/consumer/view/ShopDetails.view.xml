@@ -1,0 +1,45 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.ShopDetails" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{/shop/name}">
+			<content>
+				<VBox alignItems="Center">
+					<Button id="findNextFastlane" text="{i18n>findNextFastlane}" press=".onFindNextFastlane" class="sapUiLargeMarginTop" />
+					<Button id="showShopCalendar" text="{i18n>showShopCalendar}" press=".onShowShopCalendar" class="sapUiLargeMarginTop" />
+					<List
+						id="shopInfos"
+						items="{/shop/goods}"
+						class="sapUiResponsiveMargin sapUiLargeMarginTop"
+						width="auto"
+						headerText="{i18n>shopInfos}"
+					>
+						<layoutData>
+							<FlexItemData alignSelf="Stretch"/>
+						</layoutData>
+						<items>
+							<ObjectListItem
+								id="shopListItem"
+								title="{name}"
+							>
+								<firstStatus>
+									<ObjectStatus 
+										text="{
+											path: 'status',
+											formatter: '.formatter.goodStatusText'
+										}"
+										state="{
+											path: 'status',
+											formatter: '.formatter.goodStatusState'
+										}"/>
+								</firstStatus>
+							</ObjectListItem>
+						</items>
+					</List>
+				</VBox>
+			</content>
+		</Page>
+</mvc:View>

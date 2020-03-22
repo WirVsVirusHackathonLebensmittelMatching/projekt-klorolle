@@ -12,6 +12,8 @@
 					<List
 						id="shopList"
 						items="{/shops}"
+						class="sapUiResponsiveMargin"
+						width="auto"
 					>
 						<layoutData>
 							<FlexItemData alignSelf="Stretch"/>
@@ -24,7 +26,6 @@
 									<SearchField 
 										id="shopSearch"
 										placeholder="{i18n>searchByZipCode}"
-										showRefreshButton="true"
 										width="30%"
 										search="onSearchShop"
 									/>
@@ -36,6 +37,7 @@
 								id="shopListItem"
 								type="Navigation"
 								title="{name}"
+								press=".navTo('shopDetails', {shopId: ${id}})"
 							/>
 						</items>
 					</List>

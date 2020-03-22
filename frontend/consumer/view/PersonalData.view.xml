@@ -29,7 +29,7 @@
 						<Input id="lastName" value="{account>/lastName}" />
 
 						<Label labelFor="email" text="{i18n>email}" />
-						<Input id="email" value="{account>/email}" />
+						<Input id="email" value="{account>/email}" type="Email" />
 
 						<Label labelFor="zipCode" text="{i18n>zipCode}" />
 						<Input id="zipCode" value="{account>/zipCode}" />
@@ -38,7 +38,7 @@
 						<Input id="city" value="{account>/city}" />
 
 						<Label labelFor="phoneNumber" text="{i18n>phoneNumber}" />
-						<Input id="phoneNumber" value="{account>/phoneNumber}" />
+						<Input id="phoneNumber" value="{account>/phoneNumber}" type="Tel" />
 					</form:content>
 				</form:SimpleForm>
 

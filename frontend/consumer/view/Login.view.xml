@@ -7,8 +7,8 @@
 	xmlns="sap.m">
 		<Page id="page" title="{i18n>loginTitle}">
 			<content>
-				<VBox alignItems="Center" justifyContent="SpaceAround" height="100%">
-					<Image src="media/klopa_transparent.png" decorative="true" height="300px"/>
+				<VBox alignItems="Center" height="100%">
+					<Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
 
 					<VBox id="loginGroup" alignItems="Center">
 						<Label labelFor="username" text="{i18n>username}" />
@@ -20,10 +20,21 @@
 						<Button id="login" text="{i18n>login}" press=".onLogin(false)" type="Emphasized" />
 					</VBox>
 
-					<VBox id="registerGroup" alignItems="Center">
+					<VBox id="registerGroup" alignItems="Center" class="sapUiLargeMarginTop">
 						<Button id="register" text="{i18n>register}" press=".navTo('register')" />
 						<Button id="guestLogin" text="{i18n>loginAsGuest}" press=".onLogin(true)" />
 					</VBox>
+
+					<Button 
+						id="removeData" 
+						text="{i18n>removeData}" 
+						press=".onRemoveData" 
+						type="Ghost"
+					>
+						<layoutData>
+							<FlexItemData styleClass="flex-last-item"/>
+						</layoutData>
+					</Button>
 				</VBox>
 			</content>
 		</Page>
