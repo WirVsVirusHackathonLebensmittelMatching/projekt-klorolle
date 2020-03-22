@@ -37,6 +37,7 @@
 								id="shopListItem"
 								type="Navigation"
 								title="{name}"
+								press=".navTo('shopDetails', {shopId: ${id}})"
 							/>
 						</items>
 					</List>

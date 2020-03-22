@@ -3,17 +3,21 @@ sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/ValueState",
-	"sap/m/MessageToast"
+	"sap/m/MessageToast",
+	"../model/formatter"
 ], function (
 	Controller,
 	UIComponent,
 	JSONModel,
 	ValueState,
-	MessageToast
+	MessageToast,
+	formatter
 ) {
 	"use strict";
 	
 	return Controller.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.BaseController", {
+		formatter: formatter,
+
 		createViewModel: function(oData) {
 			this.getView().setModel(new JSONModel(oData), "view");
 		},
@@ -30,8 +34,8 @@ sap.ui.define([
 			return UIComponent.getRouterFor(this);
 		},
 
-		navTo: function(sRoute) {
-			this.getRouter().navTo(sRoute);
+		navTo: function(sRoute, oParameters) {
+			this.getRouter().navTo(sRoute, oParameters);
 		},
 
 		setErrorState: function(sId, sTextKey) {

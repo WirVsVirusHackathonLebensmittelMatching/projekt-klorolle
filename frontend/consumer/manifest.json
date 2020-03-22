@@ -114,6 +114,10 @@
 				"name": "shopSearch",
 				"pattern": "search/zip/:zipCode:/distance/:distance:",
 				"target": ["shopSearch"]
+			}, {
+				"name": "shopDetails",
+				"pattern": "shop/{shopId}",
+				"target": ["shopDetails"]
 			}],
 			"targets": {
 				"login": {
@@ -139,6 +143,10 @@
 				"shopSearch": {
 					"viewId": "ShopSearch",
 					"viewName": "ShopSearch"
+				},
+				"shopDetails": {
+					"viewId": "ShopDetails",
+					"viewName": "ShopDetails"
 				},
 				"notFound": {
 					"viewId": "NotFound",
