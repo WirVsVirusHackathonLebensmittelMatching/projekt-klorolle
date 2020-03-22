@@ -24,6 +24,15 @@
 						<Button id="register" text="{i18n>register}" press=".navTo('register')" />
 						<Button id="guestLogin" text="{i18n>loginAsGuest}" press=".onLogin(true)" />
 					</VBox>
+
+					<VBox id="removeDataGroup" alignItems="Center">
+						<Button 
+							id="removeData" 
+							text="{i18n>removeData}" 
+							press=".onRemoveData" 
+							type="Ghost"
+						/>
+					</VBox>
 				</VBox>
 			</content>
 		</Page>

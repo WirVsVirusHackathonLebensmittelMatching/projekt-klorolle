@@ -4,10 +4,12 @@ sap.ui.define([
 ], function (JSONModel, Storage) {
 	"use strict";
 
+    const STORAGE_PREFIX = "klopa.account.";
+
 	return JSONModel.extend("com.wir.vs.virus.timeslots.Consumer.model.AccountModel", {
         constructor: function() {
             JSONModel.apply(this, arguments);
-            this._storage = new Storage(Storage.Type.local, "klopa.account.");
+            this._storage = new Storage(Storage.Type.local, STORAGE_PREFIX);
             this._loggedIn = false;
 
             //Start with empty account data
@@ -90,8 +92,20 @@ sap.ui.define([
             return true;
         },
 
+        /**
+         * Check if the user is currently logged in.
+         * @returns true if the user is logged in, false otherwise.
+         */
         isLoggedIn: function() {
             return this._loggedIn;
+        },
+
+        /**
+         * Clear all stored data.
+         * @returns true if the data was deleted successfully, false otherwise.
+         */
+        clearData: function() {
+            return this._storage.removeAll("");
         },
 
         /**
