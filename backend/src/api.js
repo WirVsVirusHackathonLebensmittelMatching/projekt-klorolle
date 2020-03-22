@@ -17,7 +17,7 @@ module.exports = (fastify, opts, done) => {
         description: 'A REST backend for the Klopa web-app.',
         version,
       },
-      schemes: ['https'],
+      schemes: [process.env.NODE_ENV === 'production' ? 'https' : 'http'],
       consumes: ['application/json'],
       produces: ['application/json'],
       securityDefinitions: {

@@ -88,10 +88,7 @@ sap.ui.define([
 				return Promise.resolve();
 			}
 			this.shopId = sShopId;
-			return new Promise(function (resolve, reject) {
-				this.setData(dummyData);
-				resolve();
-			}.bind(this));
+			return this.setData("");
 		},
 
 		editSlots: function () {

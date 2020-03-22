@@ -3,12 +3,23 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const path = require('path');
 
-const dbPath = path.join(__dirname, '..', 'data', 'db.json');
-const dbSeedPath = path.join(__dirname, '..', 'data', 'db-seed.json');
+const dbBasePath = process.env.DB_PATH || path.join(__dirname, '..', 'data');
+const dbPath = path.join(dbBasePath, 'db.json');
 
-if (process.env.NODE_ENV !== 'production') {
+function seedDatabase() {
+  console.log('Database seeded!');
+  const dbSeedPath = path.join(dbBasePath, 'db-seed.json');
   // not database found copy sample data
   fs.copyFileSync(dbSeedPath, dbPath);
+}
+
+// seed database in development if not existing
+if (process.env.NODE_ENV === 'development') {
+  try {
+    fs.statSync(dbPath);
+  } catch (e) {
+    seedDatabase();
+  }
 }
 
 const adapter = new FileSync(dbPath);
@@ -18,9 +29,12 @@ const db = low(adapter);
 db.defaults({
   shops: [],
   goods: [],
-  timeslots: [],
+  orders: [],
+  customer: [],
 }).write();
 
 db.read();
+
+db.seedDatabase = seedDatabase;
 
 module.exports = db;

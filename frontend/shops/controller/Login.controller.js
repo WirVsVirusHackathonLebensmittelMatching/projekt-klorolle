@@ -17,9 +17,13 @@ sap.ui.define([
 		},
 		
 		onLogin: function (oEvent) {
-			var oSource = oEvent.getSource();
-			var sShopId = oSource.getSelectedKey();
-			this.oRouter.navTo("Main", {id: sShopId});
+			var sShopName = this.getView().byId("shopName").getValue();
+			var oShop = this.getView().getModel("shops").findByName(sShopName);
+			if (oShop) {
+				this.oRouter.navTo("Main", {id : oShop.id});
+			} else {
+				this.getView().byId("loginFailedMessage").setVisible(true);
+			}
 		},
 		
 		createDialog: function () {
