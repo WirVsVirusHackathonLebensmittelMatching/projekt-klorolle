@@ -1,23 +1,25 @@
 sap.ui.define([
 	"com/wir/vs/virus/timeslots/ShopOwner/model/GoodsModel",
 	"com/wir/vs/virus/timeslots/ShopOwner/model/SlotsModel",
-	"com/wir/vs/virus/timeslots/ShopOwner/model/ShopModel"
+	"com/wir/vs/virus/timeslots/ShopOwner/model/ShopModel",
+	"com/wir/vs/virus/timeslots/ShopOwner/model/ShopsModel"
 ], function (
 	GoodsModel,
 	SlotsModel,
-	ShopModel
+	ShopModel,
+	ShopsModel
 ) {
 	"use strict";
 
-	var oShopsDummy = [{
-		name: "EDEKA"
-	},{
-		name: "ALDI"
-	}];
-
 	return {
+		createShopModel: function () {
+			var oModel = new ShopModel();
+			oModel.setDefaultBindingMode("OneWay");
+			return oModel;
+		},
+
 		createShopsModel: function () {
-			var oModel = new ShopModel(oShopsDummy);
+			var oModel = new ShopsModel();
 			oModel.setDefaultBindingMode("OneWay");
 			return oModel;
 		},

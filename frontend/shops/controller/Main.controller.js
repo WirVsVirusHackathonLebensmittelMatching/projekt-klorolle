@@ -1,37 +1,59 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"com/wir/vs/virus/timeslots/ShopOwner/model/models"
+	"sap/m/GroupHeaderListItem"
 ], function (
 	Controller,
-	models
+	GroupHeaderListItem
 ) {
 	"use strict";
+
+	function findName(oController, sId) {
+		var oData = oController.getView().getModel("shops").getData();
+		var oShop = oData.find(function (oShop) {
+			return oShop.id === sId;
+		});
+		return oShop.name;
+	}
 	
 	return Controller.extend("com.wir.vs.virus.timeslots.ShopOwner.controller.Main", {
 		onInit: function () {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getRoute("Main").attachPatternMatched(this._onObjectMatched, this);
-			this.oGoodsModel = models.createGoodsModel();
-			this.getView().setModel(this.oGoodsModel, "goods");
 		},
 		
 		_onObjectMatched: function (oEvent) {
-			var sName = oEvent.getParameter("arguments").name;
-			this.sName = sName;
-			this.byId("page").setTitle(this.sName);
-			this.oGoodsModel.load(this.sName);
+			var sId = oEvent.getParameter("arguments").id;
+			this.sId = sId;
+
+			this.byId("page").setTitle(findName(this, sId));
+
+			this.getView().getModel("goods").load(this.sId);
+			this.getView().getModel("shop").load(this.sId);
+		},
+
+		onGoodChanged: function (oEvent) {
+			var oBindingContext = oEvent.getSource().getBindingContext("goods");
+			var sStatus = oEvent.getParameter("selectedItem").getKey();
+			this.getView().getModel("goods").changeGood(oBindingContext.getPath(), sStatus);
 		},
 		
 		toSlotsConfig: function () {
-			this.oRouter.navTo("SlotConfig", {name: this.sName});
+			this.oRouter.navTo("SlotConfig", {id: this.sId});
 		},
 
 		toCalendar: function () {
-			this.oRouter.navTo("Calendar", {name: this.sName});
+			this.oRouter.navTo("Calendar", {id: this.sId});
 		},
 
 		toGoods: function () {
-			this.oRouter.navTo("Goods", {name: this.sName});
+			this.oRouter.navTo("Goods", {id: this.sId});
+		},
+
+		getGroupHeader: function (oGroup){
+			return new GroupHeaderListItem({
+				title: oGroup.key,
+				upperCase: false
+			});
 		}
 	});
 });

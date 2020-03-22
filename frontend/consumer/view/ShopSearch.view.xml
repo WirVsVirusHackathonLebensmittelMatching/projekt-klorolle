@@ -1,0 +1,45 @@
+<mvc:View 
+	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.ShopSearch" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns="sap.m">
+		<Page id="page" title="{i18n>selectShopTitle}">
+			<content>
+				<VBox alignItems="Center">
+					<Image src="media/klopa_transparent.png" decorative="true" height="100px"/>
+					<List
+						id="shopList"
+						items="{/shops}"
+					>
+						<layoutData>
+							<FlexItemData alignSelf="Stretch"/>
+						</layoutData>
+						<headerToolbar>
+							<Toolbar id="shopListToolbar">
+								<content>
+									<Title id="shopListTitle" text="{i18n>availableShops}" />
+									<ToolbarSpacer />
+									<SearchField 
+										id="shopSearch"
+										placeholder="{i18n>searchByZipCode}"
+										showRefreshButton="true"
+										width="30%"
+										search="onSearchShop"
+									/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+						<items>
+							<ObjectListItem
+								id="shopListItem"
+								type="Navigation"
+								title="{name}"
+							/>
+						</items>
+					</List>
+				</VBox>
+			</content>
+		</Page>
+</mvc:View>

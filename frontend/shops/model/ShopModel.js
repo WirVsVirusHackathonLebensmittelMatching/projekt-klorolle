@@ -1,24 +1,29 @@
 sap.ui.define([
-	"sap/ui/model/json/JSONModel"
-], function (JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"com/wir/vs/virus/timeslots/ShopOwner/utils/Connection"
+], function (
+	JSONModel,
+	Connection
+) {
 	"use strict";
 
-	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.ShopModel", {
-		login: function (sShopName) {
-			// TODO: resolve if the shop exists // rejects if not
-			return Promise.resolve();
+	return JSONModel.extend("com.wir.vs.virus.timeslots.ShopOwner.model.ShopsModel", {
+		shopId: undefined,
+		load: function (sShopId) {
+			if (sShopId === this.shopId) {
+				this.updateBindings();
+				return Promise.resolve();
+			}
+			this.shopId = sShopId;
+			this.setData(this.loadData("/api/v1/shops/" + sShopId));
 		},
 
-		registerShop: function (mProperties) {
-			return new Promise(function (resolve, reject) {
-				// TODO: trigger the registration and resolve on successful registration
-				var oData = this.getData();
+		editSlotsConfig: function (mConfig) {
+			var oShop = this.getData();
+			oShop.timeslots = mConfig;
 
-				oData.push({
-					name: mProperties.name
-				});
-				this.setData(oData);
-				resolve();
+			return Connection.put("/api/v1/shops/" + this.shopId, oShop).then(function (oWrittenShop) {
+				this.setData(oWrittenShop);
 			}.bind(this));
 		}
 	});

@@ -7,14 +7,14 @@
 			<InputListItem label="{i18n>from}">
 			<TimePicker
 					id="shoppingTimeFrom"
-					value="{slotsConfig>/from}"
+					value="{shop>/timeslots/from}"
 					valueFormat="HH:mm"
 					displayFormat="HH:mm" />
 			</InputListItem>
 			<InputListItem label="{i18n>to}">
 				<TimePicker
 						id="shoppingTimeTo"
-						value="{slotsConfig>/to}"
+						value="{shop>/timeslots/to}"
 						valueFormat="HH:mm"
 						displayFormat="HH:mm" />
 			</InputListItem>
@@ -22,13 +22,13 @@
 			<InputListItem label="{i18n>slotDuration}">
 				<Input
 						id="slotDuration"
-						value="{slotsConfig>/slotDurationInMin}"
+						value="{shop>/timeslots/slotDuration}"
 						type="Number" />
 			</InputListItem>
 			<InputListItem label="{i18n>parallelSlots}">
 				<Input
 						id="parallelSlots"
-						value="{slotsConfig>/parallelSlots}"
+						value="{shop>/timeslots/parallelSlots}"
 						type="Number" />
 			</InputListItem>
 		</content>
