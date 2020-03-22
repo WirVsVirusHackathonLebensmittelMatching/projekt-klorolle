@@ -25,9 +25,9 @@ sap.ui.define([
             return this._request(sPath, "GET");
         },
 
-        post: function(sPath)
+        post: function(sPath, sBody)
         {
-            return this._request(sPath, "POST");
+            return this._request(sPath, "POST", sBody);
         },
 
         put: function(sPath)
@@ -52,7 +52,7 @@ sap.ui.define([
          * @returns {Promise} A promise which is either resolved with the data returned by the endpoint 
          * or rejected with the error message returned by the endpoint.
          */
-        _request: function(sPath, sMethod = "GET") 
+        _request: function(sPath, sMethod = "GET", sBody)
         {
             sPath = this._buildPath(sPath);
             Log.debug("Sending " + sMethod + " request to " + sPath);
@@ -60,7 +60,10 @@ sap.ui.define([
             return new Promise(function(resolve, reject) {
                 jQuery.ajax({
                     url: sPath,
-                    dataType: "json"
+					method : sMethod,
+					contentType : "application/json; charset=utf-8",
+                    dataType: "json",
+					data: sBody
                 }).done(function(data, textStatus) {
                     Log.debug("Call to " + sPath + " successful: " + textStatus);
                     resolve(data);

@@ -75,7 +75,7 @@ sap.ui.define([
 		findNextFastLane: function(sShopId) {
 			var dummySuggestion = {
 				"shop": sShopId,
-				"dateStart": "Sun Mar 22 2020 12:44:39 GMT+0100 (Central European Standard Time)",
+				"dateStart": new Date(),
 				"duration": 20,
 				"type": "",
 				"comment": ""
@@ -86,7 +86,7 @@ sap.ui.define([
 		},
 
 		confirmOrder: function (oOrder) {
-			return this._api.post("/api/v1/shops/" + oOrder.shop + "/orders/", JSON.stringify(oOrder));
+			return this._api.post("/shops/" + oOrder.shop + "/orders/", JSON.stringify(oOrder));
 		},
 
         /**

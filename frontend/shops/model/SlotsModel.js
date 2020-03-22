@@ -92,35 +92,6 @@ sap.ui.define([
 				var aData = this.getData();
 				var oNow = new Date();
 
-				aData = [{
-					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"customer": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"shop": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"dateStart": "Sun Mar 22 2020 15:44:39 GMT+0100 (Central European Standard Time)",
-					"duration": 120,
-					"type": "shopYourself",
-					"status": "",
-					"comment": "string"
-				},{
-					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"customer": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"shop": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"dateStart": "Sun Mar 22 2020 14:44:39 GMT+0100 (Central European Standard Time)",
-					"duration": 20,
-					"type": "shopYourself",
-					"status": "",
-					"comment": "string"
-				},{
-					"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"customer": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"shop": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-					"dateStart": "Sun Mar 22 2020 16:14:39 GMT+0100 (Central European Standard Time)",
-					"duration": 20,
-					"type": "shopYourself",
-					"status": "",
-					"comment": "string"
-				}];
-
 				aData.forEach(function (oDate) {
 					var oStartDate = new Date(oDate.dateStart);
 					oDate.startsInMin = Math.round((oStartDate - oNow) / (60 * 1000));
