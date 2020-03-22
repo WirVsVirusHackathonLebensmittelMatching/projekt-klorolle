@@ -101,7 +101,15 @@ sap.ui.define([
 						oDate.state = "past";
 					}
 				});
-				this.setData(aData);
+				this.setData({
+					all: aData,
+					now: aData.filter(function (oData) {
+						return oData.state === "now";
+					}),
+					upcoming: aData.filter(function (oData) {
+						return oData.state === "future" && oData.startsInMin < 60;
+					})
+				});
 			}.bind(this));
 		},
 

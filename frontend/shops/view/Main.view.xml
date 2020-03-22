@@ -16,10 +16,7 @@
                 <content>
                     <List   headerText="{i18n>ordersNow}"
                             items="{
-                                path: 'slots>/',
-                                filters: [
-                                    {path: 'state', operator: 'EQ', value1: 'now'}
-                                ]}"
+                                path: 'slots>/now'}"
                             class="sapUiContentPadding" >
                         <NotificationListItem
                                 title="{slots>type}"
@@ -29,13 +26,7 @@
                     </List>
                     <List   headerText="{i18n>ordersUpcoming}"
                             items="{
-                                path: 'slots>/',
-                                sorter : {
-                                    path : 'startsInMin'
-                                },
-                                filters: [
-                                    {path: 'state', operator: 'EQ', value1: 'future'},
-			                        {path: 'startsInMin', operator: 'LT', value1: 60}]}"
+                                path: 'slots>/upcoming'}"
                           class="sapUiContentPadding" >
                         <NotificationListItem
                                 title="{slots>type}"
