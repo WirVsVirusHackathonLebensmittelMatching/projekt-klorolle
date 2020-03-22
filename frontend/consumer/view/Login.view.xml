@@ -7,7 +7,7 @@
 	xmlns="sap.m">
 		<Page id="page" title="{i18n>loginTitle}">
 			<content>
-				<VBox alignItems="Center" height="100%">
+				<VBox alignItems="Center">
 					<Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
 
 					<VBox id="loginGroup" alignItems="Center" class="sapUiSmallMarginTop">
