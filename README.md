@@ -8,6 +8,7 @@ Description ...
 
 ## Links
 - [Docs](https://wirvsvirushackathonlebensmittelmatching.github.io/projekt-klorolle/)
+- [Click Dummy](https://www.figma.com/proto/vX7wGCbmJiXXseFhnChrDI/Endkunde)
 - [Demo index](http://klopa-ci.dreier.cloud/)
 - [Demo Consumer App](http://klopa-ci.dreier.cloud/consumer/)
 - [Demo Shop App](http://klopa-ci.dreier.cloud/shops/)
