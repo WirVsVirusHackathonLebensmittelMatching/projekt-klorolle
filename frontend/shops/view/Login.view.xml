@@ -9,7 +9,7 @@
 						<Label labelFor="password" text="{i18n>password}" />
 						<Input id="password" type="Password" enabled="false" />
 						<MessageStrip
-								text="Ein gültiger Marktname reicht aktuell aus!"
+								text="Eine Registierung / ein existierender Marktname reicht aktuell für einen login aus!"
 								showIcon="true" />
 
 						<Button id="login" text="{i18n>login}" press="onLogin" type="Emphasized" class="sapUiSmallMargin" />
