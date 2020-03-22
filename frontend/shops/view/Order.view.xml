@@ -45,6 +45,9 @@
 
 					<Label text="{i18n>type}" />
 					<Text text="{order>/type}" />
+
+					<Label text="{i18n>comment}" />
+					<Text text="{order>/comment}" />
 				</f:content>
 			</f:SimpleForm>
 		</content>

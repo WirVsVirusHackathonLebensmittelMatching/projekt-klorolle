@@ -12,7 +12,7 @@
                     endHour="{path: 'shop>/', formatter:'.formatEndHour'}"
                     fullDay="false"
                     appointmentSelect="handleAppointmentSelect"
-                    appointments="{slots>/appointments}" >
+                    appointments="{slots>/all}" >
                 <views>
                     <SinglePlanningCalendarDayView key="DayView" title="Day" />
                 </views>

@@ -1,17 +1,15 @@
 <mvc:View 
 	controllerName="com.wir.vs.virus.timeslots.Consumer.controller.FastLaneTypeSelect"
-	xmlns:core="sap.ui.core" 
-	xmlns:l="sap.ui.layout" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true"
 	xmlns="sap.m">
-		<Page id="page" title="{i18n>nextFastLane}">
+		<Page id="page" title="{i18n>fastLaneConfirmedTitle}">
 			<content>
-				<VBox alignItems="Center">
+				<VBox alignItems="Center" class="sapUiLargeMarginTop">
 					<Label text="{i18n>fastLaneConfirmed}" />
-					<Label text="{/order/dateStart}" />
-					<Label text="{/order/id}" />
-					<Label text="{i18n>fastLaneConfirmSeeYou}" />
+					<Label text="{/order/dateStart}" design="Bold" class="sapUiSmallMarginTop"/>
+					<Label text="{/order/id}" design="Bold" class="sapUiSmallMarginTop" />
+					<Label text="{i18n>fastLaneConfirmSeeYou}" class="sapUiSmallMarginTop" />
 				</VBox>
 			</content>
 		</Page>

@@ -6,10 +6,10 @@
                         <Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
 						<Label labelFor="shopName" text="{i18n>loginShopName}" class="sapUiMediumMarginTop" />
 						<Input id="shopName" />
-						<!--Label labelFor="password" text="{i18n>password}" />
-						<Input id="password" type="Password" /-->
+						<Label labelFor="password" text="{i18n>password}" />
+						<Input id="password" type="Password" />
 
-						<Button id="login" text="{i18n>login}" press="onLogin" type="Emphasized" />
+						<Button id="login" text="{i18n>login}" press="onLogin" type="Emphasized" class="sapUiSmallMargin" />
 						<MessageStrip
 								id="loginFailedMessage"
 								text="{i18n>loginFailed}"
@@ -17,7 +17,7 @@
 								visible="false"
 								showIcon="true">
 						</MessageStrip>
-						<Button id="register" text="{i18n>register}" press="onRegister" class="sapUiMediumMargin" />
+						<Button id="register" text="{i18n>register}" press="onRegister" />
 					</VBox>
 			</content>
 		</Page>

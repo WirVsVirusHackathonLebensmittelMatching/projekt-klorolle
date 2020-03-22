@@ -10,7 +10,7 @@
 				<VBox alignItems="Center" height="100%">
 					<Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
 
-					<VBox id="loginGroup" alignItems="Center">
+					<VBox id="loginGroup" alignItems="Center" class="sapUiSmallMarginTop">
 						<Label labelFor="username" text="{i18n>username}" />
 						<Input id="username" value="{view>/login/username}" valueState="{view>/login/state}" />
 
