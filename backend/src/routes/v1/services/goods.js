@@ -22,7 +22,7 @@ module.exports = (fastify, opts, done) => {
   // find one good
   fastify.get('/:good', { schema: schemas.findOne },
     async ({ params }, reply) => {
-      const good = db.get('goods').filter({ id: params.good, shop: params.shop }).value();
+      const good = db.get('goods').find({ id: params.good, shop: params.shop }).value();
 
       if (!good) {
         return reply.callNotFound();
@@ -45,7 +45,7 @@ module.exports = (fastify, opts, done) => {
   // update good
   fastify.put('/:good', { schema: schemas.updateOne },
     async ({ body, params }, reply) => {
-      let good = db.get('goods').filter({ id: params.good, shop: params.shop }).value();
+      let good = db.get('goods').find({ id: params.good, shop: params.shop }).value();
 
       if (!good) {
         return reply.callNotFound();

@@ -15,14 +15,21 @@ module.exports = (fastify, opts, done) => {
   // find all orders
   fastify.get('/', { schema: schemas.findAll },
     async ({ params }) => {
-      const shops = db.get('orders').filter({ shop: params.shop }).value() || [];
-      return shops;
+      const orders = db.get('orders').filter({ shop: params.shop }).value() || [];
+      return orders;
+    });
+
+  // find all orders by customer
+  fastify.get('/byCustomer/:customer', { schema: schemas.findAll },
+    async ({ params }) => {
+      const orders = db.get('orders').filter({ shop: params.shop, customer: params.customer }).value() || [];
+      return orders;
     });
 
   // find one order
   fastify.get('/:order', { schema: schemas.findOne },
     async ({ params }, reply) => {
-      const order = db.get('orders').filter({ id: params.order, shop: params.shop }).value();
+      const order = db.get('orders').find({ id: params.order, shop: params.shop }).value();
 
       if (!order) {
         return reply.callNotFound();
@@ -33,10 +40,18 @@ module.exports = (fastify, opts, done) => {
 
   // create order
   fastify.post('/', { schema: schemas.createOne },
-    async ({ body, params }) => {
+    async ({ body, params }, reply) => {
+      const shop = db.get('shops').find({ shop: params.shop }).value();
+
+      if (!shop) {
+        return reply.callNotFound();
+      }
+
       const order = body;
-      order.shop = params.shop; // set shop id
       order.id = uuid(); // generate uuid
+      order.shop = params.shop; // set shop id
+      // order.customer = ''; // set customer id // TODO: force customer id
+      order.duration = shop.duration;
 
       db.get('orders').push(order).write();
       return order;
@@ -45,7 +60,7 @@ module.exports = (fastify, opts, done) => {
   // update order
   fastify.put('/:order', { schema: schemas.updateOne },
     async ({ body, params }, reply) => {
-      let order = db.get('orders').filter({ id: params.order, shop: params.shop }).value();
+      let order = db.get('orders').find({ id: params.order, shop: params.shop }).value();
 
       if (!order) {
         return reply.callNotFound();
