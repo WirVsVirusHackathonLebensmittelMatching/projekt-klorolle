@@ -30,7 +30,7 @@ db.defaults({
   shops: [],
   goods: [],
   orders: [],
-  consumers: [],
+  customers: [],
 }).write();
 
 db.read();
