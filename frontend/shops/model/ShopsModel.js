@@ -12,6 +12,13 @@ sap.ui.define([
 			this.setData(this.loadData("/api/v1/shops/"));
 		},
 
+		findByName: function (sName) {
+			var oData = this.getData();
+			return oData.find(function (oShop){
+				return oShop.name === sName;
+			});
+		},
+
 		login: function (sShopId) {
 			// TODO: resolve if the shop exists // rejects if not
 			return Promise.resolve();

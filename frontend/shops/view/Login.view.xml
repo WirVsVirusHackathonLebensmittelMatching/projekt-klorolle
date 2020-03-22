@@ -2,23 +2,26 @@
 	xmlns="sap.m">
 		<Page id="page" title="{i18n>loginTitle}">
 			<content>
-				<MessageStrip
-					text="This should be a login screen!"
-					type="Warning"
-					showIcon="true">
-				</MessageStrip>
-				<VBox>
-					<Select
-							id="loginSelect"
-							items="{
-								path: 'shops>/',
-								sorter: { path: 'name' }
-							}"
-							width="300px"
-							change="onLogin" >
-						<core:Item key="{shops>id}" text="{shops>name}" />
-					</Select>
-					<Button text="{i18n>register}" press="onRegister" />
+				<VBox alignItems="Center" justifyContent="SpaceAround" height="100%">
+					<Image src="media/klopa_transparent.png" decorative="true" height="300px"/>
+
+					<VBox id="loginGroup" alignItems="Center">
+						<Label labelFor="shopName" text="{i18n>loginShopName}" />
+						<Input id="shopName" />
+
+						<!--Label labelFor="password" text="{i18n>password}" />
+						<Input id="password" value="{view>/login/password}" type="Password" valueState="{view>/login/state}" /-->
+
+						<Button id="login" text="{i18n>login}" press="onLogin" type="Emphasized" />
+						<MessageStrip
+								id="loginFailedMessage"
+								text="{i18n>loginFailed}"
+								type="Error"
+								visible="false"
+								showIcon="true">
+						</MessageStrip>
+						<Button id="register" text="{i18n>register}" press="onRegister" class="sapUiLargeMarginTop" />
+					</VBox>
 				</VBox>
 			</content>
 		</Page>
