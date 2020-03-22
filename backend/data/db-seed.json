@@ -3,42 +3,68 @@
     {
       "id": "0abb3710-3c2c-4d36-b013-449bbfb79746",
       "name": "Rewe Rostock",
-      "postalCode": 18055
+      "postalCode": 18055,
+      "category": "supermarket"
     },
     {
       "id": "7f7de513-8c65-4f25-978e-ba2cd0fe7923",
       "name": "Edeka Essen",
-      "postalCode": 45127
+      "postalCode": 45127,
+      "category": "supermarket"
     },
     {
       "id": "6282cb03-5495-4f79-843f-8814c2a26c15",
       "name": "Real Regensburg",
-      "postalCode": 93047
+      "postalCode": 93047,
+      "category": "supermarket"
     },
     {
       "id": "d1fd1d93-7b21-4669-a5cd-97b91946a753",
       "name": "Aldi Aachen",
-      "postalCode": 52062
+      "postalCode": 52062,
+      "category": "supermarket"
     },
     {
       "id": "4367c06c-eb05-410e-9444-95257212f84b",
       "name": "Lidl Lübeck",
-      "postalCode": 23552
+      "postalCode": 23552,
+      "category": "supermarket"
     },
     {
       "id": "4367c06c-eb05-410e-9444-95257212f84b",
       "name": "Rewe Kiel",
-      "postalCode": 24105
+      "postalCode": 24105,
+      "category": "supermarket"
+    },
+    {
+      "id": "4367c06c-eb05-410e-9444-95257212f84b",
+      "name": "Rossmann Ringelstein",
+      "postalCode": 12345,
+      "category": "drugstore"
+    },
+    {
+      "id": "4367c06c-eb05-410e-9444-95257212f84b",
+      "name": "DM Dortmund",
+      "postalCode": 44135,
+      "category": "drugstore"
+    },
+    {
+      "id": "4367c06c-eb05-410e-9444-95257212f84b",
+      "name": "DM Duisburg",
+      "postalCode": 47055,
+      "category": "drugstore"
     },
     {
       "id": "8977a059-43c0-4b00-95fd-62f89f367c19",
       "name": "Aldi Kiel",
-      "postalCode": 24105
+      "postalCode": 24105,
+      "category": "supermarket"
     },
     {
       "id": " 656ce94e-3608-4042-a780-179738992a8c",
       "name": "Schlemmermarkt Kiel",
-      "postalCode": 24105
+      "postalCode": 24105,
+      "category": "supermarket"
     }
   ],
   "shopGoods": [],

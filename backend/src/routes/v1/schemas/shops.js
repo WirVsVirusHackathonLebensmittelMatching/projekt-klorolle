@@ -6,6 +6,7 @@ const shop = {
     id: { type: 'string', format: 'uuid' },
     name: { type: 'string' },
     postalCode: { type: 'integer', example: 51432 },
+    category: { type: 'string', enum: ['supermarket', 'drugstore', 'pharmacy'] },
     timeslots: {
       type: 'object',
       properties: {
@@ -87,6 +88,7 @@ const createOne = {
     properties: {
       name: { type: 'string' },
       postalCode: { type: 'integer' },
+      category: { type: 'string' },
     },
   },
 };
@@ -100,6 +102,7 @@ const updateOne = {
     properties: {
       name: { type: 'string' },
       postalCode: { type: 'integer' },
+      category: { type: 'string' },
       timeslots: {
         type: 'object',
         properties: {
