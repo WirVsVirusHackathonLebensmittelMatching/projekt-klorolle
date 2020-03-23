@@ -8,6 +8,10 @@
 		<Page id="page" title="{i18n>selectShopTitle}" showNavButton="true" navButtonPress="onNavBack">
 			<content>
 				<VBox alignItems="Center">
+					<MessageStrip
+							text="{i18n>shopSuggestion}"
+							showIcon="true"
+							class="sapUiTinyMargin" />
 					<List
 						id="shopList"
 						items="{/shops}"

@@ -47,7 +47,7 @@ sap.ui.define([
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);
 			} else {
-				this.oRouter.navTo("Login", undefined, true);
+				this.getRouter().navTo("login", undefined, true);
 			}
 		},
 

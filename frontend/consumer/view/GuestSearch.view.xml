@@ -9,6 +9,10 @@
 					<Image src="media/klopa_transparent.png" decorative="true" height="300px" class="sapUiLargeMarginTop" />
 
 					<VBox id="loginGroup" alignItems="Center" class="sapUiSmallMarginTop">
+						<MessageStrip
+								text="{i18n>zipSuggestion}"
+								showIcon="true"
+								class="sapUiTinyMargin" />
 						<Label labelFor="zipCode" text="{i18n>searchByZipCode}" />
 						<Input id="zipCode" value="{view>/search/zipCode}" valueLiveUpdate="true"/>
 
