@@ -7,6 +7,10 @@
 	xmlns="sap.m">
 		<Page id="page" title="{i18n>registerTitle}" showNavButton="true" navButtonPress="onNavBack">
 			<content>
+				<MessageStrip
+						text="{i18n>registerInfo}"
+						showIcon="true"
+						class="sapUiTinyMargin" />
 				<form:SimpleForm 
 					id="registrationData" 
 					layout="ResponsiveGridLayout" 
