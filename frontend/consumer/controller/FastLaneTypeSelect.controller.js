@@ -26,7 +26,8 @@ sap.ui.define([
 				//Postprocess order
 				oPlacedOrder.shopName = this.getModel().getProperty("/shop/name");
 				this.getView().getModel("account").addOrder(oPlacedOrder);
-				this.getRouter().navTo("orderDetails", {
+				this.getRouter().navTo("fastLaneConfirm", {
+					shopId: this.getModel().getProperty("/shop/id"),
 					orderId: oPlacedOrder.id
 				});
 			}.bind(this));
