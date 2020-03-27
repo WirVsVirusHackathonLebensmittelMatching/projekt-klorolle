@@ -83,11 +83,8 @@ Es wurden zwei verschiedene App Prototypen entwickelt: Eine Kunden App und eine 
 - [Swagger docs](http://klopa-ci.dreier.cloud/api/docs/)
 
 ## Development
-```
-cd backend/
-yarn
-yarn watch
-```
+
+See the [developer help](DEVELOP.md).
 
 ## License
 
